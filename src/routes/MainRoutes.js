@@ -9,6 +9,8 @@ import AuthGuard from "utils/route-guard/AuthGuard";
 const Dashboard = Loadable(lazy(() => import("pages/dashboard/Dashboard")));
 const Package = Loadable(lazy(() => import("pages/package/Packages")));
 const CreatePackage = Loadable(lazy(() => import("pages/package/CreatePackage")));
+const Users = Loadable(lazy(() => import("pages/user/Users")));
+const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -34,6 +36,14 @@ const MainRoutes = {
         {
           path: "add-package",
           element: <CreatePackage />,
+        },
+        {
+          path: "users",
+          element: <Users />,
+        },
+        {
+          path: "add-user",
+          element: <CreateUser />,
         },
       ],
     },

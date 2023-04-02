@@ -43,6 +43,13 @@ const packages = {
       url: "/package",
       icon: icons.ChromeOutlined,
     },
+    {
+      id: "users",
+      title: "Users",
+      type: "item",
+      url: "/users",
+      icon: icons.ChromeOutlined,
+    },
   ],
 };
 
