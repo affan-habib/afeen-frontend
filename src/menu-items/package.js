@@ -1,28 +1,14 @@
 import {
-  BorderOutlined,
   BoxPlotOutlined,
-  ChromeOutlined,
-  DeploymentUnitOutlined,
-  GatewayOutlined,
   MenuUnfoldOutlined,
-  QuestionOutlined,
-  SmileOutlined,
-  StopOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 
 // icons
 const icons = {
-  ChromeOutlined,
   MenuUnfoldOutlined,
-  BoxPlotOutlined,
-  StopOutlined,
-  BorderOutlined,
-  SmileOutlined,
-  GatewayOutlined,
-  QuestionOutlined,
-  DeploymentUnitOutlined,
   UserOutlined,
+  BoxPlotOutlined,
 };
 
 // ==============================|| MENU ITEMS - SUPPORT ||============================== //

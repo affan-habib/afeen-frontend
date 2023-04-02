@@ -1,10 +1,10 @@
 // project import
-import employer from "./package";
+import packages from "./package";
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [employer],
+  items: [packages],
 };
 
 export default menuItems;
