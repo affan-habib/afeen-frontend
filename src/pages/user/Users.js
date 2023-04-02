@@ -1,88 +1,180 @@
 import * as React from "react";
-import { GridToolbar } from "@mui/x-data-grid";
-import DataGrid from "../../components/DataGrid";
-import { Button, Menu, MenuItem, IconButton } from "@mui/material";
-import FilterListIcon from "@mui/icons-material/FilterList";
+import DataGrid from "components/DataGrid";
+import axios from "axios";
+import moment from "moment/moment";
 import FormWrapper from "./../../components/FormWrapper";
-import { useNavigate } from "react-router-dom";
 
 const columns = [
-  { field: "name", headerName: "Name", width: 200 },
-  { field: "description", headerName: "Description", flex: 1 },
-  { field: "price", headerName: "Price", type: "number", width: 150 },
-  { field: "duration", headerName: "Duration", width: 150 },
-  { field: "service", headerName: "Service", width: 150 },
-  { field: "startDay", headerName: "Start Day", width: 150 },
-  { field: "endDay", headerName: "End Day", width: 150 },
+  // { field: "id", headerName: "ID", width: 80 },
+  { field: "phone_number", headerName: "Phone Number", width: 200 },
+  { field: "email", headerName: "Email", flex: 1 },
+  {
+    field: "account_status",
+    headerName: "Account Status",
+    width: 160,
+    headerAlign: "center",
+    align: "center",
+    renderCell: (params) => (
+      <div
+        style={{
+          backgroundColor: params.value === 1 ? "blue" : "gray",
+          color: "white",
+          padding: 10,
+          borderRadius: 2,
+        }}
+      >
+        {params.value === 1 ? "Active" : "Inactive"}
+      </div>
+    ),
+  },
+  {
+    field: "accountType",
+    headerName: "Account Type",
+    width: 130,
+    align: "center",
+    renderCell: (params) => (
+      <div
+        style={{
+          backgroundColor: params.value === 1 ? "blue" : "#00A2AE",
+          color: "white",
+          padding: 10,
+          borderRadius: 2,
+        }}
+      >
+        {params.value === 1 ? "Employee" : "Employer"}
+      </div>
+    ),
+  },
+
+  {
+    field: "created_at",
+    headerName: "Created At",
+    flex: 1,
+    align: "right",
+    headerAlign: "right",
+    renderCell: (params) => {
+      const date = moment(params.value).format("D MMM YYYY h.mm a");
+      return <span>{date}</span>;
+    },
+  },
+  {
+    field: "updated_at",
+    headerName: "Updated At",
+    align: "right",
+    headerAlign: "right",
+    flex: 1,
+    renderCell: (params) => {
+      const date = moment(params.value).format("D MMM YYYY h.mm a");
+      return <span>{date}</span>;
+    },
+  },
 ];
 
-function Users() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [selectedStartDate, setSelectedStartDate] = React.useState(null);
-  const [selectedEndDate, setSelectedEndDate] = React.useState(null);
-  const [selectedPrice, setSelectedPrice] = React.useState(null);
-  const navigate = useNavigate();
-  const rows = [
+export default function UserTable() {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowCount, setRowCount] = React.useState(0);
+  const [rows, setRows] = React.useState([]);
+  const hardcodeedRows = [
     {
-      id: 1,
-      name: "Standard Package",
-      description: "A standard package that includes basic features",
-      price: 100.0,
-      duration: "1 Month",
-      service: "XYZ Service",
-      startDay: "Monday",
-      endDay: "Friday",
+      id: "7977e5e2-6575-49fe-928a-ed90f6b5ddda",
+      phone_number: "01799676192",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-12-06T07:37:12Z",
+      updated_at: "2022-12-06T07:37:12Z",
     },
     {
-      id: 2,
-      name: "Premium Package",
-      description: "A premium package that includes advanced features",
-      price: 200.0,
-      duration: "3 Months",
-      service: "XYZ Service",
-      startDay: "Monday",
-      endDay: "Friday",
+      id: "e3235db2-14de-4b7e-8850-436e0a4f31d0",
+      phone_number: "01799676193",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 1,
+      created_at: "2022-12-06T07:37:46Z",
+      updated_at: "2022-12-06T07:37:12Z",
     },
     {
-      id: 3,
-      name: "Custom Package",
-      description: "A custom package that can be tailored to your needs",
-      price: 500.0,
-      duration: "6 Months",
-      service: "XYZ Service",
-      startDay: "Monday",
-      endDay: "Friday",
+      id: "5ed3b688-8a58-4509-a1f5-8d7e19593dcf",
+      phone_number: "01761332862",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-02-10T08:56:09Z",
+      updated_at: "2022-12-06T07:37:12Z",
+    },
+    {
+      id: "b32154c0-aa25-410b-bf9a-b5f217034bd9",
+      phone_number: "01799676194",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-12-06T07:39:02Z",
+      updated_at: "2022-12-06T07:37:12Z",
+    },
+    {
+      id: "06059430-f3fc-4b4f-982e-2bf7f8c7147d",
+      phone_number: "01799676195",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-12-06T07:41:29Z",
+      updated_at: "2022-12-06T07:37:12Z",
+    },
+    {
+      id: "89848662-8c60-4df6-b717-fdd9c65bad90",
+      phone_number: "01799676198",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-12-06T08:35:06Z",
+      updated_at: "2022-12-06T07:37:12Z",
+    },
+    {
+      id: "aae4d25e-1152-45d4-a4d7-a8daa11adacd",
+      phone_number: "01698505869",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-02-13T11:37:28Z",
+      updated_at: "2022-12-06T07:37:12Z",
+    },
+    {
+      id: "faa2600b-5b96-4229-bb7c-86fce5ede0e8",
+      phone_number: "01306630607",
+      email: "example@email.com",
+      account_status: 0,
+      account_type: 2,
+      created_at: "2022-02-19T16:42:24Z",
+      updated_at: "2022-12-06T07:37:12Z",
     },
   ];
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        `/api/users?page=${page}&rowsPerPage=${rowsPerPage}`
+      );
+      setRows(response.data.data);
+      setRowCount(response.data.pagination.total);
+    };
+    fetchData();
+  }, [page, rowsPerPage]);
 
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleFilterClick = () => {
-    // Call the server with the selected filters
-    console.log(`Selected Start Date: ${selectedStartDate}`);
-    console.log(`Selected End Date: ${selectedEndDate}`);
-    console.log(`Selected Price: ${selectedPrice}`);
+  const handlePageChange = (params) => {
+    setPage(params.page);
+    setRowsPerPage(params.pageSize);
   };
 
   return (
-    <FormWrapper label="List of Packages">
+    <FormWrapper label="List of Users">
       <DataGrid
-        sx={{ mt: 2 }}
-        rows={rows}
+        rows={hardcodeedRows}
         columns={columns}
         pagination
-        gridTitle="Add New Package"
-        onButtonClick={() => navigate("/add-package")}
-        pageSize={5}
+        pageSize={rowsPerPage}
+        rowCount={rowCount}
+        onPageChange={handlePageChange}
       />
     </FormWrapper>
   );
 }
-
-export default Users;
