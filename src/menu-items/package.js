@@ -8,6 +8,7 @@ import {
   QuestionOutlined,
   SmileOutlined,
   StopOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 
 // icons
@@ -21,6 +22,7 @@ const icons = {
   GatewayOutlined,
   QuestionOutlined,
   DeploymentUnitOutlined,
+  UserOutlined,
 };
 
 // ==============================|| MENU ITEMS - SUPPORT ||============================== //
@@ -34,21 +36,21 @@ const packages = {
       title: "Dashboard",
       type: "item",
       url: "/dashboard",
-      icon: icons.ChromeOutlined,
+      icon: icons.MenuUnfoldOutlined,
     },
     {
       id: "package",
       title: "Package",
       type: "item",
       url: "/package",
-      icon: icons.ChromeOutlined,
+      icon: icons.BoxPlotOutlined,
     },
     {
       id: "users",
       title: "Users",
       type: "item",
       url: "/users",
-      icon: icons.ChromeOutlined,
+      icon: icons.UserOutlined,
     },
   ],
 };

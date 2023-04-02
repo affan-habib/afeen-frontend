@@ -19,7 +19,7 @@ function DataGridTableCustom({
   components,
   checkboxSelection,
   actionbutton,
-  gridTitle = "All CUSTOMER",
+  gridTitle = "",
   onButtonClick = null,
 }) {
   function CustomToolbar() {

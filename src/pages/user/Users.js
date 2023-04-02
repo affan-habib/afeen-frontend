@@ -5,8 +5,27 @@ import moment from "moment/moment";
 import FormWrapper from "./../../components/FormWrapper";
 
 const columns = [
-  // { field: "id", headerName: "ID", width: 80 },
+  { field: "id", headerName: "ID", flex: 1 },
+  {
+    field: "account_type",
+    headerName: "Account Type",
+    width: 130,
+    align: "center",
+    renderCell: (params) => (
+      <div
+        style={{
+          backgroundColor: params.value == 2 ? "green" : "tomato",
+          color: "white",
+          padding: 10,
+          borderRadius: 2,
+        }}
+      >
+        {params.value == 2 ? "Employee" : "Employer"}
+      </div>
+    ),
+  },
   { field: "phone_number", headerName: "Phone Number", width: 200 },
+
   { field: "email", headerName: "Email", flex: 1 },
   {
     field: "account_status",
@@ -17,31 +36,13 @@ const columns = [
     renderCell: (params) => (
       <div
         style={{
-          backgroundColor: params.value === 1 ? "blue" : "gray",
+          backgroundColor: params.value === 0 ? "gray" : "tomato",
           color: "white",
           padding: 10,
           borderRadius: 2,
         }}
       >
-        {params.value === 1 ? "Active" : "Inactive"}
-      </div>
-    ),
-  },
-  {
-    field: "accountType",
-    headerName: "Account Type",
-    width: 130,
-    align: "center",
-    renderCell: (params) => (
-      <div
-        style={{
-          backgroundColor: params.value === 1 ? "blue" : "#00A2AE",
-          color: "white",
-          padding: 10,
-          borderRadius: 2,
-        }}
-      >
-        {params.value === 1 ? "Employee" : "Employer"}
+        {params.value === 0 ? "Inctive" : "Active"}
       </div>
     ),
   },
@@ -80,7 +81,7 @@ export default function UserTable() {
       id: "7977e5e2-6575-49fe-928a-ed90f6b5ddda",
       phone_number: "01799676192",
       email: "example@email.com",
-      account_status: 0,
+      account_status: 2,
       account_type: 2,
       created_at: "2022-12-06T07:37:12Z",
       updated_at: "2022-12-06T07:37:12Z",
@@ -90,7 +91,7 @@ export default function UserTable() {
       phone_number: "01799676193",
       email: "example@email.com",
       account_status: 0,
-      account_type: 1,
+      account_type: 5,
       created_at: "2022-12-06T07:37:46Z",
       updated_at: "2022-12-06T07:37:12Z",
     },
