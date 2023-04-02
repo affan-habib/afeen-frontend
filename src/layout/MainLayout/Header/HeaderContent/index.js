@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 // material-ui
 import { Box, useMediaQuery } from '@mui/material';
 
@@ -15,7 +13,6 @@ import MobileSection from './MobileSection';
 // ==============================|| HEADER - CONTENT ||============================== //
 
 const HeaderContent = () => {
-  const { i18n } = useConfig();
 
   const matchesXs = useMediaQuery((theme) => theme.breakpoints.down('md'));
 

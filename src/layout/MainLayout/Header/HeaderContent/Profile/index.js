@@ -69,7 +69,7 @@ function a11yProps(index) {
 const Profile = () => {
   const theme = useTheme();
 
-  const { logout, user } = useAuth();
+  const { user } = useAuth();
   const handleLogout = async () => {
     Cookies.remove("access_token");
     window.location.reload();

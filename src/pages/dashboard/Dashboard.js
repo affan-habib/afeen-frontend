@@ -2,9 +2,8 @@ import {
   BusinessCenterOutlined,
   Money,
   PeopleAltOutlined,
-  SdCardAlertOutlined,
 } from "@mui/icons-material";
-import { Paper, Box, Typography, Stack, Button } from "@mui/material";
+import { Paper, Typography, Stack } from "@mui/material";
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -48,7 +47,9 @@ const Dashboard = () => {
         }}
       >
         <BusinessCenterOutlined sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>Create Package</Typography>
+        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
+          Create Package
+        </Typography>
       </Paper>
       <Paper
         square
@@ -67,7 +68,9 @@ const Dashboard = () => {
         }}
       >
         <Money sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>Sales History</Typography>
+        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
+          Sales History
+        </Typography>
       </Paper>
       <Paper
         square
@@ -86,7 +89,9 @@ const Dashboard = () => {
         }}
       >
         <PeopleAltOutlined sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>Add User</Typography>
+        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
+          Add User
+        </Typography>
       </Paper>
       <Paper
         square
@@ -105,7 +110,9 @@ const Dashboard = () => {
         }}
       >
         <BusinessCenterOutlined sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>Create Package</Typography>
+        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
+          Create Package
+        </Typography>
       </Paper>
     </Stack>
   );

@@ -3,6 +3,9 @@ import DataGrid from "components/DataGrid";
 import axios from "axios";
 import moment from "moment/moment";
 import FormWrapper from "./../../components/FormWrapper";
+import { useDispatch, useSelector } from "react-redux";
+import { callApi, selectApi } from "store/reducers/apiSlice";
+import { UrlBuilder } from "helpers/UrlBuilder";
 
 const columns = [
   { field: "id", headerName: "ID", flex: 1 },
@@ -76,6 +79,9 @@ export default function UserTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [rowCount, setRowCount] = React.useState(0);
   const [rows, setRows] = React.useState([]);
+  const dispatch = useDispatch();
+  const { users = { data: {} } } = useSelector(selectApi);
+  console.log(users);
   const hardcodeedRows = [
     {
       id: "7977e5e2-6575-49fe-928a-ed90f6b5ddda",
@@ -151,14 +157,16 @@ export default function UserTable() {
     },
   ];
   React.useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `/api/users?page=${page}&rowsPerPage=${rowsPerPage}`
-      );
-      setRows(response.data.data);
-      setRowCount(response.data.pagination.total);
-    };
-    fetchData();
+    dispatch(
+      callApi({
+        operationId: UrlBuilder.coreServiceApi(
+          "core/user/all-users?account_type=2&page=2"
+        ),
+        output: "users",
+      })
+    );
+    setRows(users.data);
+    setRowCount(users.data.pagination.total);
   }, [page, rowsPerPage]);
 
   const handlePageChange = (params) => {

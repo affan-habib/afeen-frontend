@@ -18,12 +18,10 @@ const Login = () => {
   // console.log(isLoggedIn, "ssss")
 
   const {
-    loading,
     authData = {
       data: {},
     },
   } = useSelector(selectApi);
-
 
   const navigate = useNavigate();
   useEffect(() => {
