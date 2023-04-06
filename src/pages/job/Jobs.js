@@ -8,15 +8,58 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 import { UrlBuilder } from "helpers/UrlBuilder";
+import moment from "moment";
 
 const columns = [
   { field: "title", headerName: "Title", width: 200 },
-  { field: "age_min", headerName: "Min Age", width: 150 },
-  { field: "age_max", headerName: "Max Age", width: 150 },
+  {
+    field: "age_range",
+    headerName: "Age Range",
+    width: 120,
+    align: "center",
+    renderCell: (params) => {
+      const { age_min, age_max } = params.row;
+      return `${age_min} - ${age_max} `;
+    },
+  },
+  {
+    field: "employer",
+    headerName: "Employer",
+    width: 150,
+    renderCell: (params) => params.row.employer.name,
+  },
+  {
+    field: "no_of_vacancy",
+    headerName: "Vacancy",
+    width: 150,
+  },
+  {
+    field: "created_at",
+    headerName: "created",
+    width: 150,
+    renderCell: (params) => moment(params.row.createdAt).format("DD-MM-yyyy"),
+  },
+  {
+    field: "published_at",
+    headerName: "Published",
+    width: 150,
+    renderCell: (params) =>
+      moment(params.row.published_at).format("DD-MM-yyyy"),
+  },
+  {
+    field: "salary_range",
+    headerName: "Salary Range",
+    width: 150,
+    align: "center",
+    renderCell: (params) => {
+      const { salary_min, salary_max } = params.row;
+      return `${salary_min} - ${salary_max} `;
+    },
+  },
   {
     field: "description",
-    headerName: "description",
-    width: 150,
+    headerName: "Description",
+    flex: 1,
   },
 ];
 
@@ -40,9 +83,9 @@ function Jobs() {
         sx={{ mt: 2 }}
         rows={users?.data?.job_posts || []}
         columns={columns}
-        pagination
-        gridTitle="Add New Jobs"
-        onButtonClick={() => navigate("/add-package")}
+        // pagination
+        gridTitle="Add New Job"
+        onButtonClick={() => navigate("/add-job")}
         pageSize={5}
       />
     </FormWrapper>
