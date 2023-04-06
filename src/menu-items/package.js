@@ -2,6 +2,7 @@ import {
   BoxPlotOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
+  CarryOutOutlined
 } from "@ant-design/icons";
 
 // icons
@@ -9,6 +10,7 @@ const icons = {
   MenuUnfoldOutlined,
   UserOutlined,
   BoxPlotOutlined,
+  CarryOutOutlined
 };
 
 // ==============================|| MENU ITEMS - SUPPORT ||============================== //
@@ -37,6 +39,13 @@ const packages = {
       type: "item",
       url: "/users",
       icon: icons.UserOutlined,
+    },
+    {
+      id: "jobs",
+      title: "jobs",
+      type: "item",
+      url: "/jobs",
+      icon: icons.CarryOutOutlined,
     },
   ],
 };
