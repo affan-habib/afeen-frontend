@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 
 const FilterJobs = () => {
-  const [category, setCategoryId] = useState(null);
+  const [category, setCategoryId] = useState('');
   const dispatch = useDispatch();
   const { jobCategory } = useSelector(selectApi);
   React.useEffect(() => {
