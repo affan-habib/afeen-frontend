@@ -33,6 +33,7 @@ const FormWrapper = ({ label, children }) => {
           padding: "1rem",
           marginTop: "20px",
           paddingTop: "30px",
+          minHeight: 600,
         }}
       >
         {children}

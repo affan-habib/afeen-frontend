@@ -11,6 +11,7 @@ const Package = Loadable(lazy(() => import("pages/package/Packages")));
 const CreatePackage = Loadable(lazy(() => import("pages/package/CreatePackage")));
 const Users = Loadable(lazy(() => import("pages/user/Users")));
 const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
+const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -40,6 +41,14 @@ const MainRoutes = {
         {
           path: "users",
           element: <Users />,
+        },
+        {
+          path: "add-user",
+          element: <CreateUser />,
+        },
+        {
+          path: "jobs",
+          element: <Jobs />,
         },
         {
           path: "add-user",

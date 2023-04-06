@@ -68,7 +68,7 @@ function DataGridTableCustom({
       showColumnRightBorder={true}
       showQuickFilter
       sx={{
-        minHeight: 450,
+        minHeight: 520,
         Width: "100%",
         "& .MuiDataGrid-cell:hover": {
           color: "primary.main",
@@ -78,6 +78,7 @@ function DataGridTableCustom({
           bgcolor: "primary.main",
           fontSize: "0.9rem",
           borderRadius: 0,
+          textTransform: "uppercase",
         },
         "& .MuiDataGrid-row": {
           fontSize: "0.9rem",

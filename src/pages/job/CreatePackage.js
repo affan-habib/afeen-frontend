@@ -16,16 +16,12 @@ const validationSchema = Yup.object().shape({
     .min(0, "Price must be a positive number"),
 });
 
-const CreateUser = () => {
+const CreatePackage = () => {
   const [success, setSuccess] = React.useState(false);
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      await axios.post("http://missingdata.pythonanywhere.com/signup", {
-        username: "username",
-        email: "values.email@mg.com",
-        password: "values.password",
-      });
+      await axios.post("http://localhost:5000/packages", values);
       setSuccess(true);
       resetForm();
     } catch (error) {
@@ -45,7 +41,7 @@ const CreateUser = () => {
           endDay: "12/12/1994",
           price: 0,
         }}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
@@ -139,4 +135,4 @@ const CreateUser = () => {
   );
 };
 
-export default CreateUser;
+export default CreatePackage;
