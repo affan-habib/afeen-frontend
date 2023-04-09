@@ -1,7 +1,6 @@
 import * as React from "react";
 import DataGrid from "../../components/DataGrid";
 import FormWrapper from "../../components/FormWrapper";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectApi } from "store/reducers/apiSlice";
 import moment from "moment";
@@ -61,17 +60,17 @@ const columns = [
 ];
 
 function Jobs() {
+  const [page, setPage] = React.useState(1);
   const { users } = useSelector(selectApi);
-  const navigate = useNavigate();
-
   return (
     <FormWrapper label="List of jobs">
+      <FilterJobs page={page} />
       <DataGrid
         sx={{ mt: 2 }}
         rows={users?.data?.job_posts || []}
         columns={columns}
-        components={{ Toolbar: FilterJobs }}
-        pageSize={5}
+        onPageChange={(el) => setPage(el.page)}
+        rowCount={users?.data?.total}
       />
     </FormWrapper>
   );

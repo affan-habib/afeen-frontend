@@ -21,6 +21,8 @@ function DataGridTableCustom({
   actionbutton,
   gridTitle = "",
   onButtonClick = null,
+  rowCount,
+  onPageChange
 }) {
   function CustomToolbar() {
     return (
@@ -68,7 +70,7 @@ function DataGridTableCustom({
       showColumnRightBorder={true}
       showQuickFilter
       sx={{
-        minHeight: 520,
+        minHeight: 500,
         Width: "100%",
         "& .MuiDataGrid-cell:hover": {
           color: "primary.main",
@@ -93,8 +95,7 @@ function DataGridTableCustom({
       }}
       components={{
         NoRowsOverlay: NoRowIcon,
-        Pagination: CustomPagination,
-        Toolbar: CustomToolbar,
+        // Pagination: CustomPagination
         ...components,
       }}
       componentsProps={{
@@ -113,6 +114,17 @@ function DataGridTableCustom({
       onCellEditCommit={onCellEditCommit}
       hideFooter={hideFooter}
       pageSize={10}
+      onPaginationModelChange={onPageChange}
+      paginationMode="server"
+      rowCount={rowCount || 0}
+      initialState={{
+        pagination: {
+          paginationModel: {
+            pageSize: 10,
+          },
+        },
+      }}
+      pageSizeOptions={[10, 20, 30]}
     />
   );
 }

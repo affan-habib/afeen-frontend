@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 
-const FilterJobs = () => {
+const FilterJobs = ({ page }) => {
   const [category, setCategoryId] = useState("");
   const [keyword, setKeyword] = useState("");
   const [minSalary, setMinSalary] = useState("");
@@ -14,13 +14,13 @@ const FilterJobs = () => {
   const { jobCategory } = useSelector(selectApi);
   React.useEffect(() => {
     fetchData();
-  }, [category]);
+  }, [category, page]);
 
   function fetchData() {
     dispatch(
       callApi({
         operationId: UrlBuilder.jobServiceApi(
-          `jobs/all-post?limit=10&page=1&job_category_ids=${category}&salary_min=${minSalary}&salary_max=${maxSalary}&keyword=${keyword}`
+          `jobs/all-post?limit=10&page=${page}&job_category_ids=${category}&salary_min=${minSalary}&salary_max=${maxSalary}&keyword=${keyword}`
         ),
         output: "users",
       })
@@ -59,7 +59,9 @@ const FilterJobs = () => {
         onChange={(e) => setCategoryId(e.target.value)}
       >
         {jobCategory?.data.map((category) => (
-          <MenuItem value={category.id}>{category.name}</MenuItem>
+          <MenuItem key={category.id} value={category.id}>
+            {category.name}
+          </MenuItem>
         ))}
       </Select>
       <Button startIcon={<Search />} variant="contained" onClick={fetchData}>
