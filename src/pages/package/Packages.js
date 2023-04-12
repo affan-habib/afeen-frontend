@@ -3,7 +3,7 @@ import { GridToolbar } from "@mui/x-data-grid";
 import DataGrid from "../../components/DataGrid";
 import { Button, Menu, MenuItem, IconButton } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import FormWrapper from "./../../components/FormWrapper";
+import FormWrapper from "../../components/CustomCard";
 import { useNavigate } from "react-router-dom";
 
 const columns = [

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-const FormWrapper = ({ label, children }) => {
+const CustomCard = ({ label, children }) => {
   return (
     <Box sx={{ position: "relative" }}>
       <Typography
@@ -42,4 +42,4 @@ const FormWrapper = ({ label, children }) => {
   );
 };
 
-export default FormWrapper;
+export default CustomCard;

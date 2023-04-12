@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import CustomTextField from "../../components/CustomTextField";
 import { Button, Grid } from "@mui/material";
 import axios from "axios";
-import FormWrapper from "components/FormWrapper";
+import FormWrapper from "components/CustomCard";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Required"),

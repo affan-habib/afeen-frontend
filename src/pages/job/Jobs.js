@@ -1,6 +1,6 @@
 import * as React from "react";
-import DataGrid from "../../components/DataGrid";
-import FormWrapper from "../../components/FormWrapper";
+import DataGrid from "components/DataGrid";
+import CustomCard from "components/CustomCard";
 import { useSelector } from "react-redux";
 import { selectApi } from "store/reducers/apiSlice";
 import moment from "moment";
@@ -68,8 +68,8 @@ function Jobs() {
     setPageSize(params.pageSize);
   };
   return (
-    <FormWrapper label="List of jobs">
-      <FilterJobs page={page} pageSize={pageSize}/>
+    <CustomCard label="List of jobs">
+      <FilterJobs page={page} pageSize={pageSize} />
       <DataGrid
         sx={{ mt: 2 }}
         rows={users?.data?.job_posts || []}
@@ -77,7 +77,7 @@ function Jobs() {
         onPageinationModelChange={onPageinationModelChange}
         rowCount={users?.data?.total}
       />
-    </FormWrapper>
+    </CustomCard>
   );
 }
 

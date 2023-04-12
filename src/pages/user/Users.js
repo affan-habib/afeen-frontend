@@ -2,7 +2,7 @@ import * as React from "react";
 import DataGrid from "components/DataGrid";
 import axios from "axios";
 import moment from "moment/moment";
-import FormWrapper from "./../../components/FormWrapper";
+import FormWrapper from "../../components/CustomCard";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 import { UrlBuilder } from "helpers/UrlBuilder";

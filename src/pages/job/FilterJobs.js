@@ -1,5 +1,5 @@
 import { Search } from "@mui/icons-material";
-import { Box, Button, MenuItem, Select, Stack, TextField } from "@mui/material";
+import { Button, MenuItem, Select, Stack, TextField } from "@mui/material";
 import { UrlBuilder } from "helpers/UrlBuilder";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
