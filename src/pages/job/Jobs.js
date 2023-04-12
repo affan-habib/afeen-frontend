@@ -61,15 +61,20 @@ const columns = [
 
 function Jobs() {
   const [page, setPage] = React.useState(1);
+  const [pageSize, setPageSize] = React.useState(10);
   const { users } = useSelector(selectApi);
+  const onPageinationModelChange = (params) => {
+    setPage(params.page + 1);
+    setPageSize(params.pageSize);
+  };
   return (
     <FormWrapper label="List of jobs">
-      <FilterJobs page={page} />
+      <FilterJobs page={page} pageSize={pageSize}/>
       <DataGrid
         sx={{ mt: 2 }}
         rows={users?.data?.job_posts || []}
         columns={columns}
-        onPageChange={(el) => setPage(el.page)}
+        onPageinationModelChange={onPageinationModelChange}
         rowCount={users?.data?.total}
       />
     </FormWrapper>

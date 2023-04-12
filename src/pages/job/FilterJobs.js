@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 
-const FilterJobs = ({ page }) => {
+const FilterJobs = ({ page, pageSize }) => {
   const [category, setCategoryId] = useState("");
   const [keyword, setKeyword] = useState("");
   const [minSalary, setMinSalary] = useState("");
@@ -14,13 +14,13 @@ const FilterJobs = ({ page }) => {
   const { jobCategory } = useSelector(selectApi);
   React.useEffect(() => {
     fetchData();
-  }, [category, page]);
+  }, [category, page, pageSize]);
 
   function fetchData() {
     dispatch(
       callApi({
         operationId: UrlBuilder.jobServiceApi(
-          `jobs/all-post?limit=10&page=${page}&job_category_ids=${category}&salary_min=${minSalary}&salary_max=${maxSalary}&keyword=${keyword}`
+          `jobs/all-post?limit=${pageSize}&page=${page}&job_category_ids=${category}&salary_min=${minSalary}&salary_max=${maxSalary}&keyword=${keyword}`
         ),
         output: "users",
       })

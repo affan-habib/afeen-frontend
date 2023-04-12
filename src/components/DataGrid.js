@@ -22,7 +22,7 @@ function DataGridTableCustom({
   gridTitle = "",
   onButtonClick = null,
   rowCount,
-  onPageChange
+  onPageinationModelChange,
 }) {
   function CustomToolbar() {
     return (
@@ -114,7 +114,7 @@ function DataGridTableCustom({
       onCellEditCommit={onCellEditCommit}
       hideFooter={hideFooter}
       pageSize={10}
-      onPaginationModelChange={onPageChange}
+      onPaginationModelChange={onPageinationModelChange}
       paginationMode="server"
       rowCount={rowCount || 0}
       initialState={{
