@@ -8,10 +8,13 @@ import AuthGuard from "utils/route-guard/AuthGuard";
 // render - sample page
 const Dashboard = Loadable(lazy(() => import("pages/dashboard/Dashboard")));
 const Package = Loadable(lazy(() => import("pages/package/Packages")));
-const CreatePackage = Loadable(lazy(() => import("pages/package/CreatePackage")));
+const CreatePackage = Loadable(
+  lazy(() => import("pages/package/CreatePackage"))
+);
 const Users = Loadable(lazy(() => import("pages/user/Users")));
 const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
+const JobDetails = Loadable(lazy(() => import("pages/job/JobDetails")));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -49,6 +52,10 @@ const MainRoutes = {
         {
           path: "jobs",
           element: <Jobs />,
+        },
+        {
+          path: "jobs/job-details/:id",
+          element: <JobDetails />,
         },
         {
           path: "add-user",

@@ -22,7 +22,7 @@ const FilterJobs = ({ page, pageSize }) => {
         operationId: UrlBuilder.jobServiceApi(
           `jobs/all-post?limit=${pageSize}&page=${page}&job_category_ids=${category}&salary_min=${minSalary}&salary_max=${maxSalary}&keyword=${keyword}`
         ),
-        output: "users",
+        output: "allJobs",
       })
     );
   }
