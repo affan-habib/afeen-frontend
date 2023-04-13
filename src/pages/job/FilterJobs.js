@@ -1,4 +1,4 @@
-import { Search } from "@mui/icons-material";
+import { Clear, Search } from "@mui/icons-material";
 import { Button, MenuItem, Select, Stack, TextField } from "@mui/material";
 import { UrlBuilder } from "helpers/UrlBuilder";
 import React, { useState } from "react";
@@ -26,7 +26,15 @@ const FilterJobs = ({ page, pageSize }) => {
       })
     );
   }
-
+  function clearFilter() {
+    setMaxSalary("");
+    setKeyword("");
+    setMinSalary("");
+    setCategoryId("");
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((input) => (input.value = ""));
+    fetchData();
+  }
   React.useEffect(() => {
     dispatch(
       callApi({
@@ -65,7 +73,15 @@ const FilterJobs = ({ page, pageSize }) => {
         ))}
       </Select>
       <Button startIcon={<Search />} variant="contained" onClick={fetchData}>
-        Search
+        SEARCH
+      </Button>
+      <Button
+        startIcon={<Clear />}
+        color="secondary"
+        variant="contained"
+        onClick={clearFilter}
+      >
+        CLEAR FILTER
       </Button>
     </Stack>
   );
