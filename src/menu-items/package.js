@@ -47,6 +47,13 @@ const packages = {
       url: "/jobs",
       icon: icons.CarryOutOutlined,
     },
+    {
+      id: "cv-requests",
+      title: "CV Requests",
+      type: "item",
+      url: "/cv-requests",
+      icon: icons.CarryOutOutlined,
+    },
   ],
 };
 

@@ -15,6 +15,7 @@ const Users = Loadable(lazy(() => import("pages/user/Users")));
 const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
 const JobDetails = Loadable(lazy(() => import("pages/job/JobDetails")));
+const CvRequests = Loadable(lazy(() => import("pages/cv-requests/CvRequests")));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -56,6 +57,10 @@ const MainRoutes = {
         {
           path: "jobs/job-details/:id",
           element: <JobDetails />,
+        },
+        {
+          path: "cv-requests",
+          element: <CvRequests />,
         },
         {
           path: "add-user",
