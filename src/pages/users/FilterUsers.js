@@ -6,10 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 
 const FilterJobs = ({ page, pageSize }) => {
-  const [category, setCategoryId] = useState("");
+  const [accountType, setAccountType] = useState("");
   const dispatch = useDispatch();
   const {
-    jobCategory,
     allUsers = {
       data: [],
     },
@@ -21,80 +20,30 @@ const FilterJobs = ({ page, pageSize }) => {
 
   React.useEffect(() => {
     fetchData();
-  }, [category, page, pageSize]);
+  }, [accountType, page, pageSize]);
 
   function fetchData() {
     dispatch(
       callApi({
-        operationId: UrlBuilder.coreServiceApi(`core/user/all-users`),
+        operationId: UrlBuilder.coreServiceApi(
+          `core/user/all-users?account_type=${accountType}&page=${page}&limit=${pageSize}`
+        ),
         output: "allUsers",
       })
     );
-  }
-  function fetchEmployeeNames() {
-    dispatch(
-      callApi({
-        operationId: UrlBuilder.resumeServiceApi(`cv-requests`),
-        output: "allUsers",
-      })
-    );
-  }
-  function fetchWorkerNames() {
-    dispatch(
-      callApi({
-        operationId: UrlBuilder.resumeServiceApi(`cv-requests`),
-        output: "allUsers",
-      })
-    );
-  }
-  function clearFilter() {
-    setCategoryId("");
-    const inputs = document.querySelectorAll("input");
-    inputs.forEach((input) => (input.value = ""));
-    fetchData();
   }
 
-  React.useEffect(() => {
-    dispatch(
-      callApi({
-        operationId: UrlBuilder.jobServiceApi("job/categories"),
-        output: "jobCategory",
-      })
-    );
-  }, []);
   return (
     <Stack mb={2} spacing={2} direction="row">
       <Select
         label="Account Type"
         sx={{ width: 150 }}
-        onChange={(e) => setCategoryId(e.target.value)}
+        onChange={(e) => setAccountType(e.target.value)}
       >
-        {jobCategory?.data.map((category) => (
-          <MenuItem key={category.id} value={category.id}>
-            {category.name}
-          </MenuItem>
-        ))}
+        <MenuItem value="">All</MenuItem>
+        <MenuItem value={1}>Worker</MenuItem>
+        <MenuItem value={2}>Employer</MenuItem>
       </Select>
-      <Select
-        label="Account Type"
-        sx={{ width: 150 }}
-        onChange={(e) => setCategoryId(e.target.value)}
-      >
-        {jobCategory?.data.map((category) => (
-          <MenuItem key={category.id} value={category.id}>
-            {category.name}
-          </MenuItem>
-        ))}
-      </Select>
-
-      <Button
-        startIcon={<Clear />}
-        color="secondary"
-        variant="contained"
-        onClick={clearFilter}
-      >
-        CLEAR FILTER
-      </Button>
     </Stack>
   );
 };

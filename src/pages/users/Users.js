@@ -28,6 +28,13 @@ function Users() {
       renderCell: (params) => moment(params.row.createdAt).format("DD-MM-yyyy"),
     },
     {
+      field: "account_type",
+      headerName: "account_type",
+      width: 150,
+      renderCell: (params) =>
+        params.row.account_type == 1 ? "Worker" : "Employer",
+    },
+    {
       field: "account_status",
       headerName: "status",
       width: 150,
