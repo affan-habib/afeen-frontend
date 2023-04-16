@@ -5,9 +5,6 @@ import { useSelector } from "react-redux";
 import { selectApi } from "store/reducers/apiSlice";
 import moment from "moment";
 import FilterCvRequests from "./FilterCvRequests";
-import { Visibility } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
-import { useNavigate } from "react-router";
 
 function CvRequests() {
   const columns = [
@@ -41,14 +38,16 @@ function CvRequests() {
         moment(params.row.published_at).format("DD-MM-yyyy"),
     },
   ];
+
   const [page, setPage] = React.useState(1);
   const [pageSize, setPageSize] = React.useState(10);
   const { allCvRequests } = useSelector(selectApi);
-  const navigate = useNavigate();
+
   const onPageinationModelChange = (params) => {
     setPage(params.page + 1);
     setPageSize(params.pageSize);
   };
+
   return (
     <CustomCard label="List of Cv Requests">
       <FilterCvRequests page={page} pageSize={pageSize} />
@@ -57,7 +56,7 @@ function CvRequests() {
         rows={allCvRequests?.data || []}
         columns={columns}
         onPageinationModelChange={onPageinationModelChange}
-        rowCount={allCvRequests?.data?.total}
+        rowCount={allCvRequests?.count}
       />
     </CustomCard>
   );
