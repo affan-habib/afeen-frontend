@@ -13,17 +13,22 @@ const FilterJobs = ({ page, pageSize }) => {
     allCvRequests = {
       data: [],
     },
+    usersInfos,
   } = useSelector(selectApi);
 
   const listOfEmployerUserIds = allCvRequests.data.map(
     (el) => el.employer_user_id
   );
   const listOfWorkerUserIds = allCvRequests.data.map((el) => el.worker_user_id);
-  console.log({ listOfEmployerUserIds }, { listOfWorkerUserIds });
-
+  const userIds = [...listOfEmployerUserIds, ...listOfWorkerUserIds];
   React.useEffect(() => {
     fetchData();
   }, [category, page, pageSize]);
+  React.useEffect(() => {
+    if (userIds.length > 0) {
+      fetchUserInfoData();
+    }
+  }, [allCvRequests]);
 
   function fetchData() {
     dispatch(
@@ -35,19 +40,13 @@ const FilterJobs = ({ page, pageSize }) => {
       })
     );
   }
-  function fetchEmployeeNames() {
+  function fetchUserInfoData() {
     dispatch(
       callApi({
-        operationId: UrlBuilder.resumeServiceApi(`cv-requests`),
-        output: "allCvRequests",
-      })
-    );
-  }
-  function fetchWorkerNames() {
-    dispatch(
-      callApi({
-        operationId: UrlBuilder.resumeServiceApi(`cv-requests`),
-        output: "allCvRequests",
+        operationId: UrlBuilder.coreServiceApi(
+          `core/user-names?ids=${listOfEmployerUserIds}`
+        ),
+        output: "usersInfos",
       })
     );
   }

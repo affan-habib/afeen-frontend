@@ -24,7 +24,6 @@ const FilterJobs = ({ page, pageSize }) => {
     if (userIds.length > 0) {
       fetchUserInfoData();
     }
-  console.log("woring")
   }, [allUsers]);
 
   function fetchData() {
