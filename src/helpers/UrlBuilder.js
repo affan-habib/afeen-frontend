@@ -4,7 +4,7 @@ class UrlBuilderHelper {
   }
 
   coreServiceApi(path) {
-    return `http://192.168.0.168:5001/api/v1/${path}`;
+    return `http://192.168.0.146:5001/api/v1/${path}`;
   }
   
   jobServiceApi(path) {

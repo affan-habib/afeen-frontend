@@ -11,14 +11,21 @@ const FilterJobs = ({ page, pageSize }) => {
     allUsers = {
       data: [],
     },
+    usersInfo,
   } = useSelector(selectApi);
 
-  const listOfEmployerUserIds = allUsers.data.map((el) => el.employer_user_id);
-  const listOfWorkerUserIds = allUsers.data.map((el) => el.worker_user_id);
+  const userIds = allUsers?.data?.map((el) => el.id);
 
   React.useEffect(() => {
     fetchData();
   }, [accountType, page, pageSize]);
+
+  React.useEffect(() => {
+    if (userIds.length > 0) {
+      fetchUserInfoData();
+    }
+  console.log("woring")
+  }, [allUsers]);
 
   function fetchData() {
     dispatch(
@@ -27,6 +34,17 @@ const FilterJobs = ({ page, pageSize }) => {
           `core/user/all-users?account_type=${accountType}&page=${page}&limit=${pageSize}`
         ),
         output: "allUsers",
+      })
+    );
+  }
+
+  function fetchUserInfoData() {
+    dispatch(
+      callApi({
+        operationId: UrlBuilder.coreServiceApi(
+          `core/user-names?ids=${userIds}`
+        ),
+        output: "usersInfo",
       })
     );
   }

@@ -8,7 +8,15 @@ import FilterUsers from "./FilterUsers";
 
 function Users() {
   const columns = [
-    { field: "id", headerName: "id", flex: 1 },
+    {
+      field: "id",
+      headerName: "User's Name",
+      flex: 1,
+      renderCell: (params) =>
+        usersInfo?.data?.find((el) => el.id == params.row.id)?.fullname || (
+          <span style={{ color: "red" }}>Not Found</span>
+        ),
+    },
     {
       field: "phone_number",
       headerName: "phone_number",
@@ -57,6 +65,9 @@ function Users() {
     allUsers = {
       data: [],
       count: 0,
+    },
+    usersInfo = {
+      data: [],
     },
   } = useSelector(selectApi);
 
