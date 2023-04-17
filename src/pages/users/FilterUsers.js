@@ -1,8 +1,7 @@
-import { Clear, Search } from "@mui/icons-material";
-import { Button, MenuItem, Select, Stack, TextField } from "@mui/material";
-import { UrlBuilder } from "helpers/UrlBuilder";
 import React, { useState } from "react";
+import { MenuItem, Select, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { UrlBuilder } from "helpers/UrlBuilder";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 
 const FilterJobs = ({ page, pageSize }) => {
@@ -16,7 +15,6 @@ const FilterJobs = ({ page, pageSize }) => {
 
   const listOfEmployerUserIds = allUsers.data.map((el) => el.employer_user_id);
   const listOfWorkerUserIds = allUsers.data.map((el) => el.worker_user_id);
-  console.log({ listOfEmployerUserIds }, { listOfWorkerUserIds });
 
   React.useEffect(() => {
     fetchData();

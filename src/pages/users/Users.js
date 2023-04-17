@@ -52,7 +52,13 @@ function Users() {
 
   const [page, setPage] = React.useState(1);
   const [pageSize, setPageSize] = React.useState(10);
-  const { allUsers } = useSelector(selectApi);
+
+  const {
+    allUsers = {
+      data: [],
+      count: 0,
+    },
+  } = useSelector(selectApi);
 
   const onPageinationModelChange = (params) => {
     setPage(params.page + 1);
@@ -64,10 +70,10 @@ function Users() {
       <FilterUsers page={page} pageSize={pageSize} />
       <DataGrid
         sx={{ mt: 2 }}
-        rows={allUsers?.data || []}
+        rows={allUsers.data || []}
         columns={columns}
         onPageinationModelChange={onPageinationModelChange}
-        rowCount={allUsers?.count}
+        rowCount={allUsers.count}
       />
     </CustomCard>
   );
