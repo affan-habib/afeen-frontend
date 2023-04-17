@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MenuItem, Select, Stack } from "@mui/material";
+import { MenuItem, Select, Stack, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { UrlBuilder } from "helpers/UrlBuilder";
 import { callApi, selectApi } from "store/reducers/apiSlice";
@@ -33,7 +33,8 @@ const FilterJobs = ({ page, pageSize }) => {
 
   return (
     <Stack mb={2} spacing={2} direction="row">
-      <Select
+      <TextField
+        select
         label="Account Type"
         sx={{ width: 150 }}
         onChange={(e) => setAccountType(e.target.value)}
@@ -41,7 +42,7 @@ const FilterJobs = ({ page, pageSize }) => {
         <MenuItem value="">All</MenuItem>
         <MenuItem value={1}>Worker</MenuItem>
         <MenuItem value={2}>Employer</MenuItem>
-      </Select>
+      </TextField>
     </Stack>
   );
 };
