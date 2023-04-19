@@ -46,47 +46,82 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
       {({ errors, touched, setFieldValue }) => (
         <Form>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <Avatar
-                  src={profileImage ? URL.createObjectURL(profileImage) : ""}
-                  alt="Profile picture"
-                  style={{ width: 150, height: 150 }}
+            <Grid sx={{ position: "relative", maxWidth: 200 }} item md={4}>
+              <Avatar
+                src={profileImage ? URL.createObjectURL(profileImage) : ""}
+                alt="Profile picture"
+                style={{ width: 150, height: 150 }}
+              />
+              <Box ml={2} sx={{ position: "absolute", top: 120, left: 120 }}>
+                <input
+                  accept="image/*"
+                  id="profileImage"
+                  type="file"
+                  onChange={handleProfileImageChange}
+                  style={{ display: "none" }}
                 />
-                <Box ml={2}>
-                  <input
-                    accept="image/*"
-                    id="profileImage"
-                    type="file"
-                    onChange={handleProfileImageChange}
-                    style={{ display: "none" }}
-                  />
-                  <label htmlFor="profileImage">
-                    <IconButton
-                      color="primary"
-                      component="span"
-                      disabled={isProfileImageUploading}
-                    >
-                      <PhotoCamera />
-                    </IconButton>
-                  </label>
-                </Box>
+                <label htmlFor="profileImage">
+                  <IconButton
+                    color="primary"
+                    component="span"
+                    disabled={isProfileImageUploading}
+                  >
+                    <PhotoCamera />
+                  </IconButton>
+                </label>
+              </Box>
+            </Grid>
+            <Grid item md={8} sx={{ position: "relative" }}>
+              <Avatar
+                src={coverImage ? URL.createObjectURL(coverImage) : ""}
+                alt="Profile picture"
+                style={{ width: 150, height: 150 }}
+              />
+              <Box ml={2} sx={{ position: "absolute", top: 120, left: 120 }}>
+                <input
+                  accept="image/*"
+                  id="coverImage"
+                  type="file"
+                  onChange={handleCoverImageChange}
+                  style={{ display: "none" }}
+                />
+                <label htmlFor="coverImage">
+                  <IconButton
+                    color="primary"
+                    component="span"
+                    disabled={isCoverImageUploading}
+                  >
+                    <PhotoCamera />
+                  </IconButton>
+                </label>
               </Box>
             </Grid>
             <Grid item md={3}>
-              <Field name="firstName" inputLabel="First Name" as={CustomTextField} />
+              <Field
+                name="firstName"
+                inputLabel="First Name"
+                as={CustomTextField}
+              />
               {errors.firstName && touched.firstName && (
                 <div>{errors.firstName}</div>
               )}
             </Grid>
             <Grid item md={3}>
-              <Field name="lastName" inputLabel="Last Name" as={CustomTextField} />
+              <Field
+                name="lastName"
+                inputLabel="Last Name"
+                as={CustomTextField}
+              />
               {errors.lastName && touched.lastName && (
                 <div>{errors.lastName}</div>
               )}
             </Grid>
             <Grid item md={3}>
-              <Field name="worksAt" inputLabel="Works At" as={CustomTextField} />
+              <Field
+                name="worksAt"
+                inputLabel="Works At"
+                as={CustomTextField}
+              />
               {errors.worksAt && touched.worksAt && <div>{errors.worksAt}</div>}
             </Grid>
             <Grid item md={3}>
@@ -94,8 +129,12 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
               {errors.country && touched.country && <div>{errors.country}</div>}
             </Grid>
             <Grid item md={3}>
-              <Field name="livesIn" inputLabel="Lives In" as={CustomTextField} />
-              {errors.livesIn && touched.livesIn && <div>{errors.livesIn}</div>}
+              <Field
+                name="livesIn"
+                inputLabel="Lives In"
+                as={CustomTextField}
+                helperText={errors.livesIn && touched.livesIn && errors.livesIn}
+              />
             </Grid>
             <Grid item md={3}>
               <Field
@@ -106,30 +145,6 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
               {errors.relationship && touched.relationship && (
                 <div>{errors.relationship}</div>
               )}
-            </Grid>
-            <Grid item md={3}>
-              <input
-                id="profileImage"
-                name="profileImage"
-                type="file"
-                accept="image/*"
-                onChange={(event) => {
-                  setFieldValue("profileImage", event.currentTarget.files[0]);
-                  handleProfileImageChange(event);
-                }}
-              />
-            </Grid>
-            <Grid item md={3}>
-              <input
-                id="coverImage"
-                name="coverImage"
-                type="file"
-                accept="image/*"
-                onChange={(event) => {
-                  setFieldValue("coverImage", event.currentTarget.files[0]);
-                  handleCoverImageChange(event);
-                }}
-              />
             </Grid>
           </Grid>
           <div>

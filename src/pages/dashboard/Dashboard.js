@@ -43,12 +43,16 @@ const Dashboard = () => {
         count={25}
         icon={<EngineeringOutlined sx={{ fontSize: 50 }} />}
       />
-      <DashboardCard title="Applicants" count={25} icon={<PersonAddRounded sx={{ fontSize: 50 }} />}/>
-      <DashboardCard title="Employers" count={45} icon={<SupervisedUserCircleRounded sx={{ fontSize: 50 }} />}/>
-      <DashboardCard title="Job Types" count={15} icon={<ManageAccountsRounded sx={{ fontSize: 50 }} />}/>
-      <DashboardCard title="Categories" count={5} icon={<CategoryRounded sx={{ fontSize: 50 }} />}/>
-      <DashboardCard title="Expired Jobs" count={25} icon={<TrendingDownRounded sx={{ fontSize: 50 }} />}/>
-      <DashboardCard title="Requests Accepted" count={125} icon={<CheckBoxRounded sx={{ fontSize: 50 }} />}/>
+      <DashboardCard
+        title="Applicants"
+        count={25}
+        icon={<PersonAddRounded sx={{ fontSize: 50 }} />}
+      />
+      <DashboardCard
+        title="Employers"
+        count={45}
+        icon={<SupervisedUserCircleRounded sx={{ fontSize: 50 }} />}
+      />
     </Stack>
   );
 };
