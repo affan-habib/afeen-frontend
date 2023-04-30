@@ -65,6 +65,9 @@ function Users() {
     allUsers = {
       data: [],
       count: 0,
+      pagination: {
+        count: 0,
+      },
     },
     usersInfo = {
       data: [],
@@ -84,7 +87,7 @@ function Users() {
         rows={allUsers.data || []}
         columns={columns}
         onPageinationModelChange={onPageinationModelChange}
-        rowCount={allUsers.count}
+        rowCount={allUsers.pagination.total}
       />
     </CustomCard>
   );
