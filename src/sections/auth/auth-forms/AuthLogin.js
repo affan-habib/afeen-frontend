@@ -19,6 +19,7 @@ import {
 // third party
 import * as Yup from "yup";
 import { Formik } from "formik";
+import { useMutation, gql } from "@apollo/client";
 
 // project import
 import useAuth from "hooks/useAuth";
@@ -28,14 +29,25 @@ import AnimateButton from "components/@extended/AnimateButton";
 
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
-import { callApi } from "store/reducers/apiSlice";
-import { useDispatch } from "react-redux";
 import { UrlBuilder } from "./../../../helpers/UrlBuilder";
 
-// ============================|| FIREBASE - LOGIN ||============================ //
+// Define the mutation query
+const LOGIN_MUTATION = gql`
+  mutation Login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
+
+// ============================|| GRAPHQL - LOGIN ||============================ //
 
 const AuthLogin = () => {
-  const dispatch = useDispatch();
   const [checked, setChecked] = React.useState(false);
   const [capsWarning, setCapsWarning] = React.useState(false);
 
@@ -59,11 +71,14 @@ const AuthLogin = () => {
     }
   };
 
+  // Use the useMutation hook to execute the mutation query and get the mutation function
+  const [loginMutation, { loading, error }] = useMutation(LOGIN_MUTATION);
+
   return (
     <>
       <Formik
         initialValues={{
-          phone_number: "01798984444",
+          email: "affan.eatl@gmail.com",
           password: "12345",
         }}
         validationSchema={Yup.object().shape({
@@ -71,16 +86,15 @@ const AuthLogin = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            dispatch(
-              callApi({
-                operationId: UrlBuilder.coreServiceApi("core/user/login"),
-                output: "authData",
-                parameters: {
-                  method: "POST",
-                  body: JSON.stringify(values),
-                },
-              })
-            );
+            // Call the mutation function instead of the dispatch function
+            const { data } = await loginMutation({
+              variables: {
+                email: values.email,
+                password: values.password,
+              },
+            });
+
+            console.log(data);
           } catch (err) {
             console.error(err);
             if (scriptedRef.current) {
@@ -95,6 +109,7 @@ const AuthLogin = () => {
           errors,
           handleBlur,
           handleChange,
+
           handleSubmit,
           isSubmitting,
           touched,
@@ -107,11 +122,11 @@ const AuthLogin = () => {
                   <InputLabel htmlFor="email-login">Mobile Number</InputLabel>
                   <OutlinedInput
                     type="text"
-                    value={values.phone_number}
-                    name="phone_number"
+                    value={values.email}
+                    name="email"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="Enter phone_number address"
+                    placeholder="Enter email address"
                     fullWidth
                   />
                 </Stack>
