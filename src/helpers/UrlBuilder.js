@@ -14,6 +14,9 @@ class UrlBuilderHelper {
   resumeServiceApi(path) {
     return `http://13.212.68.212:5003/api/v1/${path}`;
   }
+  localhost(path) {
+    return `http://localhost:5000/${path}`;
+  }
 }
 
 export const UrlBuilder = new UrlBuilderHelper();
