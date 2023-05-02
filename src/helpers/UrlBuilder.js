@@ -4,15 +4,18 @@ class UrlBuilderHelper {
   }
 
   coreServiceApi(path) {
-    return `http://192.168.0.146:5001/api/v1/${path}`;
+    return `http://13.212.68.212:5001/api/v1/${path}`;
   }
-  
+
   jobServiceApi(path) {
     return `http://13.212.68.212:5002/api/v1/${path}`;
   }
-  
+
   resumeServiceApi(path) {
     return `http://13.212.68.212:5003/api/v1/${path}`;
+  }
+  localHostApi(path) {
+    return `http://localhost:4000/${path}`;
   }
 }
 

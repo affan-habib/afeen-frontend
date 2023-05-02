@@ -19,7 +19,6 @@ import {
 // third party
 import * as Yup from "yup";
 import { Formik } from "formik";
-import { useMutation, gql } from "@apollo/client";
 
 // project import
 import useAuth from "hooks/useAuth";
@@ -29,25 +28,14 @@ import AnimateButton from "components/@extended/AnimateButton";
 
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+import { callApi } from "store/reducers/apiSlice";
+import { useDispatch } from "react-redux";
 import { UrlBuilder } from "./../../../helpers/UrlBuilder";
 
-// Define the mutation query
-const LOGIN_MUTATION = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        id
-        name
-        email
-      }
-    }
-  }
-`;
-
-// ============================|| GRAPHQL - LOGIN ||============================ //
+// ============================|| FIREBASE - LOGIN ||============================ //
 
 const AuthLogin = () => {
+  const dispatch = useDispatch();
   const [checked, setChecked] = React.useState(false);
   const [capsWarning, setCapsWarning] = React.useState(false);
 
@@ -71,30 +59,28 @@ const AuthLogin = () => {
     }
   };
 
-  // Use the useMutation hook to execute the mutation query and get the mutation function
-  const [loginMutation, { loading, error }] = useMutation(LOGIN_MUTATION);
-
   return (
     <>
       <Formik
         initialValues={{
-          email: "affan.eatl@gmail.com",
-          password: "12345",
+          email: "aff@gm.com",
+          password: "12345678",
         }}
         validationSchema={Yup.object().shape({
           password: Yup.string().max(255).required("Password is required"),
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            // Call the mutation function instead of the dispatch function
-            const { data } = await loginMutation({
-              variables: {
-                email: values.email,
-                password: values.password,
-              },
-            });
-
-            console.log(data);
+            dispatch(
+              callApi({
+                operationId: UrlBuilder.localHostApi("auth/signin"),
+                output: "authData",
+                parameters: {
+                  method: "POST",
+                  body: JSON.stringify(values),
+                },
+              })
+            );
           } catch (err) {
             console.error(err);
             if (scriptedRef.current) {
@@ -109,7 +95,6 @@ const AuthLogin = () => {
           errors,
           handleBlur,
           handleChange,
-
           handleSubmit,
           isSubmitting,
           touched,
