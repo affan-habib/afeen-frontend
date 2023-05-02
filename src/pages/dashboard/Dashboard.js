@@ -1,9 +1,17 @@
 import {
   BusinessCenterOutlined,
+  CategoryRounded,
+  CheckBoxRounded,
+  EngineeringOutlined,
+  ManageAccountsRounded,
   Money,
   PeopleAltOutlined,
+  PersonAddRounded,
+  SupervisedUserCircleRounded,
+  TrendingDownRounded,
 } from "@mui/icons-material";
-import { Paper, Typography, Stack } from "@mui/material";
+import { Paper, Typography, Stack, Divider } from "@mui/material";
+import DashboardCard from "components/DashboardCard";
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -30,90 +38,17 @@ const Dashboard = () => {
 
   return (
     <Stack spacing={2} direction="row" alignItems="center">
-      <Paper
-        square
-        sx={{
-          width: 200,
-          height: 150,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          color: "primary.light",
-          "&:hover": {
-            color: "primary.main",
-          },
-        }}
-      >
-        <BusinessCenterOutlined sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
-          Create Package
-        </Typography>
-      </Paper>
-      <Paper
-        square
-        sx={{
-          width: 200,
-          height: 150,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          color: "primary.light",
-          "&:hover": {
-            color: "primary.main",
-          },
-        }}
-      >
-        <Money sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
-          Sales History
-        </Typography>
-      </Paper>
-      <Paper
-        square
-        sx={{
-          width: 200,
-          height: 150,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          color: "primary.light",
-          "&:hover": {
-            color: "primary.main",
-          },
-        }}
-      >
-        <PeopleAltOutlined sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
-          Add User
-        </Typography>
-      </Paper>
-      <Paper
-        square
-        sx={{
-          width: 200,
-          height: 150,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          color: "primary.light",
-          "&:hover": {
-            color: "primary.main",
-          },
-        }}
-      >
-        <BusinessCenterOutlined sx={{ fontSize: 50, mb: 1 }} />
-        <Typography sx={{ fontWeight: 500, fontSize: "18px" }}>
-          Create Package
-        </Typography>
-      </Paper>
+      <DashboardCard
+        title="Active Jobs"
+        count={25}
+        icon={<EngineeringOutlined sx={{ fontSize: 50 }} />}
+      />
+      <DashboardCard title="Applicants" count={25} icon={<PersonAddRounded sx={{ fontSize: 50 }} />}/>
+      <DashboardCard title="Employers" count={45} icon={<SupervisedUserCircleRounded sx={{ fontSize: 50 }} />}/>
+      <DashboardCard title="Job Types" count={15} icon={<ManageAccountsRounded sx={{ fontSize: 50 }} />}/>
+      <DashboardCard title="Categories" count={5} icon={<CategoryRounded sx={{ fontSize: 50 }} />}/>
+      <DashboardCard title="Expired Jobs" count={25} icon={<TrendingDownRounded sx={{ fontSize: 50 }} />}/>
+      <DashboardCard title="Requests Accepted" count={125} icon={<CheckBoxRounded sx={{ fontSize: 50 }} />}/>
     </Stack>
   );
 };
