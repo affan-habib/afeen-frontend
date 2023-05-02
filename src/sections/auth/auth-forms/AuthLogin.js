@@ -63,7 +63,7 @@ const AuthLogin = () => {
     <>
       <Formik
         initialValues={{
-          email: "aff@gm.com",
+          userName: "ss",
           password: "12345678",
         }}
         validationSchema={Yup.object().shape({
@@ -73,7 +73,7 @@ const AuthLogin = () => {
           try {
             dispatch(
               callApi({
-                operationId: UrlBuilder.localHostApi("auth/signin"),
+                operationId: UrlBuilder.localHostApi("api/v1/auth/login"),
                 output: "authData",
                 parameters: {
                   method: "POST",
@@ -104,14 +104,14 @@ const AuthLogin = () => {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="email-login">Mobile Number</InputLabel>
+                  <InputLabel htmlFor="userName-login">Mobile Number</InputLabel>
                   <OutlinedInput
                     type="text"
-                    value={values.email}
-                    name="email"
+                    value={values.userName}
+                    name="userName"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="Enter email address"
+                    placeholder="Enter userName address"
                     fullWidth
                   />
                 </Stack>

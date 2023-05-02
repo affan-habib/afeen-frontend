@@ -31,11 +31,14 @@ import { strengthColor, strengthIndicator } from "utils/password-strength";
 
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+import { callApi } from "store/reducers/apiSlice";
+import { UrlBuilder } from "helpers/UrlBuilder";
+import { useDispatch } from "react-redux";
 
 // ============================|| FIREBASE - REGISTER ||============================ //
 
 const AuthRegister = () => {
-  const { firebaseRegister } = useAuth();
+  const dispatch = useDispatch()
   const scriptedRef = useScriptRef();
 
   const [level, setLevel] = useState();
@@ -64,7 +67,7 @@ const AuthRegister = () => {
           firstname: "",
           lastname: "",
           email: "",
-          company: "",
+          userName: "",
           password: "",
           submit: null,
         }}
@@ -79,18 +82,15 @@ const AuthRegister = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            await firebaseRegister(values.email, values.password).then(
-              () => {
-                // WARNING: do not set any formik state here as formik might be already destroyed here. You may get following error by doing so.
-                // Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application.
-                // To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-                // github issue: https://github.com/formium/formik/issues/2430
-              },
-              (err) => {
-                setStatus({ success: false });
-                setErrors({ submit: err.message });
-                setSubmitting(false);
-              }
+            dispatch(
+              callApi({
+                operationId: UrlBuilder.localHostApi("api/v1/auth/register"),
+                output: "authData",
+                parameters: {
+                  method: "POST",
+                  body: JSON.stringify(values),
+                },
+              })
             );
           } catch (err) {
             console.error(err);
@@ -160,21 +160,21 @@ const AuthRegister = () => {
               </Grid>
               <Grid item xs={12}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="company-signup">Company</InputLabel>
+                  <InputLabel htmlFor="userName-signup">userName</InputLabel>
                   <OutlinedInput
                     fullWidth
-                    error={Boolean(touched.company && errors.company)}
-                    id="company-signup"
-                    value={values.company}
-                    name="company"
+                    error={Boolean(touched.userName && errors.userName)}
+                    id="userName-signup"
+                    value={values.userName}
+                    name="userName"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     placeholder="Demo Inc."
                     inputProps={{}}
                   />
-                  {touched.company && errors.company && (
-                    <FormHelperText error id="helper-text-company-signup">
-                      {errors.company}
+                  {touched.userName && errors.userName && (
+                    <FormHelperText error id="helper-text-userName-signup">
+                      {errors.userName}
                     </FormHelperText>
                   )}
                 </Stack>
@@ -191,7 +191,7 @@ const AuthRegister = () => {
                     name="email"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="demo@company.com"
+                    placeholder="demo@userName.com"
                     inputProps={{}}
                   />
                   {touched.email && errors.email && (

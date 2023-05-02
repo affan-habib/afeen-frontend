@@ -28,11 +28,11 @@ const Login = () => {
     if (isLoggedIn) {
       navigate("/dashboard");
     }
-    if (!isLoggedIn && authData.data.access_token !== undefined) {
-      Cookies.set("access_token", authData.data.access_token);
+    if (!isLoggedIn && authData.token !== undefined) {
+      Cookies.set("access_token", authData.token);
       navigate("/dashboard");
     }
-  }, [authData?.data.access_token, isLoggedIn]);
+  }, [authData?.token, isLoggedIn]);
 
   return (
     <AuthWrapper>
