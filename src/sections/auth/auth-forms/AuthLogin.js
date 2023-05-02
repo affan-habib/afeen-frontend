@@ -63,8 +63,8 @@ const AuthLogin = () => {
     <>
       <Formik
         initialValues={{
-          userName: "ss",
-          password: "12345678",
+          userName: "affan",
+          password: "00000000",
         }}
         validationSchema={Yup.object().shape({
           password: Yup.string().max(255).required("Password is required"),
