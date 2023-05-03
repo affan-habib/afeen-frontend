@@ -11,7 +11,7 @@ const Package = Loadable(lazy(() => import("pages/package/Packages")));
 const CreatePackage = Loadable(
   lazy(() => import("pages/package/CreatePackage"))
 );
-const Users = Loadable(lazy(() => import("pages/users/Users")));
+const Recipes = Loadable(lazy(() => import("pages/recipes/Recipes")));
 const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
 const JobDetails = Loadable(lazy(() => import("pages/job/JobDetails")));
@@ -43,8 +43,8 @@ const MainRoutes = {
           element: <CreatePackage />,
         },
         {
-          path: "users",
-          element: <Users />,
+          path: "recipes",
+          element: <Recipes />,
         },
         {
           path: "add-user",
