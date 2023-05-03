@@ -5,6 +5,7 @@ import CustomTextField from "../../components/CustomTextField";
 import { Button, Grid } from "@mui/material";
 import axios from "axios";
 import FormWrapper from "components/CustomCard";
+import CustomCheckbox from "components/CustomCheckbox";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -14,6 +15,12 @@ const validationSchema = Yup.object().shape({
   price: Yup.number()
     .required("Required")
     .min(0, "Price must be a positive number"),
+  max_job_posts: Yup.number()
+    .required("Required")
+    .min(0, "Max job posts must be a positive number"),
+  featured_job_posts: Yup.boolean().required("Required"),
+  resume_database_access: Yup.boolean().required("Required"),
+  priority_support: Yup.boolean().required("Required"),
 });
 
 const CreatePackage = () => {
@@ -40,6 +47,10 @@ const CreatePackage = () => {
           startDay: "12/12/1992",
           endDay: "12/12/1994",
           price: 0,
+          max_job_posts: 0,
+          featured_job_posts: false,
+          resume_database_access: false,
+          priority_support: false,
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -47,7 +58,7 @@ const CreatePackage = () => {
         {({ isSubmitting }) => (
           <Form>
             <Grid container spacing={2}>
-              <Grid item md={4}>
+              <Grid item md={4} xl={3}>
                 <Field name="name">
                   {({ field, meta }) => (
                     <CustomTextField
@@ -60,7 +71,7 @@ const CreatePackage = () => {
                   )}
                 </Field>
               </Grid>
-              <Grid item md={4}>
+              <Grid item md={4} xl={3}>
                 <Field name="description">
                   {({ field, meta }) => (
                     <CustomTextField
@@ -74,7 +85,7 @@ const CreatePackage = () => {
                 </Field>
               </Grid>
 
-              <Grid item md={4}>
+              <Grid item md={4} xl={3}>
                 <Field name="price">
                   {({ field, meta }) => (
                     <CustomTextField
@@ -89,7 +100,7 @@ const CreatePackage = () => {
                 </Field>
               </Grid>
 
-              <Grid item md={4}>
+              <Grid item md={4} xl={3}>
                 <Field name="startDay">
                   {({ field, meta }) => (
                     <CustomTextField
@@ -103,7 +114,7 @@ const CreatePackage = () => {
                   )}
                 </Field>
               </Grid>
-              <Grid item md={4}>
+              <Grid item md={4} xl={3}>
                 <Field name="endDay">
                   {({ field, meta }) => (
                     <CustomTextField
@@ -116,6 +127,57 @@ const CreatePackage = () => {
                     />
                   )}
                 </Field>
+              </Grid>
+
+              <Grid item md={4} xl={3}>
+                <Field name="max_job_posts">
+                  {({ field, meta }) => (
+                    <CustomTextField
+                      {...field}
+                      inputLabel="Max Job Posts"
+                      type="number"
+                      fullWidth
+                      error={meta.touched && Boolean(meta.error)}
+                      helperText={meta.touched && meta.error}
+                    />
+                  )}
+                </Field>
+              </Grid>
+
+              <Grid item md={4} xl={3}>
+                <Field name="featured_job_posts">
+                  {({ field }) => (
+                    <CustomCheckbox
+                      label="Featured Job Posts"
+                      checked={field.value}
+                      onChange={field.onChange}
+                    />
+                  )}
+                </Field>
+
+                <Grid item md={4} xl={3}>
+                  <Field name="resume_database_access">
+                    {({ field }) => (
+                      <CustomCheckbox
+                        label="Resume Database Access"
+                        checked={field.value}
+                        onChange={field.onChange}
+                      />
+                    )}
+                  </Field>
+                </Grid>
+
+                <Grid>
+                  <Field name="priority_support">
+                    {({ field }) => (
+                      <CustomCheckbox
+                        label="Priority Support"
+                        checked={field.value}
+                        onChange={field.onChange}
+                      />
+                    )}
+                  </Field>
+                </Grid>
               </Grid>
             </Grid>
             <Button
