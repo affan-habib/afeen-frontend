@@ -27,33 +27,13 @@ const packages = {
       icon: icons.MenuUnfoldOutlined,
     },
     {
-      id: "package",
-      title: "Package",
+      id: "recipes",
+      title: "Recipes",
       type: "item",
-      url: "/package",
+      url: "/recipes",
       icon: icons.BoxPlotOutlined,
     },
-    {
-      id: "users",
-      title: "Users",
-      type: "item",
-      url: "/users",
-      icon: icons.UserOutlined,
-    },
-    {
-      id: "jobs",
-      title: "jobs",
-      type: "item",
-      url: "/jobs",
-      icon: icons.CarryOutOutlined,
-    },
-    {
-      id: "cv-requests",
-      title: "CV Requests",
-      type: "item",
-      url: "/cv-requests",
-      icon: icons.CarryOutOutlined,
-    },
+
   ],
 };
 
