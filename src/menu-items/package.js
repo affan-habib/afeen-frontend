@@ -2,7 +2,7 @@ import {
   BoxPlotOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
-  CarryOutOutlined
+  CarryOutOutlined,
 } from "@ant-design/icons";
 
 // icons
@@ -10,7 +10,7 @@ const icons = {
   MenuUnfoldOutlined,
   UserOutlined,
   BoxPlotOutlined,
-  CarryOutOutlined
+  CarryOutOutlined,
 };
 
 // ==============================|| MENU ITEMS - SUPPORT ||============================== //
@@ -27,18 +27,40 @@ const packages = {
       icon: icons.MenuUnfoldOutlined,
     },
     {
+      id: "users",
+      title: "Users",
+      type: "collapse",
+      icon: icons.UserOutlined,
+      children: [
+        {
+          id: "all-users",
+          title: "All Users",
+          type: "item",
+          url: "/users",
+          icon: icons.UserOutlined,
+        },
+        {
+          id: "employers",
+          title: "Employers",
+          type: "item",
+          url: "/employers",
+          icon: icons.UserOutlined,
+        },
+        {
+          id: "employees",
+          title: "Employees",
+          type: "item",
+          url: "/employees",
+          icon: icons.UserOutlined,
+        },
+      ],
+    },
+    {
       id: "package",
       title: "Package",
       type: "item",
       url: "/package",
       icon: icons.BoxPlotOutlined,
-    },
-    {
-      id: "users",
-      title: "Users",
-      type: "item",
-      url: "/users",
-      icon: icons.UserOutlined,
     },
     {
       id: "jobs",

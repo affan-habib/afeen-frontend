@@ -12,6 +12,8 @@ const CreatePackage = Loadable(
   lazy(() => import("pages/package/CreatePackage"))
 );
 const Users = Loadable(lazy(() => import("pages/users/Users")));
+const Employers = Loadable(lazy(() => import("pages/employers/Employers")));
+const Employees = Loadable(lazy(() => import("pages/employees/Employees")));
 const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
 const JobDetails = Loadable(lazy(() => import("pages/job/JobDetails")));
@@ -47,6 +49,14 @@ const MainRoutes = {
           element: <Users />,
         },
         {
+          path: "employers",
+          element: <Employers />,
+        },
+        {
+          path: "employees",
+          element: <Employees />,
+        },
+        {
           path: "add-user",
           element: <CreateUser />,
         },
@@ -62,7 +72,6 @@ const MainRoutes = {
           path: "cv-requests",
           element: <CvRequests />,
         },
-        
       ],
     },
   ],
