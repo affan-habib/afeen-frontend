@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { selectApi } from "store/reducers/apiSlice";
 import moment from "moment";
 import FilterUsers from "./FilterUsers";
+import { EyeFilled, EyeInvisibleOutlined } from "@ant-design/icons";
+import { IconButton } from "@mui/material";
+import { useNavigate } from "react-router";
 
 function Users() {
   const columns = [
@@ -56,11 +59,26 @@ function Users() {
       renderCell: (params) =>
         moment(params.row.published_at).format("DD-MM-yyyy"),
     },
+    {
+      headerName: "actions",
+      align: "center",
+      headerAlign: "center",
+      width: 80,
+      renderCell: (params) => (
+        <IconButton
+          color="primary"
+          size="16"
+          onClick={() => navigate(`${params.id}`)}
+        >
+          <EyeFilled />
+        </IconButton>
+      ),
+    },
   ];
 
   const [page, setPage] = React.useState(1);
   const [pageSize, setPageSize] = React.useState(10);
-
+  const navigate = useNavigate();
   const {
     allUsers = {
       data: [],
