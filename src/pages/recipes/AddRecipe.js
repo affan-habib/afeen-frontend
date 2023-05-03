@@ -5,6 +5,9 @@ import { Button, Grid, IconButton } from "@mui/material";
 import { DeleteColumnOutlined } from "@ant-design/icons";
 import CustomTextField from "components/CustomTextField";
 import CustomCard from "components/CustomCard";
+import { useDispatch } from "react-redux";
+import { callApi } from "store/reducers/apiSlice";
+import { UrlBuilder } from "helpers/UrlBuilder";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
@@ -23,13 +26,23 @@ const initialValues = {
 };
 
 export default function AddRecipe() {
+  const dispatch = useDispatch();
   return (
     <CustomCard label="Add New Recipe">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log(values);
+          dispatch(
+            callApi({
+              operationId: UrlBuilder.localHostApi("api/v1/recipe"),
+              parameters: {
+                method: "POST",
+                body: JSON.stringify(values),
+              },
+              output: "addRecipe",
+            })
+          );
         }}
       >
         {({ values, errors, touched }) => (
