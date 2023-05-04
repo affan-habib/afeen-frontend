@@ -4,6 +4,7 @@ import { lazy } from "react";
 import MainLayout from "layout/MainLayout";
 import Loadable from "components/Loadable";
 import AuthGuard from "utils/route-guard/AuthGuard";
+import RecipeDetails from "pages/recipes/RecipeDetails";
 
 // render - sample page
 const Dashboard = Loadable(lazy(() => import("pages/dashboard/Dashboard")));
@@ -60,8 +61,8 @@ const MainRoutes = {
           element: <Jobs />,
         },
         {
-          path: "jobs/job-details/:id",
-          element: <JobDetails />,
+          path: "recipes/:id",
+          element: <RecipeDetails />,
         },
         {
           path: "cv-requests",
