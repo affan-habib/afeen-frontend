@@ -13,15 +13,22 @@ const validationSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
   about: Yup.string().required("Required"),
   category: Yup.string().required("Required"),
-  educations: Yup.array().of(Yup.string().required("Required")),
+  educations: Yup.array(),
   skills: Yup.array().of(Yup.string().required("Required")),
 });
 
 const initialValues = {
   title: "",
   about: "",
+  educations: [
+    {
+      institution: "",
+      degree: "",
+      fieldOfStudy: "",
+      graduationDate: null,
+    },
+  ],
   category: "",
-  educations: [""],
   skills: [""],
 };
 
@@ -83,7 +90,7 @@ export default function AddResume() {
                 />
               </Grid>
 
-              <Grid item md={6} xl={4}>
+              <Grid item md={12} xl={4}>
                 <FieldArray name="educations">
                   {({ insert, remove, push }) => (
                     <div>
@@ -95,10 +102,11 @@ export default function AddResume() {
                             alignItems="center"
                             spacing={2}
                           >
-                            <Grid item xs={12} sm={4}>
+                            <Grid item xs={12} md={3}>
                               <Field
                                 name={`educations.${index}.institution`}
                                 as={CustomTextField}
+                                sx={{ mb: 2 }}
                                 fullWidth
                                 inputLabel={`Institution ${index + 1}`}
                                 error={
@@ -129,7 +137,7 @@ export default function AddResume() {
                                 }
                               />
                             </Grid>
-                            <Grid item xs={12} md={12}>
+                            <Grid item xs={12} md={3}>
                               <Field
                                 name={`educations.${index}.fieldOfStudy`}
                                 as={CustomTextField}
@@ -236,7 +244,7 @@ export default function AddResume() {
                                 onClick={() => remove(index)}
                                 disabled={values.skills.length === 1}
                               >
-                                <DeleteColumnOutlined />
+                                <DeleteOutlined />
                               </IconButton>
                             </Grid>
                           </Grid>
@@ -254,8 +262,10 @@ export default function AddResume() {
                   )}
                 </FieldArray>
               </Grid>
-              <Button type="submit">Submit</Button>
             </Grid>
+            <Button type="submit" variant="contained">
+              Submit
+            </Button>
           </Form>
         )}
       </Formik>
