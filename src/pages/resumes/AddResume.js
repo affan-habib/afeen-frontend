@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import * as Yup from "yup";
 import { Button, Grid, IconButton } from "@mui/material";
-import { DeleteColumnOutlined } from "@ant-design/icons";
+import { DeleteColumnOutlined, DeleteOutlined } from "@ant-design/icons";
 import CustomTextField from "components/CustomTextField";
 import CustomCard from "components/CustomCard";
 import { useDispatch } from "react-redux";
@@ -28,7 +28,7 @@ const initialValues = {
 export default function AddResume() {
   const dispatch = useDispatch();
   return (
-    <CustomCard label="Add New Resume">
+    <CustomCard inputLabel="Add New Resume">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -45,7 +45,7 @@ export default function AddResume() {
           );
         }}
       >
-        {({ values, errors, touched }) => (
+        {({ values, errors, touched, setFieldValue }) => (
           <Form>
             <Grid container spacing={2}>
               <Grid item md={6} xl={4}>
@@ -79,11 +79,7 @@ export default function AddResume() {
                   multiline
                   rows={4}
                   error={errors.about && touched.about}
-                  helperText={
-                    errors.about &&
-                    touched.about &&
-                    errors.about
-                  }
+                  helperText={errors.about && touched.about && errors.about}
                 />
               </Grid>
 
@@ -92,40 +88,121 @@ export default function AddResume() {
                   {({ insert, remove, push }) => (
                     <div>
                       {values.educations.length > 0 &&
-                        values.educations.map((ingredient, index) => (
-                          <Grid key={index} display="flex" alignItems="center">
-                            <Grid flex={1}>
+                        values.educations.map((education, index) => (
+                          <Grid
+                            key={index}
+                            container
+                            alignItems="center"
+                            spacing={2}
+                          >
+                            <Grid item xs={12} sm={4}>
                               <Field
-                                name={`educations.${index}`}
+                                name={`educations.${index}.institution`}
                                 as={CustomTextField}
                                 fullWidth
-                                inputLabel={`Ingredient ${index + 1}`}
+                                inputLabel={`Institution ${index + 1}`}
+                                error={
+                                  touched.educations?.[index]?.institution &&
+                                  Boolean(
+                                    errors.educations?.[index]?.institution
+                                  )
+                                }
                                 helperText={
-                                  errors.educations &&
-                                  errors.educations[index] &&
-                                  touched.educations &&
-                                  touched.educations[index] &&
-                                  errors.educations[index]
+                                  touched.educations?.[index]?.institution &&
+                                  errors.educations?.[index]?.institution
                                 }
                               />
                             </Grid>
-                            <Grid ml={2}>
+                            <Grid item xs={12} sm={3}>
+                              <Field
+                                name={`educations.${index}.degree`}
+                                as={CustomTextField}
+                                fullWidth
+                                inputLabel="Degree"
+                                error={
+                                  touched.educations?.[index]?.degree &&
+                                  Boolean(errors.educations?.[index]?.degree)
+                                }
+                                helperText={
+                                  touched.educations?.[index]?.degree &&
+                                  errors.educations?.[index]?.degree
+                                }
+                              />
+                            </Grid>
+                            <Grid item xs={12} md={12}>
+                              <Field
+                                name={`educations.${index}.fieldOfStudy`}
+                                as={CustomTextField}
+                                fullWidth
+                                inputLabel="Field of Study"
+                                error={
+                                  touched.educations?.[index]?.fieldOfStudy &&
+                                  Boolean(
+                                    errors.educations?.[index]?.fieldOfStudy
+                                  )
+                                }
+                                helperText={
+                                  touched.educations?.[index]?.fieldOfStudy &&
+                                  errors.educations?.[index]?.fieldOfStudy
+                                }
+                              />
+                            </Grid>
+                            <Grid item xs={12} sm={2}>
+                              <CustomTextField
+                                autoOk
+                                fullWidth
+                                disableFuture
+                                format="MM/dd/yyyy"
+                                inputVariant="outlined"
+                                type="date"
+                                inputLabel="Graduation Date"
+                                name={`educations.${index}.graduationDate`}
+                                value={
+                                  values.educations[index].graduationDate ||
+                                  null
+                                }
+                                onChange={(date) =>
+                                  setFieldValue(
+                                    `educations.${index}.graduationDate`,
+                                    date
+                                  )
+                                }
+                                error={
+                                  touched.educations?.[index]?.graduationDate &&
+                                  Boolean(
+                                    errors.educations?.[index]?.graduationDate
+                                  )
+                                }
+                                helperText={
+                                  touched.educations?.[index]?.graduationDate &&
+                                  errors.educations?.[index]?.graduationDate
+                                }
+                              />
+                            </Grid>
+                            <Grid item>
                               <IconButton
                                 onClick={() => remove(index)}
                                 disabled={values.educations.length === 1}
                               >
-                                <DeleteColumnOutlined />
+                                <DeleteOutlined />
                               </IconButton>
                             </Grid>
                           </Grid>
                         ))}
-                      <Grid item md={6} xl={4}>
+                      <Grid item>
                         <Button
                           variant="contained"
                           color="secondary"
-                          onClick={() => push("")}
+                          onClick={() =>
+                            push({
+                              institution: "",
+                              degree: "",
+                              fieldOfStudy: "",
+                              graduationDate: null,
+                            })
+                          }
                         >
-                          Add Ingredient
+                          Add Education
                         </Button>
                       </Grid>
                     </div>
