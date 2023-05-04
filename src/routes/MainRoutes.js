@@ -5,6 +5,7 @@ import MainLayout from "layout/MainLayout";
 import Loadable from "components/Loadable";
 import AuthGuard from "utils/route-guard/AuthGuard";
 import RecipeDetails from "pages/recipes/RecipeDetails";
+import ResumeDetails from "pages/resumes/ResumeDetails";
 
 // render - sample page
 const Dashboard = Loadable(lazy(() => import("pages/dashboard/Dashboard")));
@@ -14,6 +15,8 @@ const CreatePackage = Loadable(
 );
 const Recipes = Loadable(lazy(() => import("pages/recipes/Recipes")));
 const AddRecipe = Loadable(lazy(() => import("pages/recipes/AddRecipe")));
+const Resumes = Loadable(lazy(() => import("pages/resumes/Resumes")));
+const AddResume = Loadable(lazy(() => import("pages/resumes/AddResume")));
 const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
 const JobDetails = Loadable(lazy(() => import("pages/job/JobDetails")));
@@ -53,6 +56,22 @@ const MainRoutes = {
           element: <AddRecipe />,
         },
         {
+          path: "recipes/:id",
+          element: <RecipeDetails />,
+        },
+        {
+          path: "resumes",
+          element: <Resumes />,
+        },
+        {
+          path: "add-resume",
+          element: <AddResume />,
+        },
+        {
+          path: "resumes/:id",
+          element: <ResumeDetails />,
+        },
+        {
           path: "add-user",
           element: <CreateUser />,
         },
@@ -61,14 +80,9 @@ const MainRoutes = {
           element: <Jobs />,
         },
         {
-          path: "recipes/:id",
-          element: <RecipeDetails />,
-        },
-        {
           path: "cv-requests",
           element: <CvRequests />,
         },
-        
       ],
     },
   ],

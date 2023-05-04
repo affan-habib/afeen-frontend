@@ -33,6 +33,13 @@ const packages = {
       url: "/recipes",
       icon: icons.BoxPlotOutlined,
     },
+    {
+      id: "resumes",
+      title: "Resumes",
+      type: "item",
+      url: "/resumes",
+      icon: icons.BoxPlotOutlined,
+    },
 
   ],
 };
