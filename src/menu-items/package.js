@@ -40,6 +40,13 @@ const packages = {
       url: "/resumes",
       icon: icons.BoxPlotOutlined,
     },
+    {
+      id: "users",
+      title: "Users",
+      type: "item",
+      url: "/users",
+      icon: icons.BoxPlotOutlined,
+    },
 
   ],
 };

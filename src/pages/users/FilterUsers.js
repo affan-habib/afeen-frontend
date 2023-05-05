@@ -18,9 +18,9 @@ const FilterJobs = ({ page, pageSize }) => {
     dispatch(
       callApi({
         operationId: UrlBuilder.localHostApi(
-          `api/v1/recipe?category=${category}`
+          `api/v1/user?category=${category}`
         ),
-        output: "recipes",
+        output: "users",
       })
     );
   }

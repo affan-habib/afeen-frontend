@@ -21,7 +21,16 @@ const validationSchema = Yup.object().shape({
   relationship: Yup.string(),
 });
 
-const EditUserForm = ({ initialValues, onSubmit }) => {
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  worksAt: "",
+  country: "",
+  livesIn: "",
+  relationship: "",
+};
+
+const AddUser = ({ onSubmit }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [coverImage, setCoverImage] = useState(null);
   const [isProfileImageUploading, setIsProfileImageUploading] = useState(false);
@@ -40,13 +49,13 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={onSubmit}
+      onSubmit={(values) => console.log(values)}
       validationSchema={validationSchema}
     >
       {({ errors, touched, setFieldValue }) => (
         <Form>
           <Grid container spacing={2}>
-            <Grid sx={{ position: "relative", maxWidth: 200 }} item md={4}>
+            <Grid sx={{ position: "relative", maxWidth: 200 }}>
               <Avatar
                 src={profileImage ? URL.createObjectURL(profileImage) : ""}
                 alt="Profile picture"
@@ -71,13 +80,13 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
                 </label>
               </Box>
             </Grid>
-            <Grid item md={8} sx={{ position: "relative" }}>
-              <Avatar
+            <Grid item md={10} sx={{ position: "relative" }}>
+              <img
                 src={coverImage ? URL.createObjectURL(coverImage) : ""}
                 alt="Profile picture"
-                style={{ width: 150, height: 150 }}
+                style={{ width: "100%", height: 150 }}
               />
-              <Box ml={2} sx={{ position: "absolute", top: 120, left: 120 }}>
+              <Box ml={2} sx={{ position: "absolute", top: 120, right: 80 }}>
                 <input
                   accept="image/*"
                   id="coverImage"
@@ -101,6 +110,7 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
                 name="firstName"
                 inputLabel="First Name"
                 as={CustomTextField}
+                fullWidth
               />
               {errors.firstName && touched.firstName && (
                 <div>{errors.firstName}</div>
@@ -111,6 +121,7 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
                 name="lastName"
                 inputLabel="Last Name"
                 as={CustomTextField}
+                fullWidth
               />
               {errors.lastName && touched.lastName && (
                 <div>{errors.lastName}</div>
@@ -121,6 +132,7 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
                 name="worksAt"
                 inputLabel="Works At"
                 as={CustomTextField}
+                fullWidth
               />
               {errors.worksAt && touched.worksAt && <div>{errors.worksAt}</div>}
             </Grid>
@@ -134,6 +146,7 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
                 inputLabel="Lives In"
                 as={CustomTextField}
                 helperText={errors.livesIn && touched.livesIn && errors.livesIn}
+                fullWidth
               />
             </Grid>
             <Grid item md={3}>
@@ -141,6 +154,7 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
                 name="relationship"
                 inputLabel="Relationship"
                 as={CustomTextField}
+                fullWidth
               />
               {errors.relationship && touched.relationship && (
                 <div>{errors.relationship}</div>
@@ -156,4 +170,4 @@ const EditUserForm = ({ initialValues, onSubmit }) => {
   );
 };
 
-export default EditUserForm;
+export default AddUser;

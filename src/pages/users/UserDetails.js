@@ -6,11 +6,11 @@ import { Box, Grid, Paper } from "@mui/material";
 import { UrlBuilder } from "helpers/UrlBuilder";
 import { useParams } from "react-router";
 
-function RecipeDetails() {
+function UserDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const {
-    recipeDetails = {
+    userDetails = {
       data: [],
     },
   } = useSelector(selectApi);
@@ -22,28 +22,28 @@ function RecipeDetails() {
   function fetchData() {
     dispatch(
       callApi({
-        operationId: UrlBuilder.localHostApi(`api/v1/recipe/${id}`),
-        output: "recipeDetails",
+        operationId: UrlBuilder.localHostApi(`api/v1/user/${id}`),
+        output: "userDetails",
       })
     );
   }
   return (
-    <CustomCard label={recipeDetails?.data?.recipe?.title}>
+    <CustomCard label={userDetails?.data?.user?.title}>
       <Box item flex={1}>
-        <h4>Category : {recipeDetails?.data?.recipe?.category}</h4>
+        <h4>Category : {userDetails?.data?.user?.category}</h4>
         <p>
           <span style={{ fontWeight: "bold" }}>Description :</span>
-          {recipeDetails?.data?.recipe?.description}
+          {userDetails?.data?.user?.description}
         </p>
         <h4>Ingredients</h4>
         <ul>
-          {recipeDetails?.data?.recipe?.ingredients.map((el) => {
+          {userDetails?.data?.user?.ingredients.map((el) => {
             return <li>{el}</li>;
           })}
         </ul>
         <h4>instructions</h4>
         <ul>
-          {recipeDetails?.data?.recipe?.instructions.map((el) => {
+          {userDetails?.data?.user?.instructions.map((el) => {
             return <li>{el}</li>;
           })}
         </ul>
@@ -52,4 +52,4 @@ function RecipeDetails() {
   );
 }
 
-export default RecipeDetails;
+export default UserDetails;

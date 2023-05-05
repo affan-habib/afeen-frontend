@@ -6,6 +6,8 @@ import Loadable from "components/Loadable";
 import AuthGuard from "utils/route-guard/AuthGuard";
 import RecipeDetails from "pages/recipes/RecipeDetails";
 import ResumeDetails from "pages/resumes/ResumeDetails";
+import Users from "pages/users/Users";
+import AddUser from "pages/users/AddUser";
 
 // render - sample page
 const Dashboard = Loadable(lazy(() => import("pages/dashboard/Dashboard")));
@@ -72,9 +74,18 @@ const MainRoutes = {
           element: <ResumeDetails />,
         },
         {
-          path: "add-user",
-          element: <CreateUser />,
+          path: "users",
+          element: <Users />,
         },
+        {
+          path: "add-user",
+          element: <AddUser />,
+        },
+        {
+          path: "users/:id",
+          element: <ResumeDetails />,
+        },
+
         {
           path: "jobs",
           element: <Jobs />,

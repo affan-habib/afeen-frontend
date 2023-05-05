@@ -4,12 +4,12 @@ import CustomCard from "components/CustomCard";
 import { useSelector } from "react-redux";
 import { selectApi } from "store/reducers/apiSlice";
 import moment from "moment";
-import FilterRecipes from "./FilterRecipes";
+import FilterUsers from "./FilterUsers";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router";
 import { EyeFilled } from "@ant-design/icons";
 
-function Recipes() {
+function Users() {
   const navigate = useNavigate();
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
@@ -33,14 +33,14 @@ function Recipes() {
   const [pageSize, setPageSize] = React.useState(10);
 
   const {
-    allRecipes = {
+    allUsers = {
       data: [],
       count: 0,
       pagination: {
         count: 0,
       },
     },
-    recipes = {
+    users = {
       data: [],
     },
   } = useSelector(selectApi);
@@ -51,18 +51,18 @@ function Recipes() {
   };
 
   return (
-    <CustomCard label="List of Recipes">
-      <FilterRecipes page={page} pageSize={pageSize} />
+    <CustomCard label="List of Users">
+      <FilterUsers page={page} pageSize={pageSize} />
       <DataGrid
         sx={{ mt: 2 }}
         getRowId={(row) => row._id}
-        rows={recipes.data.recipes || []}
+        rows={users.data.users || []}
         columns={columns}
         onPageinationModelChange={onPageinationModelChange}
-        rowCount={allRecipes.pagination.total}
+        rowCount={allUsers.pagination.total}
       />
     </CustomCard>
   );
 }
 
-export default Recipes;
+export default Users;
