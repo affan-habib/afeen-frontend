@@ -17,12 +17,12 @@ import { useParams } from "react-router";
 import { callApi, selectApi } from "store/reducers/apiSlice";
 
 const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
-  worksAt: Yup.string(),
-  country: Yup.string(),
-  livesIn: Yup.string(),
-  relationship: Yup.string(),
+  // firstName: Yup.string().required("First Name is required"),
+  // lastName: Yup.string().required("Last Name is required"),
+  // worksAt: Yup.string(),
+  // country: Yup.string(),
+  // livesIn: Yup.string(),
+  // relationship: Yup.string(),
 });
 
 const initialValues = {
@@ -70,7 +70,18 @@ const EditUser = ({ onSubmit }) => {
   return (
     <Formik
       initialValues={userDetails}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => {
+        dispatch(
+          callApi({
+            operationId: UrlBuilder.localHostApi(`api/v1/user/${id}`),
+            parameters: {
+              method: "PUT",
+              body: JSON.stringify({ ...values, _id: id }),
+            },
+            output: "updatedUser",
+          })
+        );
+      }}
       validationSchema={validationSchema}
     >
       {({ errors, touched, setFieldValue }) => (
