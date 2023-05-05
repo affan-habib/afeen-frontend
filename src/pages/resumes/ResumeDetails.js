@@ -38,7 +38,17 @@ function ResumeDetails() {
         <h4>Educations</h4>
         <ul>
           {resumeDetails?.data?.resume?.educations.map((el) => {
-            return <li>{el}</li>;
+            return (
+              <li>
+                Degree
+                <ul>
+                  <li>{el.degree}</li>
+                  <li>{el.institution}</li>
+                  <li>{el.fieldOfStudy}</li>
+                  <li>{el.graduationDate}</li>
+                </ul>
+              </li>
+            );
           })}
         </ul>
         <h4>skills</h4>

@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
   about: Yup.string().required("Required"),
   category: Yup.string().required("Required"),
-  educations: Yup.array(),
+  // educations: Yup.array(),
   skills: Yup.array().of(Yup.string().required("Required")),
 });
 
@@ -25,7 +25,7 @@ const initialValues = {
       institution: "",
       degree: "",
       fieldOfStudy: "",
-      graduationDate: null,
+      graduationDate: "12/12/2014",
     },
   ],
   category: "",
@@ -206,7 +206,7 @@ export default function AddResume() {
                               institution: "",
                               degree: "",
                               fieldOfStudy: "",
-                              graduationDate: null,
+                              graduationDate: '12/12/2018',
                             })
                           }
                         >
