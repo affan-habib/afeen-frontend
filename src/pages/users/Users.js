@@ -13,16 +13,15 @@ function Users() {
   const navigate = useNavigate();
   const columns = [
     { field: "_id", headerName: "ID", width: 200 },
-    { field: "title", headerName: "Title", width: 200 },
-    { field: 'description', headerName: 'Description', flex: 1 },
-    { field: "category", headerName: "Category", width: 150 },
+    { field: "userName", headerName: "Username", width: 200 },
+    { field: "isAdmin", headerName: "isAdmmin", width: 200  },
     { field: "createdAt", headerName: "Created At", width: 100 },
     {
       field: "actions",
       headerName: "Actions",
       width: 100,
       renderCell: (params) => (
-        <IconButton onClick={() => navigate(params.id)} color="primary">
+        <IconButton onClick={() => navigate(`edit/${params.id}`)} color="primary">
           <EyeFilled />
         </IconButton>
       ),
@@ -40,9 +39,7 @@ function Users() {
         count: 0,
       },
     },
-    users = {
-      data: [],
-    },
+    users,
   } = useSelector(selectApi);
 
   const onPageinationModelChange = (params) => {
@@ -56,7 +53,7 @@ function Users() {
       <DataGrid
         sx={{ mt: 2 }}
         getRowId={(row) => row._id}
-        rows={users.data.users || []}
+        rows={users || []}
         columns={columns}
         onPageinationModelChange={onPageinationModelChange}
         rowCount={allUsers.pagination.total}

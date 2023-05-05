@@ -9,10 +9,8 @@ const FilterJobs = ({ page, pageSize }) => {
   const dispatch = useDispatch();
   const [category, setCategory] = useState("");
   React.useEffect(() => {
-    if(category.length <= 5){
-      fetchData();
-    }
-  }, [category]);
+    fetchData();
+  }, []);
 
   function fetchData() {
     dispatch(
@@ -26,7 +24,7 @@ const FilterJobs = ({ page, pageSize }) => {
   }
 
   return (
-    <Stack mb={2} spacing={2} direction="row">
+    <Stack>
       <CustomTextField
         onChange={(e) => setCategory(e.target.value)}
         inputLabel="SEARCH BY TITLE"

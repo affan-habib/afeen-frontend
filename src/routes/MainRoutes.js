@@ -7,7 +7,7 @@ import AuthGuard from "utils/route-guard/AuthGuard";
 import RecipeDetails from "pages/recipes/RecipeDetails";
 import ResumeDetails from "pages/resumes/ResumeDetails";
 import Users from "pages/users/Users";
-import AddUser from "pages/users/AddUser";
+import EditUser from "pages/users/EditUser";
 
 // render - sample page
 const Dashboard = Loadable(lazy(() => import("pages/dashboard/Dashboard")));
@@ -78,8 +78,8 @@ const MainRoutes = {
           element: <Users />,
         },
         {
-          path: "add-user",
-          element: <AddUser />,
+          path: "users/edit/:id",
+          element: <EditUser />,
         },
         {
           path: "users/:id",

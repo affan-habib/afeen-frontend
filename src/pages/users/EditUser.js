@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
@@ -11,6 +11,10 @@ import {
 } from "@mui/material";
 import { PhotoCamera } from "@mui/icons-material";
 import CustomTextField from "components/CustomTextField";
+import { useDispatch, useSelector } from "react-redux";
+import { UrlBuilder } from "helpers/UrlBuilder";
+import { useParams } from "react-router";
+import { callApi, selectApi } from "store/reducers/apiSlice";
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("First Name is required"),
@@ -30,11 +34,28 @@ const initialValues = {
   relationship: "",
 };
 
-const AddUser = ({ onSubmit }) => {
+const EditUser = ({ onSubmit }) => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const [profileImage, setProfileImage] = useState(null);
   const [coverImage, setCoverImage] = useState(null);
   const [isProfileImageUploading, setIsProfileImageUploading] = useState(false);
   const [isCoverImageUploading, setIsCoverImageUploading] = useState(false);
+
+  function fetchData() {
+    dispatch(
+      callApi({
+        operationId: UrlBuilder.localHostApi(`api/v1/user/${id}`),
+        output: "userDetails",
+      })
+    );
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const { userDetails = {} } = useSelector(selectApi);
 
   const handleProfileImageChange = (event) => {
     const file = event.target.files[0];
@@ -48,7 +69,7 @@ const AddUser = ({ onSubmit }) => {
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={userDetails}
       onSubmit={(values) => console.log(values)}
       validationSchema={validationSchema}
     >
@@ -170,4 +191,4 @@ const AddUser = ({ onSubmit }) => {
   );
 };
 
-export default AddUser;
+export default EditUser;
