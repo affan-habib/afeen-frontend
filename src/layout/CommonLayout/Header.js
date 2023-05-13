@@ -21,14 +21,12 @@ import {
   Stack,
   Toolbar,
   Typography,
-  useScrollTrigger
+  useScrollTrigger,
+  IconButton
 } from '@mui/material';
 
 // project import
 import config from 'config';
-import IconButton from 'components/@extended/IconButton';
-import AnimateButton from 'components/@extended/AnimateButton';
-import Logo from 'components/logo';
 
 // assets
 import { MenuOutlined, LineOutlined } from '@ant-design/icons';
@@ -76,7 +74,6 @@ const Header = ({ handleDrawerOpen, layout = 'landing', ...others }) => {
           <Toolbar sx={{ px: { xs: 1.5, md: 0, lg: 0 }, py: 2 }}>
             <Stack direction="row" sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }} alignItems="center">
               <Typography component="div" sx={{ textAlign: 'left', display: 'inline-block' }}>
-                <Logo reverse to="/" />
               </Typography>
               <Chip
                 label={process.env.REACT_APP_VERSION}
@@ -110,7 +107,7 @@ const Header = ({ handleDrawerOpen, layout = 'landing', ...others }) => {
                 Documentation
               </Link>
               <Box sx={{ display: 'inline-block' }}>
-                <AnimateButton>
+                <Button>
                   <Button
                     component={Link}
                     href="https://mui.com/store/items/mantis-react-admin-dashboard-template/"
@@ -120,7 +117,7 @@ const Header = ({ handleDrawerOpen, layout = 'landing', ...others }) => {
                   >
                     Purchase Now
                   </Button>
-                </AnimateButton>
+                </Button>
               </Box>
             </Stack>
             <Box
@@ -132,7 +129,6 @@ const Header = ({ handleDrawerOpen, layout = 'landing', ...others }) => {
               }}
             >
               <Typography component="div" sx={{ textAlign: 'left', display: 'inline-block' }}>
-                <Logo reverse to="/" />
               </Typography>
               <Stack direction="row" spacing={2}>
                 {layout === 'component' && (
