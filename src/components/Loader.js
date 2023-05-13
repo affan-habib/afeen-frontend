@@ -1,25 +1,22 @@
-// material-ui
-import { styled } from '@mui/material/styles';
-import LinearProgress from '@mui/material/LinearProgress';
+import * as React from "react";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
-// loader style
-const LoaderWrapper = styled('div')(({ theme }) => ({
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  zIndex: 2001,
-  width: '100%',
-  '& > * + *': {
-    marginTop: theme.spacing(2)
-  }
-}));
+export default function Loader() {
+  const [open, setOpen] = React.useState(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-// ==============================|| Loader ||============================== //
-
-const Loader = () => (
-  <LoaderWrapper>
-    <LinearProgress color="primary" />
-  </LoaderWrapper>
-);
-
-export default Loader;
+  return (
+    <div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 , background: "#effafa"}}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="primary" />
+      </Backdrop>
+    </div>
+  );
+}
