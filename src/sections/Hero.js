@@ -1,14 +1,13 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#effafa",
   },
 }));
 
@@ -18,9 +17,17 @@ const Hero = () => {
   return (
     <div className={classes.root}>
       <div className={classes.hero}>
-        <Typography variant="h3" component="h1">
-          Hero Component
-        </Typography>
+        <Box m={2}>
+          <Typography variant="h3" component="h1">
+            Javascript Developer
+          </Typography>
+          <Typography variant="body" component="h1">
+            Hero Component
+          </Typography>
+          <Typography variant="h3" component="h1">
+            Hero Component
+          </Typography>
+        </Box>
       </div>
     </div>
   );
