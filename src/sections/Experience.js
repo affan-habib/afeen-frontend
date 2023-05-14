@@ -8,6 +8,7 @@ import {
   CardActions,
   IconButton,
   Grid,
+  Container,
 } from "@mui/material";
 import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";
 
@@ -18,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "#fffff2",
   },
   icon: {
     marginRight: theme.spacing(1),
@@ -34,7 +34,7 @@ const ExperienceComponent = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Container className={classes.root}>
       <Grid container spacing={2} padding={2}>
         <Grid item xs={12} sm={12}>
           <Typography align="center" variant="h4" mb={4}>Experience</Typography>
@@ -118,7 +118,7 @@ const ExperienceComponent = () => {
           </Card>
         </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 };
 
