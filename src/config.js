@@ -1,6 +1,6 @@
 const config = {
   defaultPath: '/dashboard',
-  fontFamily: `'Poppins', sans-serif`,
+  fontFamily: `'Roboto', sans-serif`,
   i18n: 'en',
   miniDrawer: false,
   container: true,
