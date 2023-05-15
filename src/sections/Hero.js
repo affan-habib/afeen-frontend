@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     display: "flex",
     alignItems: "center",
-    backgroundColor: "#effafa",
   },
 }));
 

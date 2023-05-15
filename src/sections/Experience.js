@@ -15,7 +15,6 @@ import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";
 const useStyles = makeStyles((theme) => ({
   root: {
     // margin: theme.spacing(2),
-    height: `calc(100vh - ${0}px)`,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -35,9 +34,11 @@ const ExperienceComponent = () => {
 
   return (
     <Container className={classes.root}>
-      <Grid container spacing={2} padding={2}>
+      <Grid container spacing={2}>
         <Grid item xs={12} sm={12}>
-          <Typography align="center" variant="h4" mb={4}>Experience</Typography>
+          <Typography align="center" variant="h4" mb={4}>
+            Experience
+          </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Card>

@@ -9,15 +9,6 @@ import SvelteIcon from "@mui/icons-material/Code";
 import ReduxIcon from "@mui/icons-material/Code";
 
 const useStyles = makeStyles((theme) => ({
-  skills: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: `calc(100vh - ${0}px)`,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   skill: {
     display: "flex",
     flexDirection: "column",
@@ -41,7 +32,7 @@ const SkillsSection = () => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.skills}>
+    <Container sx={{ width: "100%" }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={3}>
           <div className={classes.skill}>

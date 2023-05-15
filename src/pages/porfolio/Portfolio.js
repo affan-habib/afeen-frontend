@@ -1,3 +1,4 @@
+import VerticalTabs from "components/VerticalTabs";
 import React from "react";
 import Experience from "sections/Experience";
 import Hero from "sections/Hero";
@@ -7,10 +8,8 @@ import Skills from "sections/Skills";
 function Portfolio() {
   return (
     <div>
+      <VerticalTabs />
       <Navbar />
-      <Hero />
-      <Experience />
-      <Skills />
     </div>
   );
 }
