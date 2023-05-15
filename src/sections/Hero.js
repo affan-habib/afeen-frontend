@@ -25,7 +25,7 @@ const Hero = () => {
       <div className={classes.hero}>
         <Container>
           <Grid container>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={12}>
               <Typography variant="h2" gutterBottom={2} component="h1">
                 I am
               </Typography>

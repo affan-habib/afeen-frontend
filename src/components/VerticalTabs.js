@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import ExperienceComponent from "sections/Experience";
 import Hero from "sections/Hero";
 import SkillsSection from "sections/Skills";
+import { BoxPlotFilled } from "@ant-design/icons";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,9 +32,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
+          <Box>{children}</Box>
       )}
     </div>
   );
@@ -78,8 +77,6 @@ export default function VerticalTabs() {
           borderColor: "divider",
           width: 200,
           flexShrink: 0,
-          borderRight: 1,
-          borderColor: "divider",
         }}
       >
         <Tab label="Experience" {...a11yProps(0)} />
