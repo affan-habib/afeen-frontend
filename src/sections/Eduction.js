@@ -39,9 +39,9 @@ const Education = () => {
               subheader="University of ABC"
               titleTypographyProps={{ variant: "h6" }}
               subheaderTypographyProps={{ variant: "subtitle1" }}
-              action={<>Duration: 4 years</>}
+              action={<>2015</>}
             />
-            <CardContent>
+            <CardContent sx={{ padding: 0, paddingLeft: 2 }}>
               <li>list one</li>
               <CardActions>
                 <div className={classes.technology}>
@@ -59,9 +59,9 @@ const Education = () => {
               subheader="University of XYZ"
               titleTypographyProps={{ variant: "h6" }}
               subheaderTypographyProps={{ variant: "subtitle1" }}
-              action={<>Duration: 2 years</>}
+              action={<>2015</>}
             />
-            <CardContent>
+            <CardContent sx={{ padding: 0, paddingLeft: 2 }}>
               <li>list one</li>
               <CardActions>
                 <div className={classes.technology}>
@@ -79,9 +79,9 @@ const Education = () => {
               subheader="University of DEF"
               titleTypographyProps={{ variant: "h6" }}
               subheaderTypographyProps={{ variant: "subtitle1" }}
-              action={<>Duration: 4 years</>}
+              action={<>2008</>}
             />
-            <CardContent>
+            <CardContent sx={{ padding: 0, paddingLeft: 2 }}>
               <li>list one</li>
               <CardActions>
                 <div className={classes.technology}>

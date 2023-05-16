@@ -60,10 +60,10 @@ const Email = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.Email}>
+      <div className={classes.Email}>   
         <Container>
           <Grid container>
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12} md={6}>
               <form className={classes.form} onSubmit={handleSubmit}>
                 <TextField
                   className={classes.formField}
