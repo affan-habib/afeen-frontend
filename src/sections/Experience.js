@@ -30,18 +30,16 @@ const Experience = () => {
       <Paper variant="square" sx={{ p: 4 }} className={classes.Experience}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
-            <Typography variant="h4">
-              Experience
-            </Typography>
+            <Typography variant="h4">Experience</Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Card>
               <CardHeader
-                title="Software Developer"
-                subheader="ABC Company"
+                title="Software Engineer"
+                subheader="Gononet Online Solutions Ltd."
                 titleTypographyProps={{ variant: "h6" }}
                 subheaderTypographyProps={{ variant: "subtitle1" }}
-                action={<>Duration: 2 years</>}
+                action={<>0.3 years</>}
               />
               <CardContent>
                 <Typography variant="body2">
@@ -64,10 +62,10 @@ const Experience = () => {
             <Card>
               <CardHeader
                 title="Software Developer"
-                subheader="ABC Company"
+                subheader="Ethics Advance Technology Ltd."
                 titleTypographyProps={{ variant: "h6" }}
                 subheaderTypographyProps={{ variant: "subtitle1" }}
-                action={<>Duration: 2 years</>}
+                action={<>2 Years</>}
               />
               <CardContent>
                 <Typography variant="body2">
@@ -89,11 +87,11 @@ const Experience = () => {
           <Grid item xs={12} sm={4}>
             <Card>
               <CardHeader
-                title="Software Developer"
-                subheader="ABC Company"
+                title="UI/UX , Graphic Designer"
+                subheader="Fiverr.com"
                 titleTypographyProps={{ variant: "h6" }}
                 subheaderTypographyProps={{ variant: "subtitle1" }}
-                action={<>Duration: 2 years</>}
+                action={<>3 years</>}
               />
               <CardContent>
                 <Typography variant="body2">

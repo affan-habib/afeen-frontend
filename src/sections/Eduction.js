@@ -28,7 +28,10 @@ const Education = () => {
 
   return (
     <div className={classes.education}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} m={2}>
+        <Grid item md={12}>
+          <Typography variant="h3">Academic</Typography>
+        </Grid>
         <Grid item xs={12} sm={4}>
           <Card>
             <CardHeader
@@ -39,12 +42,7 @@ const Education = () => {
               action={<>Duration: 4 years</>}
             />
             <CardContent>
-              <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                consectetur cursus quam, eget finibus ligula consectetur a. Ut
-                fringilla hendrerit consectetur. Integer malesuada risus eget
-                leo accumsan placerat.
-              </Typography>
+              <li>list one</li>
               <CardActions>
                 <div className={classes.technology}>
                   <SchoolOutlined className={classes.icon} />
@@ -64,12 +62,7 @@ const Education = () => {
               action={<>Duration: 2 years</>}
             />
             <CardContent>
-              <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                consectetur cursus quam, eget finibus ligula consectetur a. Ut
-                fringilla hendrerit consectetur. Integer malesuada risus eget
-                leo accumsan placerat.
-              </Typography>
+              <li>list one</li>
               <CardActions>
                 <div className={classes.technology}>
                   <SchoolOutlined className={classes.icon} />
@@ -89,12 +82,7 @@ const Education = () => {
               action={<>Duration: 4 years</>}
             />
             <CardContent>
-              <Typography variant="body2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                consectetur cursus quam, eget finibus ligula consectetur a. Ut
-                fringilla hendrerit consectetur. Integer malesuada risus eget
-                leo accumsan placerat.
-              </Typography>
+              <li>list one</li>
               <CardActions>
                 <div className={classes.technology}>
                   <SchoolOutlined className={classes.icon} />
