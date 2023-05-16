@@ -15,10 +15,8 @@ function TabPanel(props) {
   const useStyles = makeStyles((theme) => ({
     root: {
       height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
       overflow: "hidden",
+      width: `calc(100vw - ${0}px)`,
     },
   }));
   const classes = useStyles();
@@ -31,9 +29,7 @@ function TabPanel(props) {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && (
-          <Box>{children}</Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }

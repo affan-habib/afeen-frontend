@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import VerticalTabs from "components/VerticalTabs";
 import React from "react";
 import Experience from "sections/Experience";
@@ -7,10 +8,10 @@ import Skills from "sections/Skills";
 
 function Portfolio() {
   return (
-    <div>
+    <Container>
       <VerticalTabs />
       <Navbar />
-    </div>
+    </Container>
   );
 }
 

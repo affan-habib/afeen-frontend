@@ -9,6 +9,11 @@ import SvelteIcon from "@mui/icons-material/Code";
 import ReduxIcon from "@mui/icons-material/Code";
 
 const useStyles = makeStyles((theme) => ({
+  hero: {
+    height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
+    display: "flex",
+    alignItems: "center",
+  },
   skill: {
     display: "flex",
     flexDirection: "column",
@@ -32,58 +37,60 @@ const SkillsSection = () => {
   const classes = useStyles();
 
   return (
-    
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <JavaScriptIcon className={classes.icon} />
-            <Typography variant="h6">JavaScript</Typography>
-          </div>
+    <>
+      <div className={classes.hero}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <JavaScriptIcon className={classes.icon} />
+              <Typography variant="h6">JavaScript</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <HTMLIcon className={classes.icon} />
+              <Typography variant="h6">HTML</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <CSSIcon className={classes.icon} />
+              <Typography variant="h6">CSS</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <ReactIcon className={classes.icon} />
+              <Typography variant="h6">React</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <SvelteIcon className={classes.icon} />
+              <Typography variant="h6">Svelte</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <ReduxIcon className={classes.icon} />
+              <Typography variant="h6">Redux</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <ReduxIcon className={classes.icon} />
+              <Typography variant="h6">Node Js</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={classes.skill}>
+              <ReduxIcon className={classes.icon} />
+              <Typography variant="h6">MongoDB</Typography>
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <HTMLIcon className={classes.icon} />
-            <Typography variant="h6">HTML</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <CSSIcon className={classes.icon} />
-            <Typography variant="h6">CSS</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <ReactIcon className={classes.icon} />
-            <Typography variant="h6">React</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <SvelteIcon className={classes.icon} />
-            <Typography variant="h6">Svelte</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <ReduxIcon className={classes.icon} />
-            <Typography variant="h6">Redux</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <ReduxIcon className={classes.icon} />
-            <Typography variant="h6">Node Js</Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <div className={classes.skill}>
-            <ReduxIcon className={classes.icon} />
-            <Typography variant="h6">MongoDB</Typography>
-          </div>
-        </Grid>
-      </Grid>
-
+      </div>
+    </>
   );
 };
 
