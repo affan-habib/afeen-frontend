@@ -9,6 +9,7 @@ import ExperienceComponent from "sections/Experience";
 import Hero from "sections/Hero";
 import SkillsSection from "sections/Skills";
 import { BoxPlotFilled } from "@ant-design/icons";
+import Education from "sections/Eduction";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,34 +76,30 @@ export default function VerticalTabs() {
           flexShrink: 0,
         }}
       >
-        <Tab label="Experience" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-        <Tab label="Item Five" {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
+        <Tab label="Welcome" {...a11yProps(0)} />
+        <Tab label="Experience" {...a11yProps(1)} />
+        <Tab label="Skills" {...a11yProps(2)} />
+        <Tab label="Education" {...a11yProps(3)} />
+        <Tab label="Projects" {...a11yProps(4)} />
+        <Tab label="contact" {...a11yProps(5)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <ExperienceComponent />
+        <Hero />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Hero />
+        <ExperienceComponent />
       </TabPanel>
       <TabPanel value={value} index={2}>
         <SkillsSection />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <Education />
       </TabPanel>
       <TabPanel value={value} index={4}>
         Item Five
       </TabPanel>
       <TabPanel value={value} index={5}>
         Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
       </TabPanel>
     </Box>
   );
