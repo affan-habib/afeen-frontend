@@ -27,10 +27,10 @@ const Experience = () => {
 
   return (
     <div className={classes.root}>
-      <Paper variant="square" sx={{ p: 2 }} className={classes.Experience}>
+      <Paper variant="square" sx={{ p: 4 }} className={classes.Experience}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
-            <Typography align="center" variant="h4" mb={4}>
+            <Typography variant="h4">
               Experience
             </Typography>
           </Grid>

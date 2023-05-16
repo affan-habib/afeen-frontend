@@ -10,6 +10,7 @@ import Hero from "sections/Hero";
 import SkillsSection from "sections/Skills";
 import { BoxPlotFilled } from "@ant-design/icons";
 import Education from "sections/Eduction";
+import Email from "sections/Email";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -80,8 +81,7 @@ export default function VerticalTabs() {
         <Tab label="Experience" {...a11yProps(1)} />
         <Tab label="Skills" {...a11yProps(2)} />
         <Tab label="Education" {...a11yProps(3)} />
-        <Tab label="Projects" {...a11yProps(4)} />
-        <Tab label="contact" {...a11yProps(5)} />
+        <Tab label="Write me" {...a11yProps(4)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Hero />
@@ -96,10 +96,7 @@ export default function VerticalTabs() {
         <Education />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
+        <Email />
       </TabPanel>
     </Box>
   );
