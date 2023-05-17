@@ -14,21 +14,23 @@ import {
 } from "@mui/material";
 import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";
 
-const useStyles = makeStyles((theme) => ({
-  experience: {
-    height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  card: {
-    maxWidth: 400,
-    marginBottom: theme.spacing(2),
-  },
-  icon: {
-    marginRight: theme.spacing(1),
-  },
-}));
+const useStyles = makeStyles((theme) => {
+  return {
+    experience: {
+      height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
+      display: "flex",
+      alignItems: "center",
+      // justifyContent: "center",
+    },
+    card: {
+      maxWidth: 400,
+      // marginBottom: theme.spacing(2),
+    },
+    icon: {
+      marginRight: theme.spacing(1),
+    },
+  };
+});
 
 const experienceData = [
   {
@@ -60,7 +62,7 @@ const Experience = () => {
             <Typography variant="h4">Experience</Typography>
           </Grid>
           {experienceData.map((experience, index) => (
-            <Grid item xs={12} sm={4} key={index}>
+            <Grid item xs={12} sm={6} key={index}>
               <Card className={classes.card}>
                 <CardHeader
                   title={experience.title}
@@ -69,24 +71,14 @@ const Experience = () => {
                   subheaderTypographyProps={{ variant: "subtitle1" }}
                   action={<>{experience.duration}</>}
                 />
-                <CardContent>
-                  <Typography variant="body2">
-                    <List dense>
-                      {experience.description.map((item, index) => (
-                        <ListItem key={index}>
-                          <ListItemText primary={item} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Typography>
-                  <CardActions>
-                    <div className={classes.technology}>
-                      <RecentActors className={classes.icon} />
-                      <MusicNoteOutlined className={classes.icon} />
-                      <HowToReg className={classes.icon} />
-                    </div>
-                  </CardActions>
-                </CardContent>
+
+                <CardActions>
+                  <div className={classes.technology}>
+                    <RecentActors className={classes.icon} />
+                    <MusicNoteOutlined className={classes.icon} />
+                    <HowToReg className={classes.icon} />
+                  </div>
+                </CardActions>
               </Card>
             </Grid>
           ))}

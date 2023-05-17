@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { Container, Grid, Button } from "@mui/material";
 import axios from "axios";
+import CustomTextField from "components/CustomTextField";
 
 const useStyles = makeStyles((theme) => ({
   Email: {
@@ -52,13 +53,13 @@ const Email = () => {
   return (
     <div className={classes.root}>
       <div className={classes.Email}>
-        <Container>
-          <Grid container>
+        <>
+          <Grid container p={2}>
             <Grid item xs={12} md={6}>
               <form className={classes.form} onSubmit={handleSubmit}>
                 <CustomTextField
                   className={classes.formField}
-                  label="Name"
+                  inputLabel="Name"
                   variant="outlined"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -66,7 +67,7 @@ const Email = () => {
                 />
                 <CustomTextField
                   className={classes.formField}
-                  label="Email"
+                  inputLabel="Email"
                   variant="outlined"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -74,7 +75,7 @@ const Email = () => {
                 />
                 <CustomTextField
                   className={classes.formField}
-                  label="Message"
+                  inputLabel="Message"
                   variant="outlined"
                   multiline
                   rows={4}
@@ -88,7 +89,7 @@ const Email = () => {
               </form>
             </Grid>
           </Grid>
-        </Container>
+        </>
       </div>
     </div>
   );
