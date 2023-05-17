@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { Container, Grid, TextField, Button } from "@mui/material";
+import { Container, Grid, Button } from "@mui/material";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     maxWidth: 400,
-    margin: "0 auto",
+    // margin: "0 auto",
   },
   formField: {
     marginBottom: theme.spacing(2),
@@ -56,7 +56,7 @@ const Email = () => {
           <Grid container>
             <Grid item xs={12} md={6}>
               <form className={classes.form} onSubmit={handleSubmit}>
-                <TextField
+                <CustomTextField
                   className={classes.formField}
                   label="Name"
                   variant="outlined"
@@ -64,7 +64,7 @@ const Email = () => {
                   onChange={(e) => setName(e.target.value)}
                   required
                 />
-                <TextField
+                <CustomTextField
                   className={classes.formField}
                   label="Email"
                   variant="outlined"
@@ -72,7 +72,7 @@ const Email = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <TextField
+                <CustomTextField
                   className={classes.formField}
                   label="Message"
                   variant="outlined"

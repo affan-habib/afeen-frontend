@@ -1,13 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { SchoolOutlined, BookOutlined } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,82 +11,60 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
   },
+  card: {
+    maxWidth: 400,
+    marginBottom: theme.spacing(2),
+  },
   icon: {
     marginRight: theme.spacing(1),
   },
+  spacing: {
+    marginTop: theme.spacing(2),
+  },
 }));
+
+const educationData = [
+  {
+    degree: "Bachelor's Degree",
+    institution: "Dhaka University",
+    subject: "Accounting",
+    year: "2015",
+  },
+  {
+    degree: "Higher Secondary",
+    institution: "Cantonment Public School and College",
+    subject: "N/A",
+    year: "2010",
+  },
+  {
+    degree: "Secondary School Certificate",
+    institution: "ZBSM High School",
+    subject: "N/A",
+    year: "2008",
+  },
+];
 
 const Education = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.education}>
-      <Grid container spacing={2} m={2}>
-        <Grid item md={12}>
-          <Typography variant="h3">Academic</Typography>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Card>
+      <div>
+        <Typography variant="h3" gutterBottom={2}>Academic</Typography>
+        {educationData.map((item, index) => (
+          <Card className={classes.card} key={index}>
             <CardHeader
-              title="Bachelor's Degree"
-              subheader="University of ABC"
+              title={item.degree}
+              subheader={item.institution}
               titleTypographyProps={{ variant: "h6" }}
               subheaderTypographyProps={{ variant: "subtitle1" }}
-              action={<>2015</>}
+              action={<>{item.year}</>}
             />
-            <CardContent sx={{ padding: 0, paddingLeft: 2 }}>
-              <li>list one</li>
-              <CardActions>
-                <div className={classes.technology}>
-                  <SchoolOutlined className={classes.icon} />
-                  <BookOutlined className={classes.icon} />
-                </div>
-              </CardActions>
-            </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Card>
-            <CardHeader
-              title="Master's Degree"
-              subheader="University of XYZ"
-              titleTypographyProps={{ variant: "h6" }}
-              subheaderTypographyProps={{ variant: "subtitle1" }}
-              action={<>2015</>}
-            />
-            <CardContent sx={{ padding: 0, paddingLeft: 2 }}>
-              <li>list one</li>
-              <CardActions>
-                <div className={classes.technology}>
-                  <SchoolOutlined className={classes.icon} />
-                  <BookOutlined className={classes.icon} />
-                </div>
-              </CardActions>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Card>
-            <CardHeader
-              title="PhD in Computer Science"
-              subheader="University of DEF"
-              titleTypographyProps={{ variant: "h6" }}
-              subheaderTypographyProps={{ variant: "subtitle1" }}
-              action={<>2008</>}
-            />
-            <CardContent sx={{ padding: 0, paddingLeft: 2 }}>
-              <li>list one</li>
-              <CardActions>
-                <div className={classes.technology}>
-                  <SchoolOutlined className={classes.icon} />
-                  <BookOutlined className={classes.icon} />
-                </div>
-              </CardActions>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+        ))}
+      </div>
     </div>
   );
 };
+
 export default Education;

@@ -8,104 +8,88 @@ import {
   Grid,
   Paper,
   Typography,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";
+
 const useStyles = makeStyles((theme) => ({
-  Experience: {
+  experience: {
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
+  },
+  card: {
+    maxWidth: 400,
+    marginBottom: theme.spacing(2),
+  },
+  icon: {
+    marginRight: theme.spacing(1),
   },
 }));
+
+const experienceData = [
+  {
+    title: "Software Engineer",
+    company: "Gononet Online Solutions Ltd.",
+    description: [
+      "Ut fringilla hendrerit consectetur. Integer malesuada risus eget leo accumsan placerat.",
+    ],
+    duration: "0.3 years",
+  },
+  {
+    title: "Software Developer",
+    company: "Ethics Advance Technology Ltd.",
+    description: [
+      "Ut fringilla hendrerit consectetur. Integer malesuada risus eget leo accumsan placerat.",
+    ],
+    duration: "2 Years",
+  },
+];
 
 const Experience = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Paper variant="square" sx={{ p: 4 }} className={classes.Experience}>
+    <div className={classes.experience}>
+      <Paper variant="square" sx={{ p: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
             <Typography variant="h4">Experience</Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Card>
-              <CardHeader
-                title="Software Engineer"
-                subheader="Gononet Online Solutions Ltd."
-                titleTypographyProps={{ variant: "h6" }}
-                subheaderTypographyProps={{ variant: "subtitle1" }}
-                action={<>0.3 years</>}
-              />
-              <CardContent>
-                <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam consectetur cursus quam, eget finibus ligula
-                  consectetur a. Ut fringilla hendrerit consectetur. Integer
-                  malesuada risus eget leo accumsan placerat.
-                </Typography>
-                <CardActions>
-                  <div className={classes.technology}>
-                    <RecentActors className={classes.icon} />
-                    <MusicNoteOutlined className={classes.icon} />
-                    <HowToReg className={classes.icon} />
-                  </div>
-                </CardActions>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Card>
-              <CardHeader
-                title="Software Developer"
-                subheader="Ethics Advance Technology Ltd."
-                titleTypographyProps={{ variant: "h6" }}
-                subheaderTypographyProps={{ variant: "subtitle1" }}
-                action={<>2 Years</>}
-              />
-              <CardContent>
-                <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam consectetur cursus quam, eget finibus ligula
-                  consectetur a. Ut fringilla hendrerit consectetur. Integer
-                  malesuada risus eget leo accumsan placerat.
-                </Typography>
-                <CardActions>
-                  <div className={classes.technology}>
-                    <RecentActors className={classes.icon} />
-                    <MusicNoteOutlined className={classes.icon} />
-                    <HowToReg className={classes.icon} />
-                  </div>
-                </CardActions>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Card>
-              <CardHeader
-                title="UI/UX , Graphic Designer"
-                subheader="Fiverr.com"
-                titleTypographyProps={{ variant: "h6" }}
-                subheaderTypographyProps={{ variant: "subtitle1" }}
-                action={<>3 years</>}
-              />
-              <CardContent>
-                <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam consectetur cursus quam, eget finibus ligula
-                  consectetur a. Ut fringilla hendrerit consectetur. Integer
-                  malesuada risus eget leo accumsan placerat.
-                </Typography>
-                <CardActions>
-                  <div className={classes.technology}>
-                    <RecentActors className={classes.icon} />
-                    <MusicNoteOutlined className={classes.icon} />
-                    <HowToReg className={classes.icon} />
-                  </div>
-                </CardActions>
-              </CardContent>
-            </Card>
-          </Grid>
+          {experienceData.map((experience, index) => (
+            <Grid item xs={12} sm={4} key={index}>
+              <Card className={classes.card}>
+                <CardHeader
+                  title={experience.title}
+                  subheader={experience.company}
+                  titleTypographyProps={{ variant: "h6" }}
+                  subheaderTypographyProps={{ variant: "subtitle1" }}
+                  action={<>{experience.duration}</>}
+                />
+                <CardContent>
+                  <Typography variant="body2">
+                    <List dense>
+                      {experience.description.map((item, index) => (
+                        <ListItem key={index}>
+                          <ListItemText primary={item} />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Typography>
+                  <CardActions>
+                    <div className={classes.technology}>
+                      <RecentActors className={classes.icon} />
+                      <MusicNoteOutlined className={classes.icon} />
+                      <HowToReg className={classes.icon} />
+                    </div>
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Paper>
     </div>
