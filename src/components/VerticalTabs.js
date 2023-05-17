@@ -3,12 +3,10 @@ import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ExperienceComponent from "sections/Experience";
 import Hero from "sections/Hero";
 import SkillsSection from "sections/Skills";
-import { BoxPlotFilled } from "@ant-design/icons";
 import Education from "sections/Eduction";
 import Email from "sections/Email";
 
