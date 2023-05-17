@@ -1,16 +1,12 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import {
-  AppBar,
-  Box,
   Card,
   CardActions,
   CardContent,
   CardHeader,
-  Container,
   Grid,
   Paper,
-  Toolbar,
   Typography,
 } from "@mui/material";
 import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";

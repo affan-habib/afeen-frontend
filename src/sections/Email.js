@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import {
-  AppBar,
-  Box,
-  Container,
-  Grid,
-  Toolbar,
-  Typography,
-  TextField,
-  Button,
-} from "@mui/material";
+import { Container, Grid, TextField, Button } from "@mui/material";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +51,7 @@ const Email = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.Email}>   
+      <div className={classes.Email}>
         <Container>
           <Grid container>
             <Grid item xs={12} md={6}>

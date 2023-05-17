@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@mui/styles';
-import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
-import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
+import React from "react";
+import { makeStyles } from "@mui/styles";
+import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBar: {
-    boxShadow: 'none',
+    boxShadow: "none",
   },
 }));
 
@@ -29,7 +29,7 @@ const Navbar = () => {
             edge="end"
             color="inherit"
             aria-label="Facebook"
-            sx={{ margin: '0 4px' }}
+            sx={{ margin: "0 4px" }}
           >
             <Facebook />
           </IconButton>
@@ -37,7 +37,7 @@ const Navbar = () => {
             edge="end"
             color="inherit"
             aria-label="linkedin"
-            sx={{ margin: '0 4px' }}
+            sx={{ margin: "0 4px" }}
           >
             <LinkedIn />
           </IconButton>
@@ -45,7 +45,7 @@ const Navbar = () => {
             edge="end"
             color="inherit"
             aria-label="Instagram"
-            sx={{ margin: '0 4px' }}
+            sx={{ margin: "0 4px" }}
           >
             <Instagram />
           </IconButton>

@@ -1,14 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import {
-  AppBar,
-  Box,
-  Container,
-  Grid,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Container, Grid, Stack, Typography } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";

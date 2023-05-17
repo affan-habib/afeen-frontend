@@ -1,19 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import {
-  Container,
-  Grid,
-  List,
-  ListItem,
-  Paper,
-  Typography,
-} from "@mui/material";
-import JavaScriptIcon from "@mui/icons-material/Code";
-import HTMLIcon from "@mui/icons-material/Code";
-import CSSIcon from "@mui/icons-material/Code";
-import ReactIcon from "@mui/icons-material/Code";
-import SvelteIcon from "@mui/icons-material/Code";
-import ReduxIcon from "@mui/icons-material/Code";
+import { Grid, Paper, Typography } from "@mui/material";
 import { DesignServices, MobileFriendly, Web } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
