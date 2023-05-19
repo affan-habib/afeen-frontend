@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Card, CardContent, CardHeader, Typography } from "@mui/material";
-import { SchoolOutlined, BookOutlined } from "@mui/icons-material";
+import { Card, CardHeader, Typography } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   education: {
@@ -50,7 +49,9 @@ const Education = () => {
   return (
     <div className={classes.education}>
       <div>
-        <Typography variant="h3" gutterBottom={2}>Academic</Typography>
+        <Typography variant="h3" gutterBottom={2}>
+          Academic
+        </Typography>
         {educationData.map((item, index) => (
           <Card className={classes.card} key={index}>
             <CardHeader

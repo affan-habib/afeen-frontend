@@ -3,14 +3,10 @@ import { makeStyles } from "@mui/styles";
 import {
   Card,
   CardActions,
-  CardContent,
   CardHeader,
   Grid,
   Paper,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
 } from "@mui/material";
 import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";
 
