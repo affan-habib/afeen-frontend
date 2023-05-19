@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { Grid, Paper, Typography } from "@mui/material";
+import { Badge, Button, Grid, Paper, Typography } from "@mui/material";
 import { DesignServices, MobileFriendly, Web } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +39,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "5px",
     borderRadius: 4,
     backgroundColor: theme.palette.background.card,
+  },
+  span: {
+    color: "white",
+    background: "gray",
+    padding: 10,
+    marginRight: 20,
+    flexDirection: "row",
   },
 }));
 
@@ -80,7 +87,9 @@ const SkillsSection = () => {
       <div className={classes.hero}>
         <Grid container spacing={2} alignItems="center" padding={2}>
           <Grid item md={12}>
-            <Typography variant="h3">Skills</Typography>
+            <Typography variant="h3" gutterBottom>
+              Skills
+            </Typography>
           </Grid>
           <Grid item md={6} container spacing={2}>
             {skills.map((skill, index) => (
@@ -99,11 +108,17 @@ const SkillsSection = () => {
             ))}
           </Grid>
           <Grid item md={12}>
-            <Typography variant="h4">Technology</Typography>
+            <Typography variant="h4" gutterBottom>Technology</Typography>
             <Typography variant="body2" className={classes.technology}>
               {showTechnologies
-                ? showTechnologies.join(", ")
-                : allTechnologies.join(", ")}
+                ? showTechnologies.map((el) => (
+                    <span className={classes.span} color="primary">
+                      {el}
+                    </span>
+                  ))
+                : allTechnologies.map((el) => (
+                    <span className={classes.span}>{el}</span>
+                  ))}
             </Typography>
           </Grid>
         </Grid>
