@@ -10,6 +10,7 @@ import SkillsSection from "sections/Skills";
 import Education from "sections/Eduction";
 import Email from "sections/Email";
 import { Button } from "@mui/material";
+import Customization from "./Customization";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,6 +52,7 @@ function TabPanel(props) {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
+      <Customization />
       {value === index && <Box>{children}</Box>}
       <div className={classes.buttonContainer}>
         {index > 0 && (
