@@ -31,9 +31,9 @@ const Customization = () => {
       label: "Poppins",
     },
     {
-      id: "public-sans",
-      value: `'Public Sans', sans-serif`,
-      label: "Public Sans",
+      id: "Lato",
+      value: `'Lato', sans-serif`,
+      label: "Lato",
     },
   ];
   return (
