@@ -1,10 +1,10 @@
 const config = {
   defaultPath: '/',
-  fontFamily: `Instrument Sans, sans-serif`,
+  fontFamily: `Poppins, sans-serif`,
   i18n: 'en',
   miniDrawer: false,
   container: true,
-  mode: 'dark',
+  mode: 'light',
   presetColor: 'default',
   themeDirection: 'ltr'
 };
