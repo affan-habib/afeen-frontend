@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     marginRight: theme.spacing(1),
+    fontSize: 16,
+    color: "#009688",
   },
   fullWidth: {
     width: "100%",
@@ -35,31 +37,27 @@ const Hero = () => {
               <Typography variant="h4" gutterBottom={2} component="h1">
                 Welcome To My Portfolio
               </Typography>
-              <Typography variant="h2" gutterBottom={2} component="h1">
+              <Typography variant="h2" component="h1">
                 I am Affan Habib.
               </Typography>
-              <Typography variant="body2" component="h1">
-                I am a skilled software developer with expertise in functional
-                programming, web and mobile app development, and the MERN stack.
-                With a focus on functional programming, I create robust and
-                scalable applications. I have a strong command of the MERN
-                stack, delivering seamless web and mobile experiences. Let's
-                connect and bring your ideas to life!
-              </Typography>
-              <Stack direction="row">
-                <Stack direction="row" m={2} ml={0}>
+              <Stack direction="row" spacing={4}>
+                <Stack direction="row" alignItems="center">
                   <LocationOnIcon className={classes.icon} />
-                  <Typography variant="h6" component="p">
+                  <Typography variant="subtitle1" component="p">
                     Dhaka-1212, Bangladesh
                   </Typography>
                 </Stack>
-                <Stack direction="row" m={2}>
+                <Stack direction="row" alignItems="center">
                   <EmailIcon className={classes.icon} />
-                  <Typography variant="h6" component="p">
+                  <Typography variant="subtitle1" component="p">
                     affan.habib44@gmail.com
                   </Typography>
                 </Stack>
               </Stack>
+              <Typography variant="h5" component="h1" my={2}>
+                <span style={{ fontWeight: "bold" }}>Expertise In</span> : Web
+                Application Development , UI/UX design
+              </Typography>
               <Button
                 variant="contained"
                 color="primary"
