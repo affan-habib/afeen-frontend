@@ -3,7 +3,6 @@ import { makeStyles } from "@mui/styles";
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
 import { Download } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
