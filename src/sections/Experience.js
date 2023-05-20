@@ -1,14 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  Grid,
-  Paper,
-  Typography,
-} from "@mui/material";
-import { HowToReg, MusicNoteOutlined, RecentActors } from "@mui/icons-material";
+import { Card, CardHeader, Grid, Paper, Typography } from "@mui/material";
 
 const useStyles = makeStyles((theme) => {
   return {
