@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { Badge, Button, Grid, Paper, Typography } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 import { DesignServices, MobileFriendly, Web } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     transition: "background-color 0.3s ease",
     "&:hover": {
-      backgroundColor: "primary.dark",
-      color: "white",
+      color: "orange",
+      fontWeight: 'bold',
     },
     height: 150,
     padding: theme.spacing(2),
@@ -43,8 +43,9 @@ const useStyles = makeStyles((theme) => ({
   span: {
     color: "white",
     background: "gray",
-    padding: 10,
-    marginRight: 20,
+    padding: 5,
+    marginRight: 5,
+    borderRadius: 2,
     flexDirection: "row",
   },
 }));
@@ -81,7 +82,11 @@ const SkillsSection = () => {
     },
   ];
   const allTechnologies = skills.flatMap((skill) => skill.technologies);
-
+  function hoverOut() {
+    setTimeout(() => {
+      setShowTechnologies(null);
+    }, 5000);
+  }
   return (
     <>
       <div className={classes.hero}>
@@ -96,8 +101,8 @@ const SkillsSection = () => {
               <Grid item xs={12} md={4} key={index}>
                 <Paper
                   className={classes.skill}
-                  onMouseEnter={() => setShowTechnologies(skill.technologies)}
-                  onMouseLeave={() => setShowTechnologies(null)}
+                  onClick={() => setShowTechnologies(skill.technologies)}
+                  onMouseLeave={() => hoverOut()}
                 >
                   {skill.icon}
                   <Typography variant="h6" align="center">
@@ -108,7 +113,9 @@ const SkillsSection = () => {
             ))}
           </Grid>
           <Grid item md={12}>
-            <Typography variant="h4" gutterBottom>Technology</Typography>
+            <Typography variant="h4" gutterBottom>
+              Technology
+            </Typography>
             <Typography variant="body2" className={classes.technology}>
               {showTechnologies
                 ? showTechnologies.map((el) => (
