@@ -4,7 +4,7 @@
 body {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-  background-color: #effafa;
+  /* background-color: #effafa; */
 }
 
 /* Style the scrollbar track */
