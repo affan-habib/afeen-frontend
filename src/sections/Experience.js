@@ -45,6 +45,14 @@ const experienceData = [
     ],
     duration: "2 Years",
   },
+  {
+    title: "UI/Graphic Designer",
+    company: "Fiverr.com",
+    description: [
+      "Ut fringilla hendrerit consectetur. Integer malesuada risus eget leo accumsan placerat.",
+    ],
+    duration: "3 Years",
+  },
 ];
 
 const Experience = () => {
@@ -58,7 +66,7 @@ const Experience = () => {
             <Typography variant="h4">Experience</Typography>
           </Grid>
           {experienceData.map((experience, index) => (
-            <Grid item xs={12} sm={6} key={index}>
+            <Grid item xs={12} sm={12} key={index}>
               <Card className={classes.card}>
                 <CardHeader
                   title={experience.title}
@@ -67,14 +75,6 @@ const Experience = () => {
                   subheaderTypographyProps={{ variant: "subtitle1" }}
                   action={<>{experience.duration}</>}
                 />
-
-                <CardActions>
-                  <div className={classes.technology}>
-                    <RecentActors className={classes.icon} />
-                    <MusicNoteOutlined className={classes.icon} />
-                    <HowToReg className={classes.icon} />
-                  </div>
-                </CardActions>
               </Card>
             </Grid>
           ))}

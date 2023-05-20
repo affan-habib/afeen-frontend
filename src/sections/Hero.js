@@ -31,12 +31,12 @@ const Hero = () => {
       <div className={classes.hero}>
         <Container>
           <Grid container>
-            <Grid item xs={12} md={12}>
-              <Typography variant="h2" gutterBottom={2} component="h1">
-                Affan Habib
+            <Grid item xs={12} md={8}>
+              <Typography variant="h4" gutterBottom={2} component="h1">
+                Welcome To My Portfolio
               </Typography>
-              <Typography variant="body1" gutterBottom={2} component="h1">
-                Javascript developer
+              <Typography variant="h2" gutterBottom={2} component="h1">
+                I am Affan Habib.
               </Typography>
               <Typography variant="body2" component="h1">
                 I am a skilled software developer with expertise in functional
@@ -46,24 +46,19 @@ const Hero = () => {
                 stack, delivering seamless web and mobile experiences. Let's
                 connect and bring your ideas to life!
               </Typography>
-              <Stack direction="row" m={2}>
-                <PhoneIcon className={classes.icon} />
-                <Typography variant="h6" component="p">
-                  +8801711111111
-                </Typography>
-              </Stack>
-
-              <Stack direction="row" m={2}>
-                <LocationOnIcon className={classes.icon} />
-                <Typography variant="h6" component="p">
-                  Your Location
-                </Typography>
-              </Stack>
-              <Stack direction="row" m={2}>
-                <EmailIcon className={classes.icon} />
-                <Typography variant="h6" component="p">
-                  your-email@example.com
-                </Typography>
+              <Stack direction="row">
+                <Stack direction="row" m={2} ml={0}>
+                  <LocationOnIcon className={classes.icon} />
+                  <Typography variant="h6" component="p">
+                    Dhaka-1212, Bangladesh
+                  </Typography>
+                </Stack>
+                <Stack direction="row" m={2}>
+                  <EmailIcon className={classes.icon} />
+                  <Typography variant="h6" component="p">
+                    affan.habib44@gmail.com
+                  </Typography>
+                </Stack>
               </Stack>
             </Grid>
           </Grid>
