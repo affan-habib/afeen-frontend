@@ -1,9 +1,10 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import { Container, Grid, Stack, Typography } from "@mui/material";
+import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { Download } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -60,6 +61,13 @@ const Hero = () => {
                   </Typography>
                 </Stack>
               </Stack>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<Download />}
+              >
+                Download CV
+              </Button>
             </Grid>
           </Grid>
         </Container>
