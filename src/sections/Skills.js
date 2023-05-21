@@ -92,7 +92,7 @@ const SkillsSection = () => {
       <div className={classes.hero}>
         <Grid container spacing={2} alignItems="center" padding={2}>
           <Grid item md={12}>
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h3">
               Skills
             </Typography>
           </Grid>

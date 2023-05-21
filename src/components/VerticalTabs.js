@@ -4,7 +4,14 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import { Button } from "@mui/material";
+import {
+  Facebook,
+  Instagram,
+  SkipNext,
+  SkipPrevious,
+} from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,16 +53,21 @@ function TabPanel(props) {
     >
       {value === index && <Box>{children}</Box>}
       <div className={classes.buttonContainer}>
-        {index > 0 && (
-          <Button variant="outlined" onClick={handlePrevious}>
-            Previous
-          </Button>
-        )}
-        {index < 4 && (
-          <Button variant="outlined" onClick={handleNext} sx={{ marginLeft: 2 }}>
-            Next
-          </Button>
-        )}
+        <IconButton
+          variant="contained"
+          onClick={handlePrevious}
+          disabled={index <= 0}
+        >
+          <SkipPrevious />
+        </IconButton>
+        <IconButton
+          variant="contained"
+          onClick={handleNext}
+          disabled={index >= 4}
+          sx={{ marginLeft: 2 }}
+        >
+          <SkipNext />
+        </IconButton>
       </div>
     </div>
   );
