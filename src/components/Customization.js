@@ -38,12 +38,26 @@ const Customization = () => {
   ];
   return (
     <>
-      <Box sx={{ position: "absolute", top: 40, right: 40 }}>
-        <TextField select defaultValue={mode} onChange={handleModeChange}>
+      <Box sx={{ position: "absolute", top: 40, right: 80 }}>
+        <TextField
+          size="small"
+          select
+          defaultValue={mode}
+          onChange={handleModeChange}
+          label="Theme"
+          sx={{minWidth: 100}}
+        >
           <MenuItem value="light">light</MenuItem>
           <MenuItem value="dark">Dark</MenuItem>
         </TextField>
-        <TextField select defaultValue={fontFamily} onChange={handleFontChange}>
+        <TextField
+        label="Fonts"
+          sx={{ ml: 2 }}
+          size="small"
+          select
+          defaultValue={fontFamily}
+          onChange={handleFontChange}
+        >
           {fonts.map((el) => (
             <MenuItem value={el.value} key={el.id}>
               {el.id}
