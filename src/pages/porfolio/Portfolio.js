@@ -1,15 +1,31 @@
-import { Container } from "@mui/material";
 import VerticalTabs from "components/VerticalTabs";
-import React from "react";
+import Hero from "sections/Hero";
+import ExperienceComponent from "sections/Experience";
+import SkillsSection from "sections/Skills";
+import Education from "sections/Eduction";
+import Email from "sections/Email";
 import Navbar from "sections/Navbar";
+import Customization from "components/Customization";
+import { Container } from "@mui/material";
 
-function Portfolio() {
+const tabs = ["Welcome", "Experience", "Skills", "Education", "Write me"];
+
+const panels = [
+  <Hero />,
+  <ExperienceComponent />,
+  <SkillsSection />,
+  <Education />,
+  <Email />,
+];
+
+function App() {
   return (
-    <Container>
-      <VerticalTabs />
+    <Container sx={{ position: "relative" }}>
+      <VerticalTabs tabs={tabs} panels={panels} />
+      <Customization />
       <Navbar />
     </Container>
   );
 }
 
-export default Portfolio;
+export default App;

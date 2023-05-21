@@ -34,7 +34,7 @@ const Hero = () => {
         <Container>
           <Grid container>
             <Grid item xs={12} md={8}>
-              <Typography variant="h4" gutterBottom={2} component="h1">
+              <Typography variant="h4" gutterBottom component="h1">
                 Welcome To My Portfolio
               </Typography>
               <Typography variant="h2" component="h1">

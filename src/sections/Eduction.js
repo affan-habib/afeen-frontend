@@ -49,7 +49,7 @@ const Education = () => {
   return (
     <div className={classes.education}>
       <div>
-        <Typography variant="h3" gutterBottom={2}>
+        <Typography variant="h3" gutterBottom>
           Academic
         </Typography>
         {educationData.map((item, index) => (

@@ -4,43 +4,35 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import ExperienceComponent from "sections/Experience";
-import Hero from "sections/Hero";
-import SkillsSection from "sections/Skills";
-import Education from "sections/Eduction";
-import Email from "sections/Email";
 import { Button } from "@mui/material";
-import Customization from "./Customization";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
+    overflow: "hidden",
+    width: `calc(100vw - ${0}px)`,
+    position: "relative",
+  },
+  buttonContainer: {
+    position: "absolute",
+    bottom: theme.spacing(12),
+    right: theme.spacing(12),
+  },
+}));
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
-      overflow: "hidden",
-      width: `calc(100vw - ${0}px)`,
-      position: "relative",
-    },
-    buttonContainer: {
-      position: "absolute",
-      bottom: theme.spacing(12),
-      right: theme.spacing(12),
-    },
-  }));
+  const { children, value, index, onTabChange, ...other } = props;
 
   const classes = useStyles();
 
-  const { setValue } = props; // Access setValue from props
-
   const handleNext = () => {
     const nextIndex = index + 1;
-    setValue(nextIndex);
+    onTabChange(nextIndex);
   };
 
   const handlePrevious = () => {
     const previousIndex = index - 1;
-    setValue(previousIndex);
+    onTabChange(previousIndex);
   };
 
   return (
@@ -52,7 +44,6 @@ function TabPanel(props) {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      <Customization />
       {value === index && <Box>{children}</Box>}
       <div className={classes.buttonContainer}>
         {index > 0 && (
@@ -61,11 +52,7 @@ function TabPanel(props) {
           </Button>
         )}
         {index < 4 && (
-          <Button
-            variant="outlined"
-            onClick={handleNext}
-            sx={{ marginLeft: 2 }}
-          >
+          <Button variant="outlined" onClick={handleNext} sx={{ marginLeft: 2 }}>
             Next
           </Button>
         )}
@@ -78,7 +65,7 @@ TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-  setValue: PropTypes.func.isRequired, // Add setValue prop type
+  onTabChange: PropTypes.func.isRequired,
 };
 
 function a11yProps(index) {
@@ -88,7 +75,7 @@ function a11yProps(index) {
   };
 }
 
-export default function VerticalTabs() {
+export default function VerticalTabs({ tabs, panels }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -117,27 +104,20 @@ export default function VerticalTabs() {
           flexShrink: 0,
         }}
       >
-        <Tab label="Welcome" {...a11yProps(0)} />
-        <Tab label="Experience" {...a11yProps(1)} />
-        <Tab label="Skills" {...a11yProps(2)} />
-        <Tab label="Education" {...a11yProps(3)} />
-        <Tab label="Write me" {...a11yProps(4)} />
+        {tabs.map((tab, index) => (
+          <Tab key={index} label={tab} {...a11yProps(index)} />
+        ))}
       </Tabs>
-      <TabPanel value={value} index={0} setValue={setValue}>
-        <Hero />
-      </TabPanel>
-      <TabPanel value={value} index={1} setValue={setValue}>
-        <ExperienceComponent />
-      </TabPanel>
-      <TabPanel value={value} index={2} setValue={setValue}>
-        <SkillsSection />
-      </TabPanel>
-      <TabPanel value={value} index={3} setValue={setValue}>
-        <Education />
-      </TabPanel>
-      <TabPanel value={value} index={4} setValue={setValue}>
-        <Email />
-      </TabPanel>
+      {panels.map((panel, index) => (
+        <TabPanel
+          key={index}
+          value={value}
+          index={index}
+          onTabChange={setValue}
+        >
+          {panel}
+        </TabPanel>
+      ))}
     </Box>
   );
 }
