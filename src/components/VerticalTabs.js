@@ -5,20 +5,15 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import { Button } from "@mui/material";
-import {
-  Facebook,
-  Instagram,
-  SkipNext,
-  SkipPrevious,
-} from "@mui/icons-material";
+import { Grid } from "@mui/material";
+import { SkipNext, SkipPrevious } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     overflow: "hidden",
     width: `calc(100vw - ${0}px)`,
-    position: "relative",
+    // position: "relative",
   },
   buttonContainer: {
     position: "absolute",
@@ -51,7 +46,24 @@ function TabPanel(props) {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box>{children}</Box>}
+      {value === index && (
+        <Box
+          className="background-image"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center", // Center horizontally
+            height: "100%", // Full height
+            width: "100%", // Full width
+            pl: 3,
+            position: "relative", // Add position relative for the pseudo-elements
+          }}
+        >
+          <Grid container spacing={2}>
+            {children}
+          </Grid>
+        </Box>
+      )}
       <div className={classes.buttonContainer}>
         <IconButton
           variant="contained"

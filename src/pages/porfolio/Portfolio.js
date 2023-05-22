@@ -1,5 +1,5 @@
 import VerticalTabs from "components/VerticalTabs";
-import Hero from "sections/Hero";
+import Hero from "sections/Welcome";
 import ExperienceComponent from "sections/Experience";
 import SkillsSection from "sections/Skills";
 import Education from "sections/Eduction";

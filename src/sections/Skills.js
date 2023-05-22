@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Grid, Paper, Typography } from "@mui/material";
 import { DesignServices, MobileFriendly, Web } from "@mui/icons-material";
+import Technology from "./Technology";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     transition: "background-color 0.3s ease",
     "&:hover": {
       color: "orange",
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
     height: 150,
     padding: theme.spacing(2),
@@ -52,84 +53,47 @@ const useStyles = makeStyles((theme) => ({
 
 const SkillsSection = () => {
   const classes = useStyles();
-  const [showTechnologies, setShowTechnologies] = useState(null);
   const skills = [
     {
       icon: <MobileFriendly className={classes.icon} />,
       title: "Mobile App Development",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      technologies: ["React Native", "typescript, lottie"],
     },
     {
       icon: <Web className={classes.icon} />,
       title: "Website Development",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      technologies: [
-        "React",
-        "Redux",
-        "JavaScript",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "NoSQL",
-      ],
     },
     {
       icon: <DesignServices className={classes.icon} />,
       title: "User Interface Design",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      technologies: ["HTML", "CSS"],
     },
   ];
-  const allTechnologies = skills.flatMap((skill) => skill.technologies);
-  function hoverOut() {
-    setTimeout(() => {
-      setShowTechnologies(null);
-    }, 5000);
-  }
+
   return (
     <>
-      <div className={classes.hero}>
-        <Grid container spacing={2} alignItems="center" padding={2}>
-          <Grid item md={12}>
-            <Typography variant="h3">
-              Skills
-            </Typography>
+      <Grid item md={12}>
+        <Typography variant="h3">Skills</Typography>
+      </Grid>
+      <Grid item md={6} container spacing={2}>
+        {skills.map((skill, index) => (
+          <Grid item xs={12} md={4} key={index}>
+            <Paper className={classes.skill}>
+              {skill.icon}
+              <Typography variant="h6" align="center">
+                {skill.title}
+              </Typography>
+            </Paper>
           </Grid>
-          <Grid item md={6} container spacing={2}>
-            {skills.map((skill, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Paper
-                  className={classes.skill}
-                  onClick={() => setShowTechnologies(skill.technologies)}
-                  onMouseLeave={() => hoverOut()}
-                >
-                  {skill.icon}
-                  <Typography variant="h6" align="center">
-                    {skill.title}
-                  </Typography>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
-          <Grid item md={12}>
-            <Typography variant="h4" gutterBottom>
-              Technology
-            </Typography>
-            <Typography variant="body2" className={classes.technology}>
-              {showTechnologies
-                ? showTechnologies.map((el) => (
-                    <span className={classes.span} color="primary">
-                      {el}
-                    </span>
-                  ))
-                : allTechnologies.map((el) => (
-                    <span className={classes.span}>{el}</span>
-                  ))}
-            </Typography>
-          </Grid>
-        </Grid>
-      </div>
+        ))}
+      </Grid>
+      <Grid item md={12}>
+        <Typography variant="h4" gutterBottom>
+          Technology
+        </Typography>
+        <Technology />
+      </Grid>
     </>
   );
 };
