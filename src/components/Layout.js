@@ -98,7 +98,7 @@ function a11yProps(index) {
   };
 }
 
-export default function VerticalTabs({ tabs, panels }) {
+export default function Layout({ tabs, panels }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {

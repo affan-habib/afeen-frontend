@@ -1,19 +1,19 @@
-import VerticalTabs from "components/VerticalTabs";
-import Hero from "sections/Welcome";
-import ExperienceComponent from "sections/Experience";
-import SkillsSection from "sections/Skills";
+import { Container } from "@mui/material";
+import Layout from "components/Layout";
+import Welcome from "sections/Welcome";
+import Experience from "sections/Experience";
+import Skills from "sections/Skill";
 import Education from "sections/Eduction";
 import Email from "sections/Email";
 import Navbar from "sections/Navbar";
 import Customization from "components/Customization";
-import { Container } from "@mui/material";
 
 const tabs = ["Welcome", "Experience", "Skills", "Education", "Write me"];
 
 const panels = [
-  <Hero />,
-  <ExperienceComponent />,
-  <SkillsSection />,
+  <Welcome />,
+  <Experience />,
+  <Skills />,
   <Education />,
   <Email />,
 ];
@@ -21,7 +21,7 @@ const panels = [
 function App() {
   return (
     <Container className="background-image" sx={{ position: "relative" }}>
-      <VerticalTabs tabs={tabs} panels={panels} />
+      <Layout tabs={tabs} panels={panels} />
       <Customization />
       <Navbar />
     </Container>

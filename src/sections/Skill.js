@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Grid, Paper, Typography } from "@mui/material";
-import { DesignServices, MobileFriendly, Web } from "@mui/icons-material";
 import Technology from "./Technology";
-
+import { skillsData } from "apis";
 const useStyles = makeStyles((theme) => ({
   hero: {
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
@@ -51,33 +50,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SkillsSection = () => {
+const Skill = () => {
   const classes = useStyles();
-  const skills = [
-    {
-      icon: <MobileFriendly className={classes.icon} />,
-      title: "Mobile App Development",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      icon: <Web className={classes.icon} />,
-      title: "Website Development",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      icon: <DesignServices className={classes.icon} />,
-      title: "User Interface Design",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-  ];
 
   return (
     <>
       <Grid item md={12}>
-        <Typography variant="h3">Skills</Typography>
+        <Typography variant="h4">Skills</Typography>
       </Grid>
       <Grid item md={6} container spacing={2}>
-        {skills.map((skill, index) => (
+        {skillsData.map((skill, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Paper className={classes.skill}>
               {skill.icon}
@@ -98,4 +80,4 @@ const SkillsSection = () => {
   );
 };
 
-export default SkillsSection;
+export default Skill;

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Card, CardHeader, Grid, Typography } from "@mui/material";
-
+import { experienceData } from "apis";
 const useStyles = makeStyles((theme) => {
   return {
     card: {
@@ -12,33 +12,6 @@ const useStyles = makeStyles((theme) => {
     },
   };
 });
-
-const experienceData = [
-  {
-    title: "Software Engineer",
-    company: "Gononet Online Solutions Ltd.",
-    description: [
-      "Ut fringilla hendrerit consectetur. Integer malesuada risus eget leo accumsan placerat.",
-    ],
-    duration: "0.3 years",
-  },
-  {
-    title: "Software Developer",
-    company: "Ethics Advance Technology Ltd.",
-    description: [
-      "Ut fringilla hendrerit consectetur. Integer malesuada risus eget leo accumsan placerat.",
-    ],
-    duration: "2 Years",
-  },
-  {
-    title: "UI/Graphic Designer",
-    company: "Fiverr.com",
-    description: [
-      "Ut fringilla hendrerit consectetur. Integer malesuada risus eget leo accumsan placerat.",
-    ],
-    duration: "3 Years",
-  },
-];
 
 const Experience = () => {
   const classes = useStyles();

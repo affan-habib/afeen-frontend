@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Card, CardHeader, Grid, Typography } from "@mui/material";
+import { educationData } from "apis";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -14,27 +15,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-
-const educationData = [
-  {
-    degree: "Bachelor's Degree",
-    institution: "Dhaka University",
-    subject: "Accounting",
-    year: "2015",
-  },
-  {
-    degree: "Higher Secondary",
-    institution: "Cantonment Public School and College",
-    subject: "N/A",
-    year: "2010",
-  },
-  {
-    degree: "Secondary School Certificate",
-    institution: "ZBSM High School",
-    subject: "N/A",
-    year: "2008",
-  },
-];
 
 const Education = () => {
   const classes = useStyles();
