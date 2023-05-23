@@ -21,7 +21,7 @@ const Education = () => {
 
   return (
     <Grid item md={12}>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         Academic
       </Typography>
       {educationData.map((item, index) => (

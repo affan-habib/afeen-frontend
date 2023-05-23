@@ -24,10 +24,10 @@ const Welcome = () => {
 
   return (
     <Grid item xs={12} md={8}>
-      <Typography variant="h4" gutterBottom component="h1">
+      <Typography variant="h5" gutterBottom component="h1">
         Welcome To My Portfolio
       </Typography>
-      <Typography variant="h2" component="h1" gutterBottom={2}>
+      <Typography variant="h4" component="h1" gutterBottom={2}>
         I am Affan Habib.
       </Typography>
       <Stack direction="row" spacing={3}>
