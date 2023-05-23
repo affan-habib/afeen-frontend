@@ -8,8 +8,16 @@ import Education from "sections/Eduction";
 import Email from "sections/Email";
 import Footer from "sections/Footer";
 import Customization from "components/Customization";
+import More from "sections/More";
 
-const tabs = ["Welcome", "Experience", "Skills", "Education", "Write me"];
+const tabs = [
+  "Welcome",
+  "Experience",
+  "Skills",
+  "Education",
+  "Write me",
+  "More",
+];
 
 const panels = [
   <Welcome />,
@@ -17,6 +25,7 @@ const panels = [
   <Skill />,
   <Education />,
   <Email />,
+  <More />,
 ];
 
 function Portfolio() {
