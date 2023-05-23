@@ -45,7 +45,7 @@ const Skill = () => {
       </Grid>
       <Grid item md={6} container spacing={2}>
         {skillsData.map((skill, index) => (
-          <Grid item xs={12} md={4} key={index}>
+          <Grid item xs={4} sm={4} key={index}>
             <Paper className={classes.skill}>
               {skill.icon}
               <Typography variant="h6" align="center">

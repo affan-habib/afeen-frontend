@@ -6,6 +6,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { Stack } from "@mui/material";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -50,11 +51,13 @@ function MobileTabsLayout(props) {
   };
 
   return (
-    <Box sx={{ bgcolor: "background.paper", width: 500 }}>
+    <Stack flexDirection="column" spacing={2} alignItems="center">
       {panels.map((panel, index) => (
-        <>{panel}</>
+        <Stack minHeight="100vh" alignItems="center" justifyContent="center">
+          {panel}
+        </Stack>
       ))}
-    </Box>
+    </Stack>
   );
 }
 

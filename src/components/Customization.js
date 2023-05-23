@@ -1,13 +1,11 @@
+import React from "react";
 import useConfig from "hooks/useConfig";
-import { Box, MenuItem, TextField } from "@mui/material";
+import { Box, MenuItem, TextField, IconButton } from "@mui/material";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 const Customization = () => {
   const { mode, onChangeMode, fontFamily, onChangeFontFamily } = useConfig();
-  console.log(mode);
-  const handleModeChange = (event) => {
-    onChangeMode(event.target.value);
-  };
-
   const handleFontChange = (event) => {
     onChangeFontFamily(event.target.value);
   };
@@ -34,23 +32,15 @@ const Customization = () => {
       label: "Lato",
     },
   ];
+
+  const isDarkMode = mode === "dark";
+
   return (
     <>
       <Box sx={{ position: "absolute", top: 40, right: 60 }}>
         <TextField
-          size="small"
-          select
-          defaultValue={mode}
-          onChange={handleModeChange}
-          label="Theme"
-          sx={{ minWidth: 100 }}
-        >
-          <MenuItem value="light">light</MenuItem>
-          <MenuItem value="dark">Dark</MenuItem>
-        </TextField>
-        <TextField
           label="Fonts"
-          sx={{ ml: 2 }}
+          sx={{ ml: 2, minWidth: 100 }}
           size="small"
           select
           defaultValue={fontFamily}
@@ -61,9 +51,14 @@ const Customization = () => {
               {el.id}
             </MenuItem>
           ))}
-
-          <MenuItem value="Arial">Arial</MenuItem>
         </TextField>
+        <IconButton
+          onClick={() => onChangeMode(isDarkMode ? "light" : "dark")}
+          sx={{ ml: 2 }}
+          color="inherit"
+        >
+          {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
       </Box>
     </>
   );
