@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -13,7 +13,9 @@ const useStyles = makeStyles((theme) => ({
     height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     overflow: "hidden",
     width: `calc(100vw - ${0}px)`,
-    // position: "relative",
+    position: "relative",
+    opacity: 1, // Initial opacity
+    transition: "opacity 0.3s ease-in-out", // Opacity transition
   },
   buttonContainer: {
     position: "absolute",
@@ -24,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
 
 function TabPanel(props) {
   const { children, value, index, onTabChange, ...other } = props;
-
+  const [isVisible, setIsVisible] = useState(false);
+  
   const classes = useStyles();
 
   const handleNext = () => {
@@ -37,10 +40,18 @@ function TabPanel(props) {
     onTabChange(previousIndex);
   };
 
+  useEffect(() => {
+    setIsVisible(true); // Set visibility to true when TabPanel appears
+  }, []);
+
+  useEffect(() => {
+    setIsVisible(false); // Set visibility to false when TabPanel changes
+  }, [index]);
+
   return (
     <div
       role="tabpanel"
-      className={classes.root}
+      className={`${classes.root} ${isVisible ? "visible" : ""}`}
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}

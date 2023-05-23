@@ -1,5 +1,6 @@
-import { Container } from "@mui/material";
+import { Container, useMediaQuery } from "@mui/material";
 import Layout from "components/Layout";
+import MobileLayout from "components/MobileLayout";
 import Welcome from "sections/Welcome";
 import Experience from "sections/Experience";
 import Skill from "sections/Skill";
@@ -19,9 +20,15 @@ const panels = [
 ];
 
 function Portfolio() {
+  const isMobile = useMediaQuery("(max-width: 600px)");
+
   return (
     <Container className="background-image" sx={{ position: "relative" }}>
-      <Layout tabs={tabs} panels={panels} />
+      {isMobile ? (
+        <MobileLayout tabs={tabs} panels={panels} />
+      ) : (
+        <Layout tabs={tabs} panels={panels} />
+      )}
       <Customization />
       <Footer />
     </Container>
