@@ -30,7 +30,11 @@ const Welcome = () => {
       <Typography variant="h4" component="h1" gutterBottom={2}>
         I am Affan Habib.
       </Typography>
-      <Stack direction="row" spacing={3}>
+      <Stack
+        direction="row"
+        spacing={3}
+        sx={{ borderBottom: 1, paddingBottom: 2 }}
+      >
         <Stack direction="row" alignItems="center">
           <LocationOnIcon className={classes.icon} />
           <Typography variant="subtitle1" component="p">
@@ -44,9 +48,10 @@ const Welcome = () => {
           </Typography>
         </Stack>
       </Stack>
-      <Typography variant="h5" component="h1" my={2}>
-        <span style={{ fontWeight: "bold" }}>Expertise In</span> : Web
-        Application Development , UI/UX design
+      <Typography variant="subtitle1" component="h1" my={2}>
+        Seeking for a Javascript developer role in a dynamic and innovative
+        company where I can leverage my expertise in JavaScript , React, Node js
+        and MongoDB to develop cutting-edge full stack web applications
       </Typography>
       <Button variant="contained" color="primary" startIcon={<Download />}>
         Download CV

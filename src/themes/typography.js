@@ -26,6 +26,7 @@ const Typography = (fontFamily) => ({
     fontWeight: 600,
     fontSize: "1.25rem",
     lineHeight: 1.4,
+    textTransform: "uppercase",
   },
   h5: {
     fontWeight: 600,
