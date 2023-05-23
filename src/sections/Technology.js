@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import { technologiesData } from "apis";
 const Technology = () => {
   const frontendTechnologies = technologiesData
@@ -13,17 +13,22 @@ const Technology = () => {
     .join(", ");
 
   return (
-    <Box>
-      <Stack direction="row" spacing={2}>
-        <Typography variant="subtitle1">Frontend :</Typography>
-        <Typography>{frontendTechnologies}</Typography>
-      </Stack>
+    <Grid item md={12}>
+      <Typography variant="h4" gutterBottom>
+        Technology
+      </Typography>
+      <Box>
+        <Stack direction="row" spacing={2}>
+          <Typography variant="subtitle1">Frontend :</Typography>
+          <Typography>{frontendTechnologies}</Typography>
+        </Stack>
 
-      <Stack direction="row" spacing={2}>
-        <Typography variant="subtitle1">Backend :</Typography>
-        <Typography>{backendTechnologies}</Typography>
-      </Stack>
-    </Box>
+        <Stack direction="row" spacing={2}>
+          <Typography variant="subtitle1">Backend :</Typography>
+          <Typography>{backendTechnologies}</Typography>
+        </Stack>
+      </Box>
+    </Grid>
   );
 };
 

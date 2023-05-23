@@ -7,22 +7,19 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  title: {
-    flexGrow: 1,
-  },
   appBar: {
     boxShadow: "none",
   },
 }));
 
-const Navbar = () => {
+const Footer = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant="h4" className={classes.root}>
             Affan Habib
           </Typography>
           <IconButton
@@ -55,4 +52,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Footer;

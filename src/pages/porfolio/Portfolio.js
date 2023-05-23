@@ -2,10 +2,10 @@ import { Container } from "@mui/material";
 import Layout from "components/Layout";
 import Welcome from "sections/Welcome";
 import Experience from "sections/Experience";
-import Skills from "sections/Skill";
+import Skill from "sections/Skill";
 import Education from "sections/Eduction";
 import Email from "sections/Email";
-import Navbar from "sections/Navbar";
+import Footer from "sections/Footer";
 import Customization from "components/Customization";
 
 const tabs = ["Welcome", "Experience", "Skills", "Education", "Write me"];
@@ -13,19 +13,19 @@ const tabs = ["Welcome", "Experience", "Skills", "Education", "Write me"];
 const panels = [
   <Welcome />,
   <Experience />,
-  <Skills />,
+  <Skill />,
   <Education />,
   <Email />,
 ];
 
-function App() {
+function Portfolio() {
   return (
     <Container className="background-image" sx={{ position: "relative" }}>
       <Layout tabs={tabs} panels={panels} />
       <Customization />
-      <Navbar />
+      <Footer />
     </Container>
   );
 }
 
-export default App;
+export default Portfolio;

@@ -1,8 +1,6 @@
 import useConfig from "hooks/useConfig";
 import { Box, MenuItem, TextField } from "@mui/material";
 
-// ==============================|| HEADER CONTENT - CUSTOMIZATION ||============================== //
-
 const Customization = () => {
   const { mode, onChangeMode, fontFamily, onChangeFontFamily } = useConfig();
   console.log(mode);
@@ -45,13 +43,13 @@ const Customization = () => {
           defaultValue={mode}
           onChange={handleModeChange}
           label="Theme"
-          sx={{minWidth: 100}}
+          sx={{ minWidth: 100 }}
         >
           <MenuItem value="light">light</MenuItem>
           <MenuItem value="dark">Dark</MenuItem>
         </TextField>
         <TextField
-        label="Fonts"
+          label="Fonts"
           sx={{ ml: 2 }}
           size="small"
           select

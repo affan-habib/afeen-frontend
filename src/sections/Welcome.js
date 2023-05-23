@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(1),
     fontSize: 16,
-    color: "#009688",
   },
   fullWidth: {
     width: "100%",

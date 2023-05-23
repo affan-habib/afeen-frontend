@@ -49,88 +49,88 @@ export const experienceData = [
 ];
 export const skillsData = [
   {
-    icon: <MobileFriendly />,
+    icon: <MobileFriendly sx={{ fontSize: 48, marginBottom: 2 }} />,
     title: "Mobile App Development",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
-    icon: <Web />,
+    icon: <Web sx={{ fontSize: 48, marginBottom: 2 }} />,
     title: "Website Development",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
-    icon: <DesignServices />,
+    icon: <DesignServices sx={{ fontSize: 48, marginBottom: 2 }} />,
     title: "User Interface Design",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 
 export const technologiesData = [
-    {
-      name: "HTML",
-      category: "frontend",
-      expertise: 3, // Expertise level for HTML
-    },
-    {
-      name: "CSS",
-      category: "frontend",
-      expertise: 4, // Expertise level for CSS
-    },
-    {
-      name: "JavaScript",
-      category: "frontend",
-      expertise: 5, // Expertise level for JavaScript
-    },
-    {
-      name: "React",
-      category: "frontend",
-      expertise: 5, // Expertise level for JavaScript
-    },
-    {
-      name: "Redux",
-      category: "frontend",
-      expertise: 5, // Expertise level for JavaScript
-    },
-    {
-      name: "Material UI",
-      category: "frontend",
-      expertise: 5, // Expertise level for JavaScript
-    },
-    {
-      name: "React Native",
-      category: "frontend",
-      expertise: 5, // Expertise level for JavaScript
-    },
-    {
-      name: "Bootstrap",
-      category: "frontend",
-      expertise: 5, // Expertise level for JavaScript
-    },
-    {
-      name: "Node.js",
-      category: "backend",
-      expertise: 4, // Expertise level for Node.js
-    },
-    {
-      name: "Express js",
-      category: "backend",
-      expertise: 4, // Expertise level for Node.js
-    },
-    {
-      name: "No SQL",
-      category: "backend",
-      expertise: 4, // Expertise level for Node.js
-    },
-    {
-      name: "Python",
-      category: "backend",
-      expertise: 3, // Expertise level for Python
-    },
+  {
+    name: "HTML",
+    category: "frontend",
+    expertise: 3, // Expertise level for HTML
+  },
+  {
+    name: "CSS",
+    category: "frontend",
+    expertise: 4, // Expertise level for CSS
+  },
+  {
+    name: "JavaScript",
+    category: "frontend",
+    expertise: 5, // Expertise level for JavaScript
+  },
+  {
+    name: "React",
+    category: "frontend",
+    expertise: 5, // Expertise level for JavaScript
+  },
+  {
+    name: "Redux",
+    category: "frontend",
+    expertise: 5, // Expertise level for JavaScript
+  },
+  {
+    name: "Material UI",
+    category: "frontend",
+    expertise: 5, // Expertise level for JavaScript
+  },
+  {
+    name: "React Native",
+    category: "frontend",
+    expertise: 5, // Expertise level for JavaScript
+  },
+  {
+    name: "Bootstrap",
+    category: "frontend",
+    expertise: 5, // Expertise level for JavaScript
+  },
+  {
+    name: "Node.js",
+    category: "backend",
+    expertise: 4, // Expertise level for Node.js
+  },
+  {
+    name: "Express js",
+    category: "backend",
+    expertise: 4, // Expertise level for Node.js
+  },
+  {
+    name: "No SQL",
+    category: "backend",
+    expertise: 4, // Expertise level for Node.js
+  },
+  {
+    name: "Python",
+    category: "backend",
+    expertise: 3, // Expertise level for Python
+  },
 
-    {
-      name: "MongoDb",
-      category: "backend",
-      expertise: 2, // Expertise level for SQL
-    },
-    // Add more technologies as needed
-  ];
+  {
+    name: "MongoDb",
+    category: "backend",
+    expertise: 2, // Expertise level for SQL
+  },
+  // Add more technologies as needed
+];
