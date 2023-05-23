@@ -31,7 +31,7 @@ const Welcome = () => {
       <Typography variant="h2" component="h1" gutterBottom={2}>
         I am Affan Habib.
       </Typography>
-      <Stack direction="column" spacing={1}>
+      <Stack direction="row" spacing={3}>
         <Stack direction="row" alignItems="center">
           <LocationOnIcon className={classes.icon} />
           <Typography variant="subtitle1" component="p">

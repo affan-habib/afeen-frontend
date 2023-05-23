@@ -38,7 +38,7 @@ const Customization = () => {
   ];
   return (
     <>
-      <Box sx={{ position: "absolute", top: 40, right: 80 }}>
+      <Box sx={{ position: "absolute", top: 40, right: 60 }}>
         <TextField
           size="small"
           select

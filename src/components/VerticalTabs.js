@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   buttonContainer: {
     position: "absolute",
     bottom: theme.spacing(12),
-    right: theme.spacing(12),
+    right: 60,
   },
 }));
 
@@ -48,7 +48,6 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box
-          className="background-image"
           sx={{
             display: "flex",
             alignItems: "center",

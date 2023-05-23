@@ -34,9 +34,8 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0.9; /* Set the image opacity to 30% */
-  background-image: url("https://img.freepik.com/free-vector/watercolor-stains-abstract-background_23-2149107181.jpg?w=740&t=st=1684768910~exp=1684769510~hmac=a7a9d9885210f1126dd7311a3c979c49b83420b64d1bde232f3fe42918d913e4");
+  background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_23-2149012404.jpg?w=740&t=st=1684775190~exp=1684775790~hmac=bc45a5cefee2554b524cfcd285ef86cf8d4868beeea7cb4094850a9cc9a0082f");
   background-size: cover;
   background-position: center;
   pointer-events: none;
-  z-index: -1; /* Prevent the pseudo-element from blocking interaction with children */
 }

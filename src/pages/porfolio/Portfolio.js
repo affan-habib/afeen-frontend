@@ -20,7 +20,7 @@ const panels = [
 
 function App() {
   return (
-    <Container sx={{ position: "relative" }}>
+    <Container className="background-image" sx={{ position: "relative" }}>
       <VerticalTabs tabs={tabs} panels={panels} />
       <Customization />
       <Navbar />
