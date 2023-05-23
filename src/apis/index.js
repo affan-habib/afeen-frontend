@@ -132,5 +132,30 @@ export const technologiesData = [
     category: "backend",
     expertise: 2, // Expertise level for SQL
   },
+  {
+    name: "NPM",
+    category: "tools",
+    expertise: 2, // Expertise level for SQL
+  },
+  {
+    name: "Webpack",
+    category: "tools",
+    expertise: 2, // Expertise level for SQL
+  },
+  {
+    name: "SVG",
+    category: "tools",
+    expertise: 2, // Expertise level for SQL
+  },
+  {
+    name: "Figma",
+    category: "tools",
+    expertise: 2, // Expertise level for SQL
+  },
+  {
+    name: "Adobe Design Suit",
+    category: "tools",
+    expertise: 2, // Expertise level for SQL
+  },
   // Add more technologies as needed
 ];

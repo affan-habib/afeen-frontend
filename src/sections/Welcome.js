@@ -28,7 +28,7 @@ const Welcome = () => {
         Welcome To My Portfolio
       </Typography>
       <Typography variant="h4" component="h1" gutterBottom={2}>
-        I am Affan Habib.
+        I'm Affan Habib.
       </Typography>
       <Stack
         direction="row"
@@ -53,7 +53,7 @@ const Welcome = () => {
         company where I can leverage my expertise in JavaScript , React, Node js
         and MongoDB to develop cutting-edge full stack web applications
       </Typography>
-      <Button variant="contained" color="primary" startIcon={<Download />}>
+      <Button variant="outlined" color="primary" startIcon={<Download />}>
         Download CV
       </Button>
     </Grid>

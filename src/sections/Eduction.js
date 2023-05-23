@@ -5,7 +5,8 @@ import { educationData } from "apis";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: 400,
+    minWidth: 400,
+    maxWidth: 700,
     marginBottom: theme.spacing(2),
   },
   icon: {
