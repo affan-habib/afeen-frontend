@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     transition: "background-color 0.5s ease",
     "&:hover": {
-      color: "orange",
-      fontWeight: "bold",
+      color: "yellowGreen",
       cursor: "pointer",
     },
     height: 150,
