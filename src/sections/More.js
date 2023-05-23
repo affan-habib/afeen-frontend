@@ -61,10 +61,10 @@ export default function More() {
         onChange={handleChange("panel1")}
       >
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>What type of work you did so far ?</Typography>
+          <Typography sx={{fontWeight: "bold"}}>What type of work you did so far ?</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography color="primary">
+          <Typography color="primary" variant="subtitle1">
             Admin Dashboard Customization, Bug fixing, Asyncronous Javascript,
             React , Redux
           </Typography>
@@ -75,13 +75,13 @@ export default function More() {
         onChange={handleChange("panel2")}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>
+          <Typography sx={{fontWeight: "bold"}}>
             Your educational background doesn't match with the skills .... Why
             ??
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography color="primary">
+          <Typography color="primary" variant="subtitle1">
             Now its possible to learn anything. But it's important to have some
             passion for specific area.I am not the best but good enough to play
             with javascript
@@ -93,12 +93,26 @@ export default function More() {
         onChange={handleChange("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Why should i choose you? </Typography>
+          <Typography sx={{fontWeight: "bold"}}>Why should i choose you? </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography color="primary">
+          <Typography color="primary" variant="subtitle1">
             I have unique skillsets. Came from design background and explored a
             lot of areas and i started to fall in love. ..
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === "panel4"}
+        onChange={handleChange("panel4")}
+      >
+        <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
+          <Typography sx={{fontWeight: "bold"}}>Why you think, you're unique not average ? </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography color="primary" variant="subtitle1">
+            I believe everyone is unique in terms of analycial skills,
+            education, believes
           </Typography>
         </AccordionDetails>
       </Accordion>
