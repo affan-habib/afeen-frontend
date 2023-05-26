@@ -19,15 +19,15 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonContainer: {
     position: "absolute",
-    bottom: theme.spacing(12),
-    right: 60,
+    top: 40,
+    right: 30,
   },
 }));
 
 function TabPanel(props) {
   const { children, value, index, onTabChange, ...other } = props;
   const [isVisible, setIsVisible] = useState(false);
-  
+
   const classes = useStyles();
 
   const handleNext = () => {
@@ -85,7 +85,7 @@ function TabPanel(props) {
         <IconButton
           variant="contained"
           onClick={handleNext}
-          disabled={index >= 4}
+          disabled={index >= 5}
           sx={{ marginLeft: 2 }}
         >
           <SkipNext />

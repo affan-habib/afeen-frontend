@@ -23,7 +23,7 @@ const Welcome = () => {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={8}>
+    <Grid item xs={12} md={12} pr={4}>
       <Typography variant="h5" gutterBottom component="h1">
         Welcome To My Portfolio
       </Typography>

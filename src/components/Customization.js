@@ -37,7 +37,7 @@ const Customization = () => {
 
   return (
     <>
-      <Box sx={{ position: "absolute", top: 40, right: 60 }}>
+      <Box sx={{ position: "absolute", top: 40, right: 150 }}>
         <TextField
           label="Fonts"
           sx={{ ml: 2, minWidth: 100 }}
