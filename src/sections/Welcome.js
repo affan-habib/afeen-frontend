@@ -49,9 +49,21 @@ const Welcome = () => {
         </Stack>
       </Stack>
       <Typography variant="subtitle1" component="h1" my={2}>
-        Seeking for a Javascript developer role in a dynamic and innovative
-        company where I can leverage my expertise in JavaScript , React, Node js
-        and MongoDB to develop cutting-edge full stack web applications
+        Experienced JavaScript, React, and Redux Front-End Developer with a
+        passion for creating impactful user experiences. With a solid foundation
+        in admin dashboard customization, API integration, and UI design, I
+        bring over four years of professional expertise to the table. From
+        collaborating with cross-functional teams to leading a group of
+        developers, I excel in fostering effective teamwork. My experience
+        includes working on diverse projects, such as the Ministry of Education
+        application and a comprehensive hospital information management system.
+        I specialize in performance optimization techniques, utilizing tools
+        like React's virtual DOM and Redux Saga for seamless user interactions.
+        With a strong understanding of testing methodologies and responsive web
+        design, I consistently deliver high-quality code. Committed to staying
+        up-to-date with the latest technologies and best practices, I thrive on
+        overcoming challenges and constantly improving my skills. Let's create
+        exceptional digital experiences together.
       </Typography>
       <Button variant="outlined" color="primary" startIcon={<Download />}>
         Download CV

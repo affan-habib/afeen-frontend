@@ -29,8 +29,8 @@ const Technology = () => {
     .map((tech) => tech.name)
     .join(", ");
   return (
-    <Grid item md={12}>
-      <Stack direction="row" spacing={10}>
+    <Grid item md={8}>
+      <Stack direction="row" spacing={10} justifyContent="space-between">
         <Typography variant="h4" gutterBottom>
           Technology
         </Typography>
