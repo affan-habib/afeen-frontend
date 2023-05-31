@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, Snackbar } from "@mui/material";
 import axios from "axios";
 import CustomTextField from "components/CustomTextField";
 
@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
   formField: {
     marginBottom: theme.spacing(2),
   },
+  snackbar: {
+    marginBottom: theme.spacing(6),
+    marginRight: theme.spacing(8),
+  },
 }));
 
 const Email = () => {
@@ -21,6 +25,7 @@ const Email = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,13 +41,17 @@ const Email = () => {
       setName("");
       setEmail("");
       setMessage("");
-      alert("Message sent successfully!");
+      setShowSnackbar(true);
     } catch (error) {
       console.error(error);
       alert(
         "An error occurred while sending the message. Please try again later."
       );
     }
+  };
+
+  const handleSnackbarClose = () => {
+    setShowSnackbar(false);
   };
 
   return (
@@ -80,6 +89,17 @@ const Email = () => {
           </Button>
         </form>
       </Grid>
+      <Snackbar
+        open={showSnackbar}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        message="Message sent successfully!"
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+        className={classes.snackbar}
+      />
     </>
   );
 };
