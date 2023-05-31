@@ -69,7 +69,7 @@ export const technologiesData = [
   {
     name: "HTML",
     category: "frontend",
-    expertise: 3, // Expertise level for HTML
+    expertise: 5, // Expertise level for HTML
   },
   {
     name: "CSS",
@@ -130,32 +130,32 @@ export const technologiesData = [
   {
     name: "MongoDb",
     category: "backend",
-    expertise: 2, // Expertise level for SQL
+    expertise: 3, // Expertise level for SQL
   },
   {
     name: "NPM",
     category: "tools",
-    expertise: 2, // Expertise level for SQL
+    expertise: 4, // Expertise level for SQL
   },
   {
     name: "Webpack",
     category: "tools",
-    expertise: 2, // Expertise level for SQL
+    expertise: 4, // Expertise level for SQL
   },
   {
     name: "SVG",
     category: "tools",
-    expertise: 2, // Expertise level for SQL
+    expertise: 4, // Expertise level for SQL
   },
   {
     name: "Figma",
     category: "tools",
-    expertise: 2, // Expertise level for SQL
+    expertise: 4, // Expertise level for SQL
   },
   {
     name: "Adobe Design Suit",
     category: "tools",
-    expertise: 2, // Expertise level for SQL
+    expertise: 4, // Expertise level for SQL
   },
   // Add more technologies as needed
 ];
