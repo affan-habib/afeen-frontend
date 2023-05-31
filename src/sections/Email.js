@@ -26,7 +26,7 @@ const Email = () => {
     e.preventDefault();
 
     try {
-      await axios.post("https://formspree.io/your-email-address", {
+      await axios.post("https://formspree.io/f/xlekkqwq", {
         name,
         email,
         message,
