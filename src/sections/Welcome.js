@@ -22,6 +22,13 @@ const useStyles = makeStyles((theme) => ({
 const Welcome = () => {
   const classes = useStyles();
 
+  const handleDownload = () => {
+    window.open(
+      "https://drive.google.com/file/d/1sgoMXoT9FV1NnKPp8WX2ngO737YYR_Zp/view?usp=sharing",
+      "_blank"
+    );
+  };
+
   return (
     <Grid item xs={12} md={12} pr={4}>
       <Typography variant="h5" gutterBottom component="h1">
@@ -49,6 +56,7 @@ const Welcome = () => {
         </Stack>
       </Stack>
       <Typography variant="subtitle1" component="h1" my={2}>
+        {/* Your introduction text */}
         Experienced JavaScript, React, and Redux Front-End Developer with a
         passion for creating impactful user experiences. With a solid foundation
         in admin dashboard customization, API integration, and UI design, I
@@ -65,7 +73,12 @@ const Welcome = () => {
         overcoming challenges and constantly improving my skills. Let's create
         exceptional digital experiences together.
       </Typography>
-      <Button variant="outlined" color="primary" startIcon={<Download />}>
+      <Button
+        variant="outlined"
+        color="primary"
+        startIcon={<Download />}
+        onClick={handleDownload}
+      >
         Download CV
       </Button>
     </Grid>
