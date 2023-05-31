@@ -6,7 +6,6 @@ import {
   TextField,
   Typography,
   Button,
-  Badge,
 } from "@mui/material";
 import { technologiesData } from "apis";
 
