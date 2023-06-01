@@ -23,7 +23,11 @@ const CreateUser = Loadable(lazy(() => import("pages/user/CreateUser")));
 const Jobs = Loadable(lazy(() => import("pages/job/Jobs")));
 const JobDetails = Loadable(lazy(() => import("pages/job/JobDetails")));
 const CvRequests = Loadable(lazy(() => import("pages/cv-requests/CvRequests")));
-
+const AppECommProducts = Loadable(lazy(() => import('pages/apps/e-commerce/product')));
+const AppECommProductDetails = Loadable(lazy(() => import('pages/apps/e-commerce/product-details')));
+const AppECommProductList = Loadable(lazy(() => import('pages/apps/e-commerce/products-list')));
+const AppECommCheckout = Loadable(lazy(() => import('pages/apps/e-commerce/checkout')));
+const AppECommAddProduct = Loadable(lazy(() => import('pages/apps/e-commerce/add-product')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -32,9 +36,9 @@ const MainRoutes = {
     {
       path: "/",
       element: (
-        <AuthGuard>
+        <>
           <MainLayout />
-        </AuthGuard>
+        </>
       ),
       children: [
         {
@@ -94,6 +98,26 @@ const MainRoutes = {
           path: "cv-requests",
           element: <CvRequests />,
         },
+        {
+          path: 'products',
+          element: <AppECommProducts />
+        },
+        {
+          path: 'product-details/:id',
+          element: <AppECommProductDetails />
+        },
+        {
+          path: 'product-list',
+          element: <AppECommProductList />
+        },
+        {
+          path: 'add-new-product',
+          element: <AppECommAddProduct />
+        },
+        {
+          path: 'checkout',
+          element: <AppECommCheckout />
+        }
       ],
     },
   ],
