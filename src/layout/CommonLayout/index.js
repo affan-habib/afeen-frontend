@@ -1,24 +1,20 @@
-import PropTypes from 'prop-types';
-import { lazy, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-
-// material-ui
-import { styled } from '@mui/material/styles';
-import LinearProgress from '@mui/material/LinearProgress';
-
-const Header = lazy(() => import('./Header'));
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+import { styled } from "@mui/material/styles";
+import LinearProgress from "@mui/material/LinearProgress";
+import { Box } from "@mui/material";
 
 // ==============================|| Loader ||============================== //
 
-const LoaderWrapper = styled('div')(({ theme }) => ({
-  position: 'fixed',
+const LoaderWrapper = styled("div")(({ theme }) => ({
+  position: "fixed",
   top: 0,
   left: 0,
   zIndex: 2001,
-  width: '100%',
-  '& > * + *': {
-    marginTop: theme.spacing(2)
-  }
+  width: "100%",
+  "& > * + *": {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 const Loader = () => (
@@ -29,22 +25,16 @@ const Loader = () => (
 
 // ==============================|| MINIMAL LAYOUT ||============================== //
 
-const CommonLayout = ({ layout = 'blank' }) => {
+const CommonLayout = () => {
   return (
     <>
-      {(layout === 'landing' || layout === 'simple') && (
-        <Suspense fallback={<Loader />}>
-          <Header layout={layout} />
+      <Suspense fallback={<Loader />}>
+        <Box sx={{ m: 2 }}>
           <Outlet />
-        </Suspense>
-      )}
-      {layout === 'blank' && <Outlet />}
+        </Box>
+      </Suspense>
     </>
   );
-};
-
-CommonLayout.propTypes = {
-  layout: PropTypes.string
 };
 
 export default CommonLayout;
