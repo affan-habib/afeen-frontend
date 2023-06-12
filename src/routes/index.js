@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 
 // project import
-import Porfolio from './Pofolio.js';
+import Porfolio from './Pages.js';
 
 // ==============================|| ROUTING RENDER ||============================== //
 

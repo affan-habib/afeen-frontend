@@ -1,11 +1,11 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Button, Grid, Container } from "@mui/material";
-// import MyInput from "components/form/MyInput";
+import { Button, Grid } from "@mui/material";
 import usePostData from "hooks/usePostData";
 import SnackbarAlert from "components/SnackbarAlert";
 import getSchema from "./getSchema";
 import MyInput from "components/MyInput";
+import MainCard from "components/MainCard";
 
 const CreateForm = () => {
   const { validationSchema, initialValues } = getSchema();
@@ -21,8 +21,8 @@ const CreateForm = () => {
   };
 
   return (
-    <Container>
-      <>
+    <>
+      <MainCard title="Add Form">
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -71,8 +71,8 @@ const CreateForm = () => {
           message={successMessage}
           onClose={handleCloseSnackbar}
         />
-      </>
-    </Container>
+      </MainCard>
+    </>
   );
 };
 

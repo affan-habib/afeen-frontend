@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import Loadable from "components/Loadable";
 
-const Portfolio = Loadable(lazy(() => import("pages/porfolio/Portfolio")));
+const Form = Loadable(lazy(() => import("pages/porfolio/Form")));
 
 const Porfolio = {
   path: "/",
@@ -10,7 +10,7 @@ const Porfolio = {
       children: [
         {
           path: "/",
-          element: <Portfolio />,
+          element: <Form />,
         },
       ],
     },
