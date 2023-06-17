@@ -20,7 +20,7 @@ const MyCv = () => {
           width: "21cm",
           height: "29.7cm",
           margin: "0 auto",
-          padding: "2cm",
+          padding: "1.5cm",
           backgroundColor: "white",
           boxShadow: "0 0 5px rgba(0, 0, 0, 0.1)",
         }}
@@ -36,7 +36,7 @@ const MyCv = () => {
           width: "21cm",
           height: "29.7cm",
           margin: "0 auto",
-          padding: "2cm",
+          padding: "1.5cm",
           backgroundColor: "white",
           boxShadow: "0 0 5px rgba(0, 0, 0, 0.1)",
         }}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Divider, Typography } from "@mui/material";
+import { educationData } from "apis";
 
 const Education = () => {
   return (
@@ -13,15 +14,14 @@ const Education = () => {
         Education
       </Typography>
       <Divider sx={{ mb: 1 }} />
-      <Typography variant="h5">BBA in Accounting</Typography>
-      <Typography variant="subtitle2">University of Dhaka</Typography>
-      <Typography variant="subtitle2">2015</Typography>
 
-      <Typography variant="h5">HSC</Typography>
-      <Typography variant="subtitle2">
-        Cantonment Public School & College
-      </Typography>
-      <Typography variant="subtitle2">2010</Typography>
+      {educationData.map((education, index) => (
+        <div key={index}>
+          <Typography variant="h5">{education.degree}</Typography>
+          <Typography variant="subtitle2">{education.institution}</Typography>
+          <Typography variant="subtitle2">{education.year}</Typography>
+        </div>
+      ))}
     </div>
   );
 };

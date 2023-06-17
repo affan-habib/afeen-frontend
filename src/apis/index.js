@@ -159,3 +159,40 @@ export const technologiesData = [
   },
   // Add more technologies as needed
 ];
+
+export const workExperiences = [
+  {
+    position: "Software Engineer",
+    company: "Gononet Online Solution - Dhaka",
+    startDate: "2023-03-01",
+    endDate: null,
+    responsibilities: [
+      "Lead a team of 4 developers in improving the existing mobile app and developing web apps for employer and admin dashboards.",
+      "Manage React-based development for mobile and web applications.",
+      "Implement authentication and authorization functionality for enhanced security in web and mobile applications.",
+      "Successfully met project timelines and requirements provided."
+    ]
+  },
+  {
+    position: "Junior Software Engineer",
+    company: "Ethics Advance Technology Ltd - Dhaka",
+    startDate: "2021-05-01",
+    endDate: "2023-02-28",
+    responsibilities: [
+      "Contributed to front-end development using Agile methodology for various projects, primarily focusing on React, Vue 3, Redux, and Material-UI (MUI).",
+      "Worked on the E-survey project, an initiative of the Ministry of Education in Bangladesh, developing a survey application to collect data from educational institutions across the country.",
+      "Led UI design efforts and integrated REST APIs for the Hospital Information Management System's billing module.",
+      "Utilized Redux for state management and Redux Saga for handling asynchronous operations."
+    ]
+  },
+  {
+    position: "Freelance Graphic/UI Designer",
+    company: "Company - Fiverr.com",
+    startDate: "2018-01-01",
+    endDate: "2020-12-31",
+    responsibilities: [
+      "PSD/Figma to HTML conversion, Prototyping in Figma.",
+      "Magazine and Cover design with Adobe InDesign, Photoshop, and Illustrator."
+    ]
+  }
+];
