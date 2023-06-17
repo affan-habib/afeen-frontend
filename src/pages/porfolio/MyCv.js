@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack, Button } from "@mui/material";
 import React from "react";
 import CareerObjective from "sections/my-cv/CareerObjective";
 import Contact from "sections/my-cv/Contact";
@@ -8,6 +8,10 @@ import Title from "sections/my-cv/Title";
 import WorkExperience from "sections/my-cv/WorkExperience";
 
 const MyCv = () => {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <>
       <Stack
@@ -40,6 +44,9 @@ const MyCv = () => {
         <Education />
         <Skills />
       </Stack>
+      <Button variant="contained" onClick={handlePrint}>
+        Print
+      </Button>
     </>
   );
 };
