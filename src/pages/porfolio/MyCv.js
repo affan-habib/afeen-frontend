@@ -1,4 +1,5 @@
-import { Stack, Button } from "@mui/material";
+import { Stack } from "@mui/material";
+import PrintComponent from "components/Print";
 import React from "react";
 import CareerObjective from "sections/my-cv/CareerObjective";
 import Contact from "sections/my-cv/Contact";
@@ -8,12 +9,8 @@ import Title from "sections/my-cv/Title";
 import WorkExperience from "sections/my-cv/WorkExperience";
 
 const MyCv = () => {
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
-    <>
+    <PrintComponent>
       <Stack
         spacing={1}
         sx={{
@@ -44,10 +41,7 @@ const MyCv = () => {
         <Education />
         <Skills />
       </Stack>
-      <Button variant="contained" onClick={handlePrint}>
-        Print
-      </Button>
-    </>
+    </PrintComponent>
   );
 };
 
