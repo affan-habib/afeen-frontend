@@ -1,14 +1,14 @@
 import { Container, useMediaQuery } from "@mui/material";
 import Layout from "components/Layout";
 import MobileLayout from "components/MobileLayout";
-import Welcome from "sections/Welcome";
-import Experience from "sections/Experience";
-import Skill from "sections/Skill";
-import Education from "sections/Eduction";
-import Email from "sections/Email";
-import Footer from "sections/Footer";
+import Welcome from "sections/portfolio/Welcome";
+import Experience from "sections/portfolio/Experience";
+import Skill from "sections/portfolio/Skill";
+import Education from "sections/portfolio/Eduction";
+import Email from "sections/portfolio/Email";
+import Footer from "sections/portfolio/Footer";
 import Customization from "components/Customization";
-import More from "sections/More";
+import More from "sections/portfolio/More";
 
 const tabs = [
   "Welcome",
