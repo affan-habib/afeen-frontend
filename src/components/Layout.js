@@ -1,17 +1,12 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import { Button } from "@mui/material";
-import {
-  Facebook,
-  Instagram,
-  SkipNext,
-  SkipPrevious,
-} from "@mui/icons-material";
+import { Grid } from "@mui/material";
+import { SkipNext, SkipPrevious } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,16 +14,19 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     width: `calc(100vw - ${0}px)`,
     position: "relative",
+    opacity: 1, // Initial opacity
+    transition: "opacity 0.3s ease-in-out", // Opacity transition
   },
   buttonContainer: {
     position: "absolute",
-    bottom: theme.spacing(12),
-    right: theme.spacing(12),
+    top: 40,
+    right: 30,
   },
 }));
 
 function TabPanel(props) {
   const { children, value, index, onTabChange, ...other } = props;
+  const [isVisible, setIsVisible] = useState(false);
 
   const classes = useStyles();
 
@@ -42,16 +40,40 @@ function TabPanel(props) {
     onTabChange(previousIndex);
   };
 
+  useEffect(() => {
+    setIsVisible(true); // Set visibility to true when TabPanel appears
+  }, []);
+
+  useEffect(() => {
+    setIsVisible(false); // Set visibility to false when TabPanel changes
+  }, [index]);
+
   return (
     <div
       role="tabpanel"
-      className={classes.root}
+      className={`${classes.root} ${isVisible ? "visible" : ""}`}
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box>{children}</Box>}
+      {value === index && (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center", // Center horizontally
+            height: "100%", // Full height
+            width: "100%", // Full width
+            pl: 3,
+            position: "relative", // Add position relative for the pseudo-elements
+          }}
+        >
+          <Grid container spacing={2}>
+            {children}
+          </Grid>
+        </Box>
+      )}
       <div className={classes.buttonContainer}>
         <IconButton
           variant="contained"
@@ -63,7 +85,7 @@ function TabPanel(props) {
         <IconButton
           variant="contained"
           onClick={handleNext}
-          disabled={index >= 4}
+          disabled={index >= 5}
           sx={{ marginLeft: 2 }}
         >
           <SkipNext />
@@ -87,7 +109,7 @@ function a11yProps(index) {
   };
 }
 
-export default function VerticalTabs({ tabs, panels }) {
+export default function Layout({ tabs, panels }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {

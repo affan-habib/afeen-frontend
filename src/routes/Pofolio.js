@@ -1,10 +1,8 @@
 import { lazy } from "react";
 import Loadable from "components/Loadable";
 
-// render - login
 const Portfolio = Loadable(lazy(() => import("pages/porfolio/Portfolio")));
-
-// ==============================|| AUTH ROUTING ||============================== //
+const MyCv = Loadable(lazy(() => import("pages/porfolio/MyCv")));
 
 const Porfolio = {
   path: "/",
@@ -14,6 +12,10 @@ const Porfolio = {
         {
           path: "/",
           element: <Portfolio />,
+        },
+        {
+          path: "/resume",
+          element: <MyCv />,
         },
       ],
     },

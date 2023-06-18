@@ -1,13 +1,10 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
-import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import { GitHub, LinkedIn, Twitter } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-  },
-  title: {
     flexGrow: 1,
   },
   appBar: {
@@ -15,39 +12,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = () => {
+const Footer = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant="h4" className={classes.root}>
             Affan Habib
           </Typography>
           <IconButton
             edge="end"
             color="inherit"
-            aria-label="Facebook"
+            aria-label="GitHub"
             sx={{ margin: "0 4px" }}
+            component="a"
+            href="https://github.com/affan-habib"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Facebook />
+            <GitHub />
           </IconButton>
           <IconButton
             edge="end"
             color="inherit"
-            aria-label="linkedin"
+            aria-label="LinkedIn"
             sx={{ margin: "0 4px" }}
+            component="a"
+            href="https://linkedin.com/in/affanhabib"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <LinkedIn />
           </IconButton>
           <IconButton
             edge="end"
             color="inherit"
-            aria-label="Instagram"
+            aria-label="Twitter"
             sx={{ margin: "0 4px" }}
+            component="a"
+            href="https://twitter.com/affan_Js_dev"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Instagram />
+            <Twitter />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -55,4 +64,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Footer;
